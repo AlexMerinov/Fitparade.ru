@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  line-height: 150%;
+  transition: var(--trans);
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+}

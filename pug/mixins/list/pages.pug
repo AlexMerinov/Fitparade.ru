@@ -1,0 +1,11 @@
+mixin pages-list(items)
+    ul
+      each item, index in items
+        -
+            const {
+                name,
+                url,
+            } = item;
+        li
+            a(href=url)
+                !=name

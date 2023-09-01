@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Onest';
+  src: local('Onest Regular'), local('Onest-Regular'),
+  url('./fonts/Onest-Regular.woff2') format('woff2'),
+  url('./fonts/Onest-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Onest';
+  src: local('Onest Bold'), local('Onest-Bold'),
+  url('./fonts/Onest-Bold.woff2') format('woff2'),
+  url('./fonts/Onest-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter SemiBold'), local('Inter-SemiBold'),
+  url('./fonts/Inter-SemiBold.woff2') format('woff2'),
+  url('./fonts/Inter-SemiBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

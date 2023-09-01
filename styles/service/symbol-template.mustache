@@ -1,0 +1,11 @@
+.icon-sym {
+    display: inline-block;
+    height: 1em;
+    fill: var(--icon-color);
+    font-size: var(--icon-height);
+}
+{{#shapes}}
+.icon-sym--{{base}} {
+  width:({{width.inner}}/{{height.inner}})*1em;
+}
+{{/shapes}}

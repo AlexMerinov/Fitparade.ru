@@ -1,0 +1,31 @@
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: bold;
+  padding: 11px 14px 11px 14px;
+  color: var(--secondary-color-900);
+  transition: var(--trans);
+  cursor: pointer;
+  border: 1px solid var(--white);
+  border-radius: 10px;
+  background: var(--white);
+  text-align: center;
+  overflow: hidden;
+  outline: none !important;
+  box-shadow: none;
+  max-width: 100%;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: var(--secondary-color-900);
+    border-color: var(--primary-color-600);
+  }
+
+  &:active {
+    background: var(--secondary-color-200);
+    border-color: var(--secondary-color-200);
+  }
+}

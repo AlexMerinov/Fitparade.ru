@@ -1,0 +1,23 @@
+include ../../mixins/basic/_modal
+
+block modal
+
++modal({
+    id: 'message'
+})
+    +slot('header')
+        span(id="js-modal-message-caption")
+    +slot('body')
+        p(id="js-modal-message-text")
+
+
++modal({
+    id: 'example'
+})
+    +slot('header')
+        | Пример модального окна
+    +slot('body')
+        p Сообщение модального окна?
+        div(class="btn" data-micromodal-close) Закрыть
+        div(class="btn") Продолжить
+

@@ -1,0 +1,14 @@
+mixin menu-list(items)
+    ul(class="menu")
+        each item in items
+            -
+                const {
+                    text,
+                    icon,
+                    link,
+                    hide
+                } = item;
+            li(class=(hide ? "menu__item tablet-hide" : "menu__item"))
+                a(href=link + '.html' class=(page === link ? "menu__link menu__link--active" : "menu__link"))
+                    span(class="icon icon--" + icon)
+                    != text

@@ -1,0 +1,9 @@
+stages:
+  - deploy
+
+deploy_job:
+  stage: deploy
+  script:
+    - npm i && npm run build:prod
+    - rm -Rf /home/admin/web/devst.fishlab.su/public_html/$CI_PROJECT_NAME/
+    - cp -R ./public/ /home/admin/web/devst.fishlab.su/public_html/$CI_PROJECT_NAME/

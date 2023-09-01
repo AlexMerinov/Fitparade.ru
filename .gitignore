@@ -1,0 +1,11 @@
+node_modules/
+public/
+.vscode
+.idea
+.DS_Store
+*.log
+*~
+
+/styles/service/sprite.scss
+/styles/service/sprite-symbols.scss
+public.zip

@@ -1,0 +1,7 @@
+mixin icon-sym(name)
+    svg(
+        class=`icon-sym icon-sym--${name}`,
+        aria-hidden='true',
+        focusable='false'
+    )&attributes(attributes)
+        use(xlink:href=`images/sprite-symbols/sprite-symbols.svg#${name}`)

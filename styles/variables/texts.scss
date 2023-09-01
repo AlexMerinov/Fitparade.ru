@@ -1,0 +1,52 @@
+:root {
+    --font-main: 'Onest', Arial, Helvetica, sans-serif;
+    --font-caption: 'Inter', Arial, Helvetica, sans-serif;
+    --text-h1-size: 80px;
+    --text-h2-size: 52px;
+    --text-h3-size: 40px;
+    --text-h4-size: 32px;
+    --text-h5-size: 22px;
+    --text-h6-size: 18px;
+    --text-body-size: 18px;
+    --text-subtitle-size: 22px;
+
+    --text-size-10: 10px;
+    --text-size-12: 12px;
+    --text-size-14: 14px;
+    --text-size-16: 16px;
+    --text-size-18: 18px;
+    --text-size-20: 20px;
+    --text-size-22: 22px;
+    --text-size-24: 24px;
+
+    @include maxBp($bp-1680) {
+        --text-h1-size: 60px;
+        --text-h2-size: 40px;
+        --text-h3-size: 32px;
+        --text-h4-size: 24px;
+        --text-h5-size: 22px;
+        --text-h6-size: 18px;
+        --text-body-size: 16px;
+        --text-subtitle-size: 20px;
+    }
+    @include maxBp($bp-1280) {
+        --text-h1-size: 48px;
+        --text-h2-size: 34px;
+        --text-h3-size: 28px;
+        --text-h4-size: 18px;
+        --text-h5-size: 18px;
+        --text-h6-size: 16px;
+        --text-body-size: 16px;
+        --text-subtitle-size: 18px;
+    }
+    @include maxBp($bp-768) {
+        --text-h1-size: 34px;
+        --text-h2-size: 26px;
+        --text-h3-size: 22px;
+        --text-h4-size: 18px;
+        --text-h5-size: 18px;
+        --text-h6-size: 16px;
+        --text-body-size: 16px;
+        --text-subtitle-size: 18px;
+    }
+}

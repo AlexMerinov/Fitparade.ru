@@ -1,0 +1,61 @@
+{
+    "extends": [
+        "airbnb-typescript",
+        "plugin:react/recommended",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+        //"prettier/react"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/prop-types": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/indent": "off",
+        "no-use-before-define": [
+            "error",
+            { "functions": false }
+        ],
+        "no-param-reassign": 0,
+        "react/jsx-filename-extension": [
+            1,
+            { "extensions": [ ".js", ".jsx", ".tsx" ] }
+        ],
+        "react/jsx-indent": [ 1, 4 ],
+        "react/jsx-indent-props": [ 1, 4 ],
+        "max-len": [
+            "warn",
+            {
+              "code": 80,
+              "tabWidth": 2,
+              "comments": 80,
+              "ignoreComments": false,
+              "ignoreTrailingComments": true,
+              "ignoreUrls": true,
+              "ignoreStrings": true,
+              "ignoreTemplateLiterals": true,
+              "ignoreRegExpLiterals": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+config/*
+tasks/*
+node_modules/**/*
+public/**/*
+gulpfile.js

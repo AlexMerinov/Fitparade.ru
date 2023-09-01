@@ -1,0 +1,32 @@
+// Base
+$black: #000;
+$white: #fff;
+$secondary-color-900: #1D1D1B;
+$secondary-color-700: #474744;
+$secondary-color-500: #71716C;
+$secondary-color-300: #9B9B95;
+$secondary-color-200: #C5C5BD;
+$secondary-color-150: #DADAD2;
+$secondary-color-100: #EFEFE6;
+$primary-color-500: #F35982;
+$primary-color-600: #E84A74;
+
+$shadow: 0 5px 15px rgba(29, 29, 27, 0.1);
+$text-shadow: 0 1px 1px transparentize($secondary-color-900,0.5);
+
+:root {
+    --icon-color: #{$black};
+    --white: #{$white};
+    --black: #{$black};
+    --secondary-color-900: #{$secondary-color-900};
+    --secondary-color-700: #{$secondary-color-700};
+    --secondary-color-500: #{$secondary-color-500};
+    --secondary-color-300: #{$secondary-color-300};
+    --secondary-color-200: #{$secondary-color-200};
+    --secondary-color-150: #{$secondary-color-150};
+    --secondary-color-100: #{$secondary-color-100};
+    --primary-color-500: #{$primary-color-500};
+    --primary-color-600: #{$primary-color-600};
+    --shadow: #{$shadow};
+    --text-shadow: #{$text-shadow};
+}

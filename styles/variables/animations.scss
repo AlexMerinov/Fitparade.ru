@@ -1,0 +1,5 @@
+:root {
+    --cubic: cubic-bezier(0.2, 0, 0.5, 1);
+    --trans: all 0.3s var(--cubic);
+    --trans-slow: all 0.5s var(--cubic);
+}

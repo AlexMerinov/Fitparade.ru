@@ -1,0 +1,40 @@
+mixin modal(data = {})
+    -
+        const {
+            id,
+            modifier,
+            headerClasses = [],
+            bodyClasses = [],
+            footerClasses = [],
+        } = data;
+        headerClasses.unshift('modal__header');
+        bodyClasses.unshift('modal__body');
+        footerClasses.unshift('modal__footer');
+
+    div(class="modal"
+        id=`modal-${id}`,
+        aria-hidden='true',
+        class=modifier && `modal--${modifier}`,
+    )&attributes(attributes)
+        - slots = {};
+
+        mixin slot(name)
+            - slots[name] = block;
+
+        - block();
+
+        div(class="modal__overlay")
+            div(class="modal__bg" data-micromodal-close)
+            div(class="modal__container" role='dialog', aria-modal='true')
+                if (typeof slots['header'] === 'function')
+                    div(class=headerClasses.join(" "))
+                        div(class="modal__close" data-micromodal-close)
+                        - slots["header"]();
+                else
+                    div(class="modal__close" data-micromodal-close)
+                if (typeof slots['body'] === 'function')
+                    div(class=bodyClasses.join(" "))
+                        - slots["body"]();
+                if (typeof slots['footer'] === 'function')
+                    footer(class=footerClasses.join(" "))
+                        - slots["footer"]();

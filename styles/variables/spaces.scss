@@ -1,0 +1,58 @@
+$space-3xs: 8px;
+$space-3xs-desktop: 8px;
+$space-3xs-mobile: 8px;
+
+$space-2xs: 12px;
+$space-2xs-desktop: 12px;
+$space-2xs-mobile: 12px;
+
+$space-xs: 20px;
+$space-xs-desktop: 20px;
+$space-xs-mobile: 20px;
+
+$space-s: 48px;
+$space-s-desktop: 40px;
+$space-s-mobile: 32px;
+
+$space-m: 80px;
+$space-m-desktop: 60px;
+$space-m-mobile: 48px;
+
+$space-l: 104px;
+$space-l-desktop: 80px;
+$space-l-mobile: 60px;
+
+$space-xl: 160px;
+$space-xl-desktop: 112px;
+$space-xl-mobile: 88px;
+
+$vh-100: 100vh;
+
+:root {
+    --space-3xs: #{$space-3xs};
+    --space-2xs: #{$space-2xs};
+    --space-xs: #{$space-xs};
+    --space-s: #{$space-s};
+    --space-m: #{$space-m};
+    --space-l: #{$space-l};
+    --space-xl: #{$space-xl};
+    --vh-100: #{$vh-100};
+    @include maxBp($bp-1680){
+        --space-3xs: #{$space-3xs-desktop};
+        --space-2xs: #{$space-2xs-desktop};
+        --space-xs: #{$space-xs-desktop};
+        --space-s: #{$space-s-desktop};
+        --space-m: #{$space-m-desktop};
+        --space-l: #{$space-l-desktop};
+        --space-xl: #{$space-xl-desktop};
+    }
+    @include maxBp($bp-1280){
+        --space-3xs: #{$space-3xs-mobile};
+        --space-2xs: #{$space-2xs-mobile};
+        --space-xs: #{$space-xs-mobile};
+        --space-s: #{$space-s-mobile};
+        --space-m: #{$space-m-mobile};
+        --space-l: #{$space-l-mobile};
+        --space-xl: #{$space-xl-mobile};
+    }
+}

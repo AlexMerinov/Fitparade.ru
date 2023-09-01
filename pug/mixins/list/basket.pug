@@ -1,0 +1,80 @@
+mixin basket-list(items,className)
+    ul(class=(className ? "basket-list basket-list--"+className : "basket-list"))
+        each item, index in items
+            -
+                const {
+                    name,
+                    cost,
+                    category,
+                    text,
+                    id,
+                    img,
+                    tooltip,
+                    link,
+                    disabled,
+                    disabledEdit
+                } = item;
+            li(class="basket-list__item")
+                if !className
+                    div(class="basket-list__delete" data-micromodal="modal-model-delete")
+                a(href="product.html" class=(link ? "basket-list__img link-disabled" : "basket-list__img") data-src-bg=img)
+                div(class="basket-list__block")
+                    a(href="product.html" class=(link ? "basket-list__name link-disabled" : "basket-list__name"))
+                        != name
+                    div(class=!className ? "mb-xs": "mb-3xs")
+                        != text
+                        if (className != 'model' && className != 'cart') || tooltip
+                            span(class="tooltip tooltip--fill" data-micromodal="modal-tooltip")
+                                +icon-sym('info-fill')
+                        if className == 'model'
+                            span(class="basket-list__id")
+                                != id
+                        if className == 'cart'
+                            strong
+                                != cost
+
+                    if className != 'model' && className != 'cart'
+                        div(class="basket-list__btns")
+                            if category
+                                a(href="category.html" class="btn btn--smallest btn--border")
+                                    != category
+                            if id
+                                div(class="basket-list__id")
+                                    != id
+                            if !className
+                                div(class="basket-list__cost")
+                                    != cost
+                if className == 'order'
+                    div(class="basket-list__param")
+                        | Автор
+                        strong Михаил
+                    div(class="basket-list__param")
+                        | Цена
+                        strong
+                            !=cost
+                    div(class="basket-list__param")
+                        a(href="#" class="basket-list__load")
+                            strong Скачать
+                            !=index*128 + 8 + ' '
+                            | МБ (.zip)
+                if className == 'model'
+                    div(class=(disabled ? "basket-list__param basket-list__param--select basket-list__param--disabled" : "basket-list__param basket-list__param--select"))
+                        if disabled
+                            | Не в продаже
+                        else
+                            div(class="js-select")
+                                select
+                                    option В продаже
+                                    option Не в продаже
+
+                        strong
+                            !=cost
+                    div(class="basket-list__param basket-list__param--btn")
+                        a(href="#" class=(disabledEdit ? "btn btn--border btn--disabled": "btn btn--border"))
+                            +icon-sym('settings')
+                        span(class="btn btn--border btn--border--red" data-micromodal="modal-model-delete")
+                            +icon-sym('delete')
+                if className == 'cart'
+                    div(class="basket-list__param basket-list__param--btn")
+                        span(class="btn btn--border btn--border--red" onclick="this.closest('.basket-list__item').classList.add('fade-out');setTimeout(()=>{this.closest('.basket-list__item').remove(); const list = document.querySelectorAll('#modal-basket .basket-list__item');if(list.length === 0){document.querySelector('#modal-basket .basket-list').remove();document.querySelector('#modal-basket .basket-footer').remove();document.querySelector('#modal-basket .hide').classList.add('fade-in');document.querySelector('#modal-basket .hide').classList.remove('hide');}},300)")
+                            +icon-sym('delete')

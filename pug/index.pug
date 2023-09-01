@@ -1,0 +1,17 @@
+extends ./_layout
+include ./mixins/list/pages
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        h1 Страницы
+
+        -
+            const pages = [
+              {
+                  name: 'Главная',
+                  url: 'main.html',
+              },
+            ];
+        +pages-list(pages)

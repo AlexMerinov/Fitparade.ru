@@ -1,0 +1,108 @@
+@mixin text-default() {
+    font-family: var(--font-main);
+}
+@mixin text-caption() {
+    font-family: var(--font-caption);
+}
+
+@mixin text-h1 {
+    @include text-caption;
+    font-size: var(--text-h1-size);
+    line-height: normal;
+    font-weight: normal;
+}
+
+@mixin text-h2 {
+    @include text-caption;
+    font-size: var(--text-h2-size);
+    line-height: normal;
+    font-weight: normal;
+}
+
+@mixin text-h3 {
+    @include text-caption;
+    font-size: var(--text-h3-size);
+    line-height: normal;
+    font-weight: normal;
+}
+
+@mixin text-h4 {
+    @include text-caption;
+    font-size: var(--text-h4-size);
+    line-height: normal;
+    font-weight: normal;
+}
+
+@mixin text-h5 {
+    @include text-caption;
+    font-size: var(--text-h5-size);
+    line-height: normal;
+    font-weight: normal;
+}
+
+@mixin text-h6 {
+    @include text-default;
+    font-size: var(--text-h6-size);
+    line-height: normal;
+    font-weight: normal;
+}
+
+@mixin text-body {
+    @include text-default;
+    font-size: var(--text-body-size);
+    line-height: 150%;
+}
+@mixin text-subtitle {
+    @include text-default;
+    font-size: var(--text-subtitle-size);
+    line-height: 150%;
+}
+
+@mixin text-size-10 {
+    @include text-default;
+    font-size: var(--text-size-10);
+    line-height: 150%;
+    font-weight: normal;
+}
+
+@mixin text-size-12 {
+    @include text-default;
+    font-size: var(--text-size-12);
+    line-height: 150%;
+}
+
+@mixin text-size-14 {
+    @include text-default;
+    font-size: var(--text-size-14);
+    line-height: 150%;
+}
+
+@mixin text-size-16 {
+    @include text-default;
+    font-size: var(--text-size-16);
+    line-height: 150%;
+}
+
+@mixin text-size-18 {
+    @include text-default;
+    font-size: var(--text-size-20);
+    line-height: 150%;
+}
+
+@mixin text-size-20 {
+    @include text-default;
+    font-size: var(--text-size-20);
+    line-height: 150%;
+}
+
+@mixin text-size-22 {
+    @include text-default;
+    font-size: var(--text-size-22);
+    line-height: 150%;
+}
+
+@mixin text-size-24 {
+    @include text-default;
+    font-size: var(--text-size-24);
+    line-height: 150%;
+}
