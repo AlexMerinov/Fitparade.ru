@@ -1,0 +1,21 @@
+.link-white{
+	border: none;
+	color: var(--white);
+	opacity: 0.8;
+	&:hover,&.active{
+		opacity: 1;
+		color: var(--white);
+	}
+	&--decoration{
+		border-bottom: 1px solid var(--white);
+		&:hover{
+			border-bottom-color: transparent;
+		}
+	}
+	.icon-sym{
+		fill: var(--white);
+		vertical-align: middle;
+		width: 13px;
+		height: 13px;
+	}
+}

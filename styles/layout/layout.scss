@@ -1,18 +1,16 @@
 html *::-webkit-scrollbar {
     border-radius: 0;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     @include maxBp($bp-768){
         width: 1px;
         height: 1px;
     }
 }
 html *::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: var(--secondary-color-300);
+    background-color: var(--green);
 }
 html *::-webkit-scrollbar-track {
-    border-radius: 3px;
     background-color: transparent;
 }
 
@@ -21,8 +19,8 @@ body {
     height: 100%;
 }
 body {
-    background: var(--secondary-color-100);
-    color: var(--secondary-color-900);
+    background: var(--white);
+    color: var(--black);
     @include text-body;
 }
 
@@ -32,11 +30,11 @@ body {
     min-height: 100%;
     &__page{
         width: 100%;
-        max-width: 1924px;
+        max-width: 2000px;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 62px;
-        padding-right: 62px;
+        padding-left: 50px;
+        padding-right: 50px;
         @include maxBp($bp-1280){
             padding-left: 32px;
             padding-right: 32px;
@@ -46,6 +44,19 @@ body {
             padding-right: 20px;
         }
     }
+    &__wide{
+        width: auto;
+        margin-left: -50px;
+        margin-right: -50px;
+        @include maxBp($bp-1280){
+            margin-left: -32px;
+            margin-right: -32px;
+        }
+        @include maxBp($bp-1024){
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+    }
 }
 
 .article {
@@ -53,7 +64,7 @@ body {
     @include animation(fadeIn 0.3s var(--cubic));
     padding-bottom: var(--space-m);
     &__top{
-        padding-top: 100px;
+        padding-top: 108px;
     }
 }
 
@@ -179,7 +190,7 @@ hr,.hr{
     display: block;
     border: none;
     background: none;
-    border-top: 1px solid var(--secondary-color-100);
+    border-top: 1px solid var(--black);
     &:last-child{
         margin-bottom: 0;
     }

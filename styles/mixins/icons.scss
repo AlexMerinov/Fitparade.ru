@@ -136,6 +136,6 @@
 
 @mixin icon-stroke{
   fill: none !important;
-  stroke: var(--secondary-color-900);
+  stroke: var(--black);
   stroke-width: 2px;
 }

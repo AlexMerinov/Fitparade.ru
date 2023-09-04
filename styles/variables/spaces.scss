@@ -37,7 +37,7 @@ $vh-100: 100vh;
     --space-l: #{$space-l};
     --space-xl: #{$space-xl};
     --vh-100: #{$vh-100};
-    @include maxBp($bp-1680){
+    @include maxBp($bp-1280){
         --space-3xs: #{$space-3xs-desktop};
         --space-2xs: #{$space-2xs-desktop};
         --space-xs: #{$space-xs-desktop};
@@ -46,7 +46,7 @@ $vh-100: 100vh;
         --space-l: #{$space-l-desktop};
         --space-xl: #{$space-xl-desktop};
     }
-    @include maxBp($bp-1280){
+    @include maxBp($bp-768){
         --space-3xs: #{$space-3xs-mobile};
         --space-2xs: #{$space-2xs-mobile};
         --space-xs: #{$space-xs-mobile};

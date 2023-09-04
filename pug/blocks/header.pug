@@ -1,3 +1,43 @@
 header(class="header")
-    div(class="wrapper__page")
-        | Header
+    div(class="wrapper__page header__top")
+        nav(class="header-menu-top")
+            a(href="#" class="link-white active") О компании
+            a(href="#" class="link-white") Вакансии
+            a(href="#" class="link-white") Наши магазины
+        div(class="header-menu-top-right")
+            div(class="header-city")
+                | Ваш  город:
+                div(class="header-city__link")
+                    a(href="#" class="link-white link-white--decoration") Moсква
+            a(href="tel:+7 (495) 139-66-00" class="link-white") +7 (495) 139-66-00
+            a(href="#" class="link-white")
+                +icon-sym('phone')
+                | Обратный звонок
+    div(class="wrapper__page header__bottom")
+        a(href="index.html" class="header-logo")
+            img(src="images/logo.svg" alt="" width="74" height="53" class="header-logo__img")
+            span(class="header-logo__text")
+                span(class="header-logo__caption") Технология спорта
+                span(class="header-logo__description") Сеть магазинов для конного спорта
+        ul(class="header-menu")
+            li(class="header-menu__item")
+                a(href="#" class="header-menu__link") Каталог
+                    +icon-sym('arr-down')
+            li(class="header-menu__item")
+                a(href="#" class="header-menu__link") Бренды
+            li(class="header-menu__item")
+                a(href="#" class="header-menu__link") Медиа
+            li(class="header-menu__item")
+                a(href="#" class="header-menu__link") Покупателям
+            li(class="header-menu__item")
+                a(href="#" class="header-menu__link") Оплата и доставка
+        ul(class="header-menu-user")
+            li(class="header-menu-user__item")
+                a(href="#" class="header-menu-user__link")
+                    +icon-sym('search')
+            li(class="header-menu-user__item")
+                a(href="#" class="header-menu-user__link")
+                    +icon-sym('user')
+            li(class="header-menu-user__item")
+                a(href="#" class="header-menu-user__link")
+                    +icon-sym('cart')
