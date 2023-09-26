@@ -20,6 +20,11 @@ header(class="header")
                 span(class="header-logo__caption") Технология спорта
                 span(class="header-logo__description") Сеть магазинов для конного спорта
         div(class="header-menu-block")
+            div(class="header-city-block")
+                a(href="#" class="link-city")
+                    +icon-sym('pin')
+                    | Moсква
+                    +icon-sym('arr')
             ul(class="header-menu")
                 li(class="header-menu__item")
                     a(href="#" class="header-menu__link") Каталог
@@ -32,6 +37,21 @@ header(class="header")
                     a(href="#" class="header-menu__link") Покупателям
                 li(class="header-menu__item")
                     a(href="#" class="header-menu__link") Оплата и доставка
+            div(class="header-menu-block__bottom")
+                a(href="#" class="header-user-link")
+                    +icon-sym('user')
+                    | Вход в личный кабинет
+                div(class="header-menu-block__hr")
+                div(class="header-contacts")
+                    a(href="tel:+7 (495) 139-66-00" class="link-gray") +7 (495) 139-66-00
+                    div(class="header-social")
+                        a(href="https://vk.com/" target="_blank" rel="nofollow" class="header-social__link")
+                            +icon-sym('vk')
+                        a(href="https://www.youtube.com/" target="_blank" rel="nofollow" class="header-social__link")
+                            +icon-sym('yt')
+                a(href="#" class="btn btn--100") обратный звонок
+
+
         ul(class="header-menu-user")
             li(class="header-menu-user__item")
                 a(href="#" class="header-menu-user__link")
@@ -42,5 +62,7 @@ header(class="header")
             li(class="header-menu-user__item")
                 a(href="#" class="header-menu-user__link")
                     +icon-sym('cart')
+
+
         div(class="header-burger js-menu-burger")
             div

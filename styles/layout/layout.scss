@@ -65,6 +65,9 @@ body {
     padding-bottom: var(--space-m);
     &__top{
         padding-top: 108px;
+        @include maxBp($bp-1280){
+            padding-top: 70px;
+        }
     }
 }
 

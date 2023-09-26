@@ -19,3 +19,36 @@
 		height: 13px;
 	}
 }
+.link-gray{
+	color: var(--gray-800);
+	&:hover{
+		color: var(--green);
+	}
+}
+
+.link-city{
+	font-weight: 500;
+	font-size: 16px;
+	line-height: normal;
+	letter-spacing: 0.4px;
+	.icon-sym{
+		display: inline-block;
+		vertical-align: middle;
+		width: 14px;
+		height: 18px;
+		margin:-1px 4px 0 0;
+	}
+	.icon-sym--arr{
+		transform: rotate(-90deg);
+		width: 14px;
+		height: 14px;
+		margin: 0 0 0 2px;
+	}
+}
+.icon-sym--pin{
+	fill: var(--green);
+}
+.icon-sym--arr{
+	@include icon-stroke;
+	stroke-width: 1px;
+}

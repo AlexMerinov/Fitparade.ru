@@ -7,7 +7,8 @@
 	transition: var(--trans);
 	background: var(--white);
 	@include maxBp($bp-1280){
-		background: var(--black);
+		background: none;
+		height: 70px;
 	}
 	&__top{
 		background: var(--gray-900);
@@ -29,6 +30,7 @@
 		@include maxBp($bp-1280){
 			height: 70px;
 			border: none;
+			background: var(--black);
 		}
 	}
 }
@@ -110,7 +112,37 @@
 	align-self: stretch;
 	display: flex;
 	@include maxBp($bp-1280){
+		transition: var(--trans);
+		background: var(--white);
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		height: 0;
+		width: 100%;
+		overflow: auto;
+		display: block;
+	}
+	&__bottom{
 		display: none;
+		background: var(--gray-100);
+		margin-top: 10px;
+		@include text-size-14;
+		padding: 32px;
+		@include maxBp($bp-1280){
+			display: block;
+		}
+		@include maxBp($bp-1024){
+			padding: 20px;
+		}
+	}
+	&__hr{
+		height: 2px;
+		background: var(--gray-200);
+		margin: 32px -32px;
+		@include maxBp($bp-1024){
+			margin: 20px -20px;
+		}
 	}
 }
 .header-menu{
@@ -121,8 +153,14 @@
 	@include maxBp($bp-1440){
 		gap: 30px;
 	}
+	@include maxBp($bp-1280){
+		display: block;
+	}
 	&__item{
 		display: flex;
+		@include maxBp($bp-1280){
+			display: block;
+		}
 	}
 	&__link{
 		font-size: 12px;
@@ -135,6 +173,16 @@
 		align-items: center;
 		position: relative;
 		z-index: 1;
+		@include maxBp($bp-1280){
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 600;
+			display: block;
+			padding:20px 32px;
+		}
+		@include maxBp($bp-1024){
+			padding: 20px;
+		}
 		.icon-sym--arr-down{
 			@include icon-stroke;
 			width: 11px;
@@ -142,6 +190,9 @@
 			stroke-width: 1.5px;
 			vertical-align: middle;
 			margin: 0 0 0 10px;
+			@include maxBp($bp-1280){
+				display: none;
+			}
 		}
 		&:after{
 			content: '';
@@ -152,13 +203,19 @@
 			width: 100%;
 			height: 2px;
 			background: var(--green);
-			transform: scaleY(0);
+			transform: scaleX(0);
 			transform-origin: center bottom;
 			transition: var(--trans);
+			@include maxBp($bp-1280){
+				display: none;
+			}
 		}
 		&.active,&:hover{
+			@include maxBp($bp-1280){
+				color: var(--green);
+			}
 			&:after{
-				transform: scaleY(1);
+				transform: scaleX(1);
 			}
 		}
 	}
@@ -178,7 +235,7 @@
 		margin-right: 55px;
 	}
 	@include maxBp($bp-1024){
-		margin-right: 43px;
+		margin-right: 55px;
 	}
 	&__item{
 		display: flex;
@@ -195,6 +252,8 @@
 			height: 18px;
 			@include maxBp($bp-1280){
 				fill: var(--white);
+				width: 22px;
+				height: 22px;
 			}
 		}
 		&.active,&:hover{
@@ -215,6 +274,10 @@
 	right: 7px;
 	top: 0;
 	cursor: pointer;
+	display: none;
+	@include maxBp($bp-1280){
+		display: block;
+	}
 	@include maxBp($bp-1024){
 		right: 0;
 		width: 60px;
@@ -240,12 +303,15 @@
 	.menu-show &{
 		div{
 			transform: scaleX(0);
+			background: var(--black);
 		}
 		&:before{
-			transform: translate3d(0,0,0) rotate(-45deg);
+			transform: translate3d(0,0,0) rotate(-45deg) scaleX(1.5);
+			background: var(--black);
 		}
 		&:after{
-			transform: translate3d(0,0,0) rotate(45deg);
+			transform: translate3d(0,0,0) rotate(45deg) scaleX(1.5);
+			background: var(--black);
 		}
 	}
 }
@@ -262,12 +328,80 @@
 		top: 0;
 		width: 100%;
 		height: 100%;
-		.header {
-			max-width: calc(100% - var(--scroll-width));
+		.header,.header-menu-block {
+			height: 100%;
 		}
 		.header__menu {
 			transform: translate3d(0, 0, 0);
 		}
 
+	}
+}
+
+.header-city-block{
+	padding:10px 32px;
+	display: none;
+	height: 70px;
+	align-items: center;
+	margin-bottom: -15px;
+	@include maxBp($bp-1280){
+		display: flex;
+	}
+	@include maxBp($bp-1024){
+		padding:10px 20px;
+	}
+}
+
+.header-user-link{
+	@include text-size-14;
+	font-weight: 500;
+	display: inline-block;
+	vertical-align: top;
+	color: var(--gray-800);
+	&:hover{
+		color: var(--green);
+		.icon-sym{
+			fill: var(--green);
+		}
+	}
+	.icon-sym{
+		width: 18px;
+		height: 22px;
+		vertical-align: middle;
+		margin:-1px 10px 0 0;
+		transition: var(--trans);
+	}
+}
+
+.header-contacts{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.header-social{
+	display: flex;
+	gap: 30px;
+	&__link{
+		display: inline-flex;
+		align-items: center;
+		vertical-align: middle;
+		padding: 10px;
+		margin: -10px;
+		&:hover{
+			.icon-sym{
+				fill: var(--green);
+			}
+		}
+		.icon-sym{
+			width: 30px;
+			height: 30px;
+			fill: var(--black);
+			transition: var(--trans);
+		}
+		.icon-sym--yt{
+			width: 24px;
+			height: 24px;
+		}
 	}
 }
