@@ -19,25 +19,28 @@ header(class="header")
             span(class="header-logo__text")
                 span(class="header-logo__caption") Технология спорта
                 span(class="header-logo__description") Сеть магазинов для конного спорта
-        ul(class="header-menu")
-            li(class="header-menu__item")
-                a(href="#" class="header-menu__link") Каталог
-                    +icon-sym('arr-down')
-            li(class="header-menu__item")
-                a(href="#" class="header-menu__link") Бренды
-            li(class="header-menu__item")
-                a(href="#" class="header-menu__link") Медиа
-            li(class="header-menu__item")
-                a(href="#" class="header-menu__link") Покупателям
-            li(class="header-menu__item")
-                a(href="#" class="header-menu__link") Оплата и доставка
+        div(class="header-menu-block")
+            ul(class="header-menu")
+                li(class="header-menu__item")
+                    a(href="#" class="header-menu__link") Каталог
+                        +icon-sym('arr-down')
+                li(class="header-menu__item")
+                    a(href="#" class="header-menu__link") Бренды
+                li(class="header-menu__item")
+                    a(href="#" class="header-menu__link") Медиа
+                li(class="header-menu__item")
+                    a(href="#" class="header-menu__link") Покупателям
+                li(class="header-menu__item")
+                    a(href="#" class="header-menu__link") Оплата и доставка
         ul(class="header-menu-user")
             li(class="header-menu-user__item")
                 a(href="#" class="header-menu-user__link")
                     +icon-sym('search')
-            li(class="header-menu-user__item")
+            li(class="header-menu-user__item tablet-hide")
                 a(href="#" class="header-menu-user__link")
                     +icon-sym('user')
             li(class="header-menu-user__item")
                 a(href="#" class="header-menu-user__link")
                     +icon-sym('cart')
+        div(class="header-burger js-menu-burger")
+            div
