@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const modalID = item.getAttribute('data-micromodal') as string;
-            if (modalID! == null && modalID !== undefined) {
+            if (modalID !== null && modalID !== undefined) {
                 openModal(modalID);
 
                 setTimeout(() => {

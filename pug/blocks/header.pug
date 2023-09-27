@@ -10,9 +10,12 @@ header(class="header")
             div(class="header-city")
                 | Ваш город:
                 div(class="header-city__link")
-                    a(href="#" class="link-white link-white--decoration") Moсква
+                    a(href="#" class="link-white link-white--decoration" data-micromodal="modal-city") Moсква
+
+
+
             a(href="tel:+7 (495) 139-66-00" class="link-white") +7 (495) 139-66-00
-            a(href="#" class="link-white")
+            a(href="#" class="link-white" data-micromodal="modal-feedback")
                 +icon-sym('phone')
                 | Обратный звонок
     div(class="wrapper__page header__bottom")
@@ -350,7 +353,7 @@ header(class="header")
                             +icon-sym('vk')
                         a(href="https://www.youtube.com/" target="_blank" rel="nofollow" class="header-social__link")
                             +icon-sym('yt')
-                a(href="#" class="btn btn--100") обратный звонок
+                a(href="#" class="btn btn--100" data-micromodal="modal-feedback") обратный звонок
 
 
         ul(class="header-menu-user")

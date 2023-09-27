@@ -58,9 +58,21 @@
 		display: inline-block;
 		vertical-align: top;
 		margin-left: 10px;
+		position: relative;
+		z-index: 5;
 		@include maxBp($bp-1440){
 			margin-left: 5px;
 		}
+	}
+	&__modal{
+		background: var(--white);
+		position: absolute;
+		z-index: 5;
+		left: 50%;
+		top: 100%;
+		transform: translate3d(-50%,0,0);
+		width: 350px;
+		padding: 20px;
 	}
 }
 
@@ -520,11 +532,11 @@
 			background: var(--black);
 		}
 		&:before{
-			transform: translate3d(0,0,0) rotate(-45deg) scaleX(1.5);
+			transform: translate3d(0,0,0) rotate(-45deg) scaleX(1.7);
 			background: var(--black);
 		}
 		&:after{
-			transform: translate3d(0,0,0) rotate(45deg) scaleX(1.5);
+			transform: translate3d(0,0,0) rotate(45deg) scaleX(1.7);
 			background: var(--black);
 		}
 	}

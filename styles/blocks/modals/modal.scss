@@ -1,6 +1,5 @@
 .modal {
 	display: none;
-
 	&.is-open {
 		display: block;
 	}
@@ -18,7 +17,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: transparentize($black, 0.2);
+	background-color: transparentize($black, 0.7);
 	transition: background-color var(--modal-duration) var(--cubic);
 	animation: {
 		duration: var(--modal-duration);
@@ -43,19 +42,18 @@
 }
 
 .modal__container {
-	width: 400px;
-	max-width: calc(100% - 8px);
-	margin: 16px auto;
+	width: 450px;
+	max-width: calc(100% - 10px);
+	margin: 20px auto;
 	box-sizing: border-box;
 	background: var(--white);
-	border-radius: 20px;
-	padding: 20px;
+	padding:0 65px 40px 65px;
 	@include maxBp($bp-768) {
-		margin: 8px 0 0 0;
+		margin: 0;
+		padding:0 20px 20px 20px;
 		max-width: none;
 		width: 100%;
-		border-radius: 20px 20px 0 0;
-		max-height: calc(var(--vh-100) - 10px);
+		max-height: var(--vh-100);
 		overflow: auto;
 	}
 	animation: {
@@ -81,58 +79,33 @@
 
 .modal__header {
 	@include text-body;
-	font-size: 24px;
+	font-size: 32px;
 	line-height: 130%;
-	letter-spacing: -0.02em;
-	font-weight: bold;
-	padding: 20px 40px 0 0;
-	margin: -20px 0 20px 0;
+	letter-spacing: 0.32px;
+	padding:40px 65px 20px 65px;
+	margin: 0 -65px 20px -65px;
+	text-align: center;
 	background: var(--white);
 	position: sticky;
 	z-index: 5;
 	top: 0;
-	box-shadow: 0 10px 10px var(--white);
+	box-shadow:0 30px 10px -20px var(--white);
 	@include maxBp($bp-768) {
-		box-shadow: 0 5px 5px var(--white), 0 -10px 0 10px var(--white);
-		padding-top: 0;
-		margin-top: 0;
+		padding: 20px 60px 20px 20px;
+		margin: 0 -20px 20px -20px;
+		font-size: 24px;
+		text-align: left;
 	}
-}
-
-.modal__wrapper {
-	padding: 16px 0;
-	@include maxBp($bp-768) {
-		padding: 4px 0;
-	}
-}
-
-.modal__block {
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	padding: 32px 48px;
 }
 
 .modal__close {
 	@include icon-close;
 	outline: none !important;
-	background: var(--secondary-color-100);
 	display: inline-block;
 	position: absolute;
 	z-index: 5;
 	right: 20px;
 	top: 20px;
-
-	.modal__header & {
-		right: 0;
-		@include maxBp($bp-768) {
-			top: 0;
-		}
-	}
-
-	&:hover {
-		background: var(--primary-color-600);
-	}
 }
 
 .modal__bg {

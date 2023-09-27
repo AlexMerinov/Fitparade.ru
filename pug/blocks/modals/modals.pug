@@ -21,3 +21,45 @@ block modal
         div(class="btn" data-micromodal-close) Закрыть
         div(class="btn") Продолжить
 
++modal({
+    id: 'city'
+})
+    +slot('header')
+        | Пример модального окна
+    +slot('body')
+        div(class="form")
+            div(class="form__line")
+                input(class="form__input form__input--search" placeholder="Moсква")
+        p Сообщение модального окна?
+        div(class="btn" data-micromodal-close) Закрыть
+        div(class="btn") Продолжить
+
++modal({
+    id: 'feedback'
+})
+    +slot('header')
+        | Обратный звонок
+    +slot('body')
+        form(action="#" class="form")
+            div(class="form__line")
+                label(class="form__label") Имя
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+                input(class="form__input")
+
