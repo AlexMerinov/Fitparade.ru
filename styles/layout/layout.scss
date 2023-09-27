@@ -1,17 +1,20 @@
+*{
+    scrollbar-face-color: var(--black); /* Firefox 63 compatibility */
+    scrollbar-track-color: var(--gray-200); /* Firefox 63 compatibility */
+    scrollbar-color: var(--black) var(--gray-200);
+    scrollbar-width: thin;
+}
+
 html *::-webkit-scrollbar {
     border-radius: 0;
     width: 5px;
     height: 5px;
-    @include maxBp($bp-768){
-        width: 1px;
-        height: 1px;
-    }
 }
 html *::-webkit-scrollbar-thumb {
-    background-color: var(--green);
+    background-color: var(--black);
 }
 html *::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: var(--gray-200);
 }
 
 html,

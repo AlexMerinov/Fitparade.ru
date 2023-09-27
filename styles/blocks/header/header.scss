@@ -26,7 +26,7 @@
 		display: flex;
 		align-items: center;
 		height: 80px;
-		border-bottom: 1px solid var(--black);
+		border-bottom: 1px solid var(--gray-300);
 		@include maxBp($bp-1280){
 			height: 70px;
 			border: none;
@@ -67,9 +67,10 @@
 .header-logo{
 	display: flex;
 	align-items: center;
-	margin-right: 120px;
+	margin-right: 95px;
+	border: none;
 	@include maxBp($bp-1440){
-		margin-right: 60px;
+		margin-right: 45px;
 	}
 	@include maxBp($bp-1280){
 		margin-right: 0;
@@ -149,76 +150,288 @@
 	@include reset-list;
 	align-self: stretch;
 	display: flex;
-	gap: 50px;
-	@include maxBp($bp-1440){
-		gap: 30px;
-	}
 	@include maxBp($bp-1280){
 		display: block;
 	}
-	&__item{
+	>li{
 		display: flex;
 		@include maxBp($bp-1280){
 			display: block;
 		}
-	}
-	&__link{
-		font-size: 12px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		letter-spacing: 0.72px;
-		text-transform: uppercase;
-		display: flex;
-		align-items: center;
-		position: relative;
-		z-index: 1;
-		@include maxBp($bp-1280){
-			font-size: 18px;
+		&:hover{
+			.header-menu__submenu{
+				@include bp($bp-1280){
+					opacity: 1;
+					visibility: visible;
+					pointer-events: auto;
+					transition-delay: 0.3s;
+				}
+			}
+		}
+		>a{
+			font-size: 12px;
 			font-style: normal;
-			font-weight: 600;
-			display: block;
-			padding:20px 32px;
-		}
-		@include maxBp($bp-1024){
-			padding: 20px;
-		}
-		.icon-sym--arr-down{
-			@include icon-stroke;
-			width: 11px;
-			height: 11px;
-			stroke-width: 1.5px;
-			vertical-align: middle;
-			margin: 0 0 0 10px;
-			@include maxBp($bp-1280){
-				display: none;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: 0.72px;
+			text-transform: uppercase;
+			display: flex;
+			align-items: center;
+			position: relative;
+			z-index: 1;
+			border: none;
+			color: var(--black);
+			padding: 0 25px;
+			@include maxBp($bp-1440){
+				padding: 0 15px;
 			}
-		}
-		&:after{
-			content: '';
-			position: absolute;
-			z-index: -1;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 2px;
-			background: var(--green);
-			transform: scaleX(0);
-			transform-origin: center bottom;
-			transition: var(--trans);
 			@include maxBp($bp-1280){
-				display: none;
+				font-size: 18px;
+				font-style: normal;
+				font-weight: 600;
+				display: block;
+				padding:20px 32px;
 			}
-		}
-		&.active,&:hover{
-			@include maxBp($bp-1280){
-				color: var(--green);
+			@include maxBp($bp-1024){
+				padding: 20px;
+			}
+			.icon-sym--arr-down{
+				@include maxBp($bp-1280){
+					display: none;
+				}
 			}
 			&:after{
-				transform: scaleX(1);
+				content: '';
+				position: absolute;
+				z-index: -1;
+				left: 25px;
+				right: 25px;
+				bottom: -1px;
+				height: 2px;
+				background: var(--green);
+				transform: scaleX(0);
+				transform-origin: center bottom;
+				transition: var(--trans);
+				@include maxBp($bp-1440){
+					left: 15px;
+					right: 15px;
+				}
+				@include maxBp($bp-1280){
+					display: none;
+				}
+			}
+			&.active,&:hover{
+				@include maxBp($bp-1280){
+					color: var(--green);
+				}
+				&:after{
+					transform: scaleX(1);
+				}
+			}
+		}
+
+	}
+	&__submenu{
+		@include bp($bp-1280){
+			position: absolute;
+			z-index: 10;
+			left: 50%;
+			transform: translate3d(-50%,0,0);
+			top: 100%;
+			width: 100%;
+			background: var(--white);
+			padding-top: 40px;
+			padding-bottom: 40px;
+			box-shadow:0 1000px 0 1000px transparentize($black,0.7);
+			transition: var(--trans);
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+		>ul{
+			@include reset-list;
+			@include bp($bp-1280) {
+				display: flex;
+				flex-wrap: wrap;
+				max-height: calc(100vh - 265px);
+				overflow: auto;
+				gap: 40px 0;
+				margin: 0 -20px;
+			}
+			@include maxBp($bp-1280){
+				margin-bottom: 10px;
+			}
+			>li{
+				width: 25%;
+				padding:0 20px;
+				@include maxBp($bp-1280){
+					width: auto;
+					padding: 0;
+					border-top: 1px solid var(--gray-200);
+				}
+				&:first-child{
+					@include maxBp($bp-1280){
+						border-top: none;
+					}
+				}
+				>a{
+					@include text-size-16;
+					letter-spacing: 0.16px;
+					text-transform: uppercase;
+					font-weight: bold;
+					@include maxBp($bp-1280){
+						width: 100%;
+						position: relative;
+						z-index: 1;
+						text-transform: none;
+						font-weight: normal;
+						padding: 10px 40px 12px 0;
+						color: var(--gray-800);
+					}
+					&:hover,&.active{
+						@include maxBp($bp-1280){
+							color: var(--green);
+						}
+					}
+					.icon-sym{
+						position: absolute;
+						z-index: 1;
+						left: 50%;
+						top: 50%;
+						transform: rotate(-90deg) translate3d(-50%,-50%,0);
+						transform-origin: left top;
+						margin: 0;
+						stroke: var(--gray-800);
+					}
+				}
+				>ul{
+					@include reset-list;
+					padding: 10px 0;
+					@include maxBp($bp-1280){
+						position: fixed;
+						z-index: 10;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						overflow: auto;
+						background: var(--gray-100);
+						padding: 32px;
+						transform: translate3d(100%,0,0);
+						.menu-show &{
+							transition: var(--trans);
+						}
+					}
+					@include maxBp($bp-1024){
+						padding: 20px;
+					}
+					>li{
+						padding: 7px 0;
+						@include maxBp($bp-1280){
+							padding: 0;
+							border-bottom: 1px solid var(--gray-200);
+						}
+						&:last-child{
+							@include maxBp($bp-1280){
+								border-bottom: none;
+							}
+						}
+						>a{
+							@include maxBp($bp-1280){
+								width: 100%;
+								position: relative;
+								z-index: 1;
+								text-transform: none;
+								font-weight: normal;
+								padding: 10px 40px 12px 0;
+								color: var(--gray-800);
+							}
+							&:hover,&.active{
+								@include maxBp($bp-1280){
+									color: var(--green);
+								}
+							}
+						}
+						&.header-menu__caption{
+							display: none;
+							background: var(--white);
+							padding: 20px 64px 20px 32px;
+							margin: -32px -32px 5px -32px;
+							border-bottom: none;
+							@include text-size-18;
+							font-weight: bold;
+							letter-spacing: 0.18px;
+							text-transform: uppercase;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow:ellipsis;
+							height: 70px;
+							@include maxBp($bp-1280){
+								display: block;
+							}
+							@include maxBp($bp-1024){
+								padding: 20px 40px 20px 20px;
+								margin: -20px -20px 5px -20px;
+							}
+							.icon-sym--arr-down{
+								width: 18px;
+								height: 18px;
+								transform: rotate(90deg);
+								stroke-width: 1px;
+								stroke: var(--gray-400);
+								margin: -1px 15px 0 -5px;
+							}
+						}
+					}
+				}
+				&.header-menu-show{
+					>ul{
+						transform: translate3d(0,0,0);
+					}
+				}
+			}
+		}
+		a:not(.link-more){
+			color: var(--black);
+			display: inline-block;
+			vertical-align: top;
+			border: none;
+			&:hover,&.active{
+				color: var(--green);
 			}
 		}
 	}
+	&__more{
+		@include maxBp($bp-1280){
+			display: none;
+		}
+		~ li{
+			@include bp($bp-1280) {
+				display: none;
+			}
+		}
+		&.hide{
+			~ li{
+				@include bp($bp-1280) {
+					display: block;
+					@include animation(fadeIn 0.3s var(--cubic));
+				}
+			}
+		}
+	}
+	&__arr{
+		position: absolute;
+		z-index: 1;
+		right: -15px;
+		top: 0;
+		width: 40px;
+		height: 100%;
+		display: none;
+		@include maxBp($bp-1280){
+			display: block;
+		}
+	}
+
 }
 
 .header-menu-user{
@@ -245,6 +458,7 @@
 		align-items: center;
 		justify-content: center;
 		padding: 0 15px;
+		border: none;
 		.icon-sym{
 			fill: var(--black);
 			transition: var(--trans);
@@ -358,6 +572,7 @@
 	display: inline-block;
 	vertical-align: top;
 	color: var(--gray-800);
+	border: none;
 	&:hover{
 		color: var(--green);
 		.icon-sym{
@@ -388,6 +603,7 @@
 		vertical-align: middle;
 		padding: 10px;
 		margin: -10px;
+		border: none;
 		&:hover{
 			.icon-sym{
 				fill: var(--green);

@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime'; // fix console error 'Uncaught ReferenceError: regeneratorRuntime is not defined'
 import MicroModal from 'micromodal';
-import { defaultSettings } from '@js/components/modals/settings';
+import defaultSettings from '@js/components/modals/settings';
 
 const blurActiveElement = () => {
     const activeElement = document.activeElement as HTMLElement | null;

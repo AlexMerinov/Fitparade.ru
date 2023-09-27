@@ -21,6 +21,7 @@
 }
 .link-gray{
 	color: var(--gray-800);
+	border: none;
 	&:hover{
 		color: var(--green);
 	}
@@ -31,6 +32,8 @@
 	font-size: 16px;
 	line-height: normal;
 	letter-spacing: 0.4px;
+	border: none;
+	color: var(--black);
 	.icon-sym{
 		display: inline-block;
 		vertical-align: middle;
@@ -45,10 +48,39 @@
 		margin: 0 0 0 2px;
 	}
 }
+
+.link-more{
+	color: var(--green);
+	border-bottom: 1px solid var(--green);
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	line-height: normal;
+	.icon-sym{
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 100%;
+		transform: translate3d(0,-50%,0);
+		stroke:var(--green);
+		margin: 0;
+		border-left: 10px solid transparent;
+		box-sizing: content-box;
+	}
+}
+
 .icon-sym--pin{
 	fill: var(--green);
 }
 .icon-sym--arr{
 	@include icon-stroke;
 	stroke-width: 1px;
+}
+.icon-sym--arr-down{
+	@include icon-stroke;
+	width: 11px;
+	height: 11px;
+	stroke-width: 1.5px;
+	vertical-align: middle;
+	margin: 0 0 0 10px;
 }

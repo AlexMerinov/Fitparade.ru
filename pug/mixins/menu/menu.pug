@@ -1,14 +1,56 @@
 mixin menu-list(items)
-    ul(class="menu")
+    ul(class="header-menu")
         each item in items
             -
                 const {
-                    text,
-                    icon,
-                    link,
-                    hide
+                    name,
+                    url,
+                    items,
                 } = item;
-            li(class=(hide ? "menu__item tablet-hide" : "menu__item"))
-                a(href=link + '.html' class=(page === link ? "menu__link menu__link--active" : "menu__link"))
-                    span(class="icon icon--" + icon)
-                    != text
+            li
+                a(href=url + '.html' class=(page === url ? "active" : ""))
+                    != name
+                    if items
+                        +icon-sym('arr-down')
+
+                if items
+                    div(class="header-menu__submenu wrapper__page")
+                        ul
+                            each item in items
+                                -
+                                    const {
+                                        name,
+                                        url,
+                                        items,
+                                    } = item;
+                                li
+                                    a(href=url + '.html' class=(page === url ? "active" : ""))
+                                        != name
+                                        if items
+                                            span(class="header-menu__arr js-menu-arr")
+                                                +icon-sym('arr-down')
+                                    if items
+                                        -
+                                            itemsLength = items.length
+                                            itemsCount = items.length - 6
+
+                                        ul
+                                            li(class="header-menu__caption js-menu-back")
+                                                +icon-sym('arr-down')
+                                                != name
+                                            each item, index in items
+                                                -
+                                                    const {
+                                                        name,
+                                                        url,
+                                                        items,
+                                                    } = item;
+                                                if index === 6 && itemsLength > 7
+                                                    li(class="header-menu__more")
+                                                        a(href="#" class="link-more js-menu-more")
+                                                            | Еще&nbsp;
+                                                            != itemsCount
+                                                            +icon-sym('arr-down')
+                                                li
+                                                    a(href=url + '.html' class=(page === url ? "active" : ""))
+                                                        != name

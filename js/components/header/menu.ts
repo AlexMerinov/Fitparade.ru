@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const jsMenuBurger = document.querySelector('.js-menu-burger');
     let wintop = 0;
 
-    jsMenuBurger.addEventListener('click', (e) => {
+    jsMenuBurger?.addEventListener('click', (e) => {
         e.preventDefault();
         if (!body.classList.contains('menu-show')) {
             wintop = window.scrollY;
@@ -17,7 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scroll(0, wintop);
             body.style.removeProperty('top');
             body.style.removeProperty('--wintop');
+
+            const menuShows = document.querySelectorAll('.header-menu-show');
+            menuShows.forEach((item) => {
+                item.classList.remove('header-menu-show');
+            });
         }
+    });
+
+    const linksMore = document.querySelectorAll('.js-menu-more');
+    linksMore.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            link.parentElement?.classList.add('hide');
+        });
+    });
+
+    const linksArr = document.querySelectorAll('.js-menu-arr');
+    linksArr.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            link.closest('li')?.classList.add('header-menu-show');
+        });
+    });
+
+    const linksBack = document.querySelectorAll('.js-menu-back');
+    linksBack.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            link.closest('.header-menu-show')?.classList.remove(
+                'header-menu-show'
+            );
+        });
     });
 
     // const links = document.querySelectorAll('.js-menu-toggle');
