@@ -576,6 +576,14 @@
 	@include maxBp($bp-1024){
 		padding:10px 20px;
 	}
+	.icon-sym--arr-down{
+		width: 18px;
+		height: 18px;
+		transform: rotate(90deg);
+		stroke-width: 1px;
+		stroke: var(--gray-400);
+		margin: -1px 15px 0 -5px;
+	}
 }
 
 .header-user-link{

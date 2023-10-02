@@ -22,17 +22,20 @@ block modal
         div(class="btn") Продолжить
 
 +modal({
-    id: 'city'
+    id: 'city',
+    modifier: 'small'
 })
     +slot('header')
-        | Пример модального окна
+        div(class="header-city-block")
+            a(class="link-city" data-micromodal-close)
+                +icon-sym('arr-down')
+                +icon-sym('pin')
+                | Moсква
     +slot('body')
         div(class="form")
             div(class="form__line")
-                input(class="form__input form__input--search" placeholder="Moсква")
-        p Сообщение модального окна?
-        div(class="btn" data-micromodal-close) Закрыть
-        div(class="btn") Продолжить
+                input(class="form__input form__input--search js-dadata" placeholder="Moсква" onchange="document.location.reload()")
+
 
 +modal({
     id: 'feedback'

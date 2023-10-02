@@ -1,0 +1,20 @@
+.autoComplete_wrapper{
+	ul{
+		@include reset-list;
+		@include text-size-14;
+		letter-spacing: 0.14px;
+		text-transform: uppercase;
+		li{
+			padding: 20px 0 0 0;
+			cursor: pointer;
+			transition: var(--trans);
+			color: var(--gray-700);
+			&:hover,&[aria-selected="true"]{
+				color: var(--black);
+			}
+		}
+	}
+	.no_result{
+		padding: 20px 0 0 0;
+	}
+}

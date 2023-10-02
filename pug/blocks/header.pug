@@ -10,7 +10,7 @@ header(class="header")
             div(class="header-city")
                 | Ваш город:
                 div(class="header-city__link")
-                    a(href="#" class="link-white link-white--decoration" data-micromodal="modal-city") Moсква
+                    a(href="#" class="link-white link-white--decoration js-modal-city" data-micromodal="modal-city") Moсква
 
 
 
@@ -26,7 +26,7 @@ header(class="header")
                 span(class="header-logo__description") Сеть магазинов для конного спорта
         div(class="header-menu-block")
             div(class="header-city-block")
-                a(href="#" class="link-city")
+                a(class="link-city" data-micromodal="modal-city")
                     +icon-sym('pin')
                     | Moсква
                     +icon-sym('arr')

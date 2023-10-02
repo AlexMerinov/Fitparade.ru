@@ -21,6 +21,7 @@
 		display: block;
 		width: 100%;
 		border: 1px solid var(--gray-600);
+		background: var(--white) no-repeat;
 		outline: 0;
 		@include text-size-14;
 		font-weight: 500;
@@ -32,6 +33,7 @@
 		box-shadow: none;
 		overflow: auto;
 		resize: none;
+		border-radius: 0;
 		&:hover {
 			border-color: var(--gray-800);
 		}
@@ -48,13 +50,16 @@
 		}
 
 		@include placeholder {
-			color: var(--gray-400);
+			color: var(--gray-600);
 		}
 
 		&:not(.error) + .error-message {
 			display: none;
 		}
-
+		&--search{
+			background:var(--white) no-repeat url('../images/search.svg') 16px center;
+			padding-left: 40px;
+		}
 	}
 	&__submit{
 		padding-top: 10px;
