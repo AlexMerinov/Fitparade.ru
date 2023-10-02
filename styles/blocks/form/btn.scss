@@ -41,8 +41,17 @@
 	&:active {
 
 	}
+	&--green{
+		border:none;
+		background: var(--green);
+		color: var(--white);
+	}
 	&--100 {
 		width: 100%;
 		text-align: center;
+	}
+	&[disabled],&--disabled{
+		opacity: 0.5;
+		pointer-events: none;
 	}
 }

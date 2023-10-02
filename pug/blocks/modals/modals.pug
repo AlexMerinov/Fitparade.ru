@@ -40,26 +40,17 @@ block modal
     +slot('header')
         | Обратный звонок
     +slot('body')
-        form(action="#" class="form")
+        form(action="images/json/form-success.json" class="form js-form-validate js-form-action" method="post")
             div(class="form__line")
-                label(class="form__label") Имя
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-                input(class="form__input")
-
+                label(class="form__label" for="feedback-input-name") Имя
+                input(type="text" class="form__input" id="feedback-input-name" required)
+            div(class="form__line")
+                label(class="form__label" for="feedback-input-phone") Телефон
+                input(type="tel" class="form__input js-input-format-phone" id="feedback-input-phone" required)
+            div(class="form__line")
+                label(class="input-checkbox input-checkbox--small")
+                    input(type="checkbox" required)
+                    span(class="input-checkbox__text") Я согласен на обработку
+                        a(href="#") персональных данных
+            div(class="form__submit")
+                button(type="submit" class="btn btn--green btn--100") Отправить

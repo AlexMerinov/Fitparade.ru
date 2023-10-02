@@ -53,9 +53,9 @@
 	vertical-align: middle;
 	width: 6px;
 	height: 10px;
-	border: 2px solid var(--secondary-color-900);
-	border-left: none;
-	border-top: none;
+	border: 1px solid var(--black);
+	border-left: none !important;
+	border-top: none !important;
 	transform: rotate(45deg);
 	transition: var(--trans);
 	border-radius: 0;
