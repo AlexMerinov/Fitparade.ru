@@ -1,0 +1,34 @@
+mixin slider-main(items)
+    div(class="main-slider wrapper__wide swiper js-slider-main")
+        div(class="swiper-wrapper")
+            each item, index in items
+                -
+                    const {
+                        name,
+                        url,
+                        picture,
+                        logo
+                    } = item;
+                div(class="swiper-slide main-slider__item")
+                    div(class="wrapper__page main-slide__wrapper")
+                        if logo
+                            a(href=url class="main-slider__link")
+                                img(src=logo.src class="main-slider__logo" alt="" width=logo.width height=logo.height data-swiper-parallax="-400")
+                        div(class="main-slider__text" data-swiper-parallax="-200")
+                            a(href=url class="main-slider__link")
+                                !=name
+                    div(class="main-slider__bg" data-swiper-parallax="400")
+                        picture
+                            // ресайз 1024*730
+                            source(srcset=picture.small media="(max-width: 1023px)")
+                            // ресайз 1680*680
+                            img(src=picture.big alt=name)
+
+
+        div(class="swiper-nav wrapper__page")
+            div(class="swiper-pagination")
+            div(class="swiper-button-prev")
+                +icon-sym('arr-slider')
+            div(class="swiper-button-next")
+                +icon-sym('arr-slider')
+

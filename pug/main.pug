@@ -1,31 +1,63 @@
 extends ./_layout
-
+include ./mixins/list/slider-main
 
 block content
 
     div(class="wrapper__page article__top")
 
-        div(class="main-slider wrapper__wide swiper js-slider-main")
-            div(class="swiper-wrapper")
-                div(class="swiper-slide main-slider__item")
-                    div(class="main-slider__bg" data-swiper-parallax="400")
-                        picture(class="main-slider__bg")
-                            // ресайз 1024*730
-                            source(srcset="images/content/main-slider-1-mobile.jpg" media="(max-width: 1023px)")
-                            // ресайз 1680*680
-                            img(src="images/content/main-slider-1-desktop.jpg" alt="")
-                div(class="swiper-slide main-slider__item" )
-                    div(class="main-slider__bg" data-swiper-parallax="400")
-                        picture
-                            // ресайз 1024*730
-                            source(srcset="images/content/main-slider-1-mobile.jpg" media="(max-width: 1023px)")
-                            // ресайз 1680*680
-                            img(src="images/content/main-slider-1-desktop.jpg" alt="")
-            div(class="swiper-nav wrapper__page")
-                div(class="swiper-pagination")
-                div(class="swiper-button-prev")
-                    +icon-sym('arr-slider')
-                div(class="swiper-button-next")
-                    +icon-sym('arr-slider')
+        -
+            const sliderMain = [
+                {
+                    name: 'Новые женские осенние коллекции',
+                    url: 'main.html',
+                    picture: {
+                        big: 'images/content/main-slider-1-desktop.jpg',
+                        small: 'images/content/main-slider-1-mobile.jpg'
+                    },
+                    logo: {
+                        src: 'images/content/slider-logo-1.png',
+                        width: 288,
+                        height: 91
+                    }
+                },
+                {
+                    name: 'Лучшие седла от итальянских мастеров',
+                    url: 'main.html',
+                    picture: {
+                        big: 'images/content/main-slider-2-desktop.jpg',
+                        small: 'images/content/main-slider-2-mobile.jpg'
+                    },
+                },
+            ];
+        +slider-main(sliderMain)
+
+        h2 Популярные категории
+
+        -
+            const category = [
+                {
+                    name: 'Новые женские осенние коллекции',
+                    url: 'main.html',
+                    picture: {
+                        big: 'images/content/main-slider-1-desktop.jpg',
+                        small: 'images/content/main-slider-1-mobile.jpg'
+                    },
+                    logo: {
+                        src: 'images/content/slider-logo-1.png',
+                        width: 288,
+                        height: 91
+                    }
+                },
+                {
+                    name: 'Лучшие седла от итальянских мастеров',
+                    url: 'main.html',
+                    picture: {
+                        big: 'images/content/main-slider-2-desktop.jpg',
+                        small: 'images/content/main-slider-2-mobile.jpg'
+                    },
+                },
+            ];
+
+
 
 

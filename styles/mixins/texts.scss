@@ -43,10 +43,6 @@
     font-size: var(--text-body-size);
     line-height: 150%;
 }
-@mixin text-subtitle {
-    font-size: var(--text-subtitle-size);
-    line-height: 150%;
-}
 
 @mixin text-size-10 {
     font-size: var(--text-size-10);

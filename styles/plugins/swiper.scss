@@ -400,6 +400,10 @@
 	background: var(--white);
 	margin: 0;
 	opacity: 0.4;
+	@include maxBp($bp-768){
+		width: 6px;
+		height: 6px;
+	}
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -701,6 +705,9 @@
 	left: 0;
 	bottom: 42px;
 	width: 100%;
+	@include maxBp($bp-768){
+		bottom: 60px;
+	}
 	.swiper-button-prev,.swiper-button-next{
 		width: 44px;
 		height: 84px;
@@ -708,10 +715,27 @@
 		left: 50px;
 		top: 50%;
 		transform: translate3d(-50%,-50%,0);
+		@include maxBp($bp-1280){
+			left: 40px;
+		}
+		@include maxBp($bp-1024){
+			left: 26px;
+		}
+		@include maxBp($bp-768){
+			display: none;
+		}
 	}
 	.swiper-button-next{
 		left: auto;
 		right: 50px;
 		transform: translate3d(50%,-50%,0) rotate(180deg);
+		@include maxBp($bp-1280){
+			left: auto;
+			right: 40px;
+		}
+		@include maxBp($bp-1024){
+			left: auto;
+			right: 26px;
+		}
 	}
 }
