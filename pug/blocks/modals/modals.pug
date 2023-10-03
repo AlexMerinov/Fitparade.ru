@@ -34,7 +34,27 @@ block modal
     +slot('body')
         div(class="form")
             div(class="form__line")
-                input(class="form__input form__input--search js-dadata" placeholder="Moсква" onchange="document.location.reload()")
+                input(class="form__input form__input--search js-dadata-city")
+                script.
+                    // Пример события выбора города в инпуте (при программинге удалить)
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const inputs = document.querySelectorAll('.js-dadata-city');
+                        inputs.forEach((input, index) => {
+                            input.addEventListener('cityChange',()=>{
+                                console.log('Название города:', input.value);
+                                window.location.reload();
+                            })
+                        });
+                    });
+            ul(class="header-city-list")
+                li
+                    a(href="main.html" class="active") Москва
+                li
+                    a(href="main.html") Санкт-петербург
+                li
+                    a(href="main.html") Новосибирск
+                li
+                    a(href="main.html") Екатеринбург
 
 
 +modal({

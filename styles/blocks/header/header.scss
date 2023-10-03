@@ -254,7 +254,7 @@
 			background: var(--white);
 			padding-top: 40px;
 			padding-bottom: 40px;
-			box-shadow:0 1000px 0 1000px transparentize($black,0.7);
+			box-shadow:0 var(--vh-100) 0 var(--vh-100) transparentize($black,0.7);
 			transition: var(--trans);
 			opacity: 0;
 			visibility: hidden;
@@ -638,6 +638,78 @@
 		.icon-sym--yt{
 			width: 24px;
 			height: 24px;
+		}
+	}
+}
+
+.header-city-list{
+	@include reset-list;
+	@include text-size-14;
+	letter-spacing: 0.14px;
+	text-transform: uppercase;
+	li{
+		padding: 20px 0 0 0;
+		cursor: pointer;
+		transition: var(--trans);
+		color: var(--gray-700);
+		&:first-child{
+			padding-top: 0;
+		}
+		a{
+			color: var(--gray-700);
+			border: none;
+			&:hover,&.active{
+				color: var(--black);
+			}
+		}
+	}
+}
+
+.header-search{
+	position: absolute;
+	z-index: 5;
+	left: 0;
+	top: 100%;
+	width: 100%;
+	background: var(--white);
+	box-shadow:0 var(--vh-100) 0 var(--vh-100) transparentize($black,0.7);
+	padding: 40px 0;
+	transition: var(--trans);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	@include maxBp($bp-1280){
+		padding: 20px 0;
+	}
+	@include maxBp($bp-768){
+		top: 0;
+		z-index: 20;
+		transform: translate3d(0,-100%,0);
+		padding: 0;
+	}
+	&--show{
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		@include maxBp($bp-768) {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	&__mask{
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 100%;
+		width: 100%;
+		height: var(--vh-100);
+		background: transparent;
+	}
+	&__wrapper{
+		display: flex;
+		gap: 40px;
+		@include maxBp($bp-768){
+			padding: 0;
+			gap: 0;
 		}
 	}
 }

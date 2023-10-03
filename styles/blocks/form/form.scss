@@ -60,9 +60,68 @@
 			background:var(--white) no-repeat url('../images/search.svg') 16px center;
 			padding-left: 40px;
 		}
+		&--big{
+			padding: 24px;
+		}
+		&--search-form{
+			padding-right: 80px;
+			@include maxBp($bp-768){
+				padding-right: 50px;
+				padding-left: 40px;
+			}
+			~.error-message{
+				@include maxBp($bp-768){
+					margin-left: 16px;
+				}
+			}
+		}
 	}
 	&__submit{
 		padding-top: 10px;
+	}
+	&--search{
+		position: relative;
+		z-index: 1;
+		width: 100%;
+	}
+	&__search{
+		position: absolute;
+		z-index: 5;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 70px;
+		border: none;
+		cursor: pointer;
+		background: transparent;
+		outline: none !important;
+		padding: 0;
+		@include maxBp($bp-768){
+			right: auto;
+			left: 13px;
+			width: 20px;
+			height: 20px;
+			top: 50%;
+			margin-top: -10px;
+		}
+		&:hover{
+			.icon-sym {
+				fill: var(--green);
+			}
+		}
+		.icon-sym{
+			width: 18px;
+			height: 18px;
+			transition: var(--trans);
+			fill: var(--black);
+			display: block;
+			margin: 0 auto;
+			@include maxBp($bp-768){
+				width: 12px;
+				height: 12px;
+				fill: var(--gray-600);
+			}
+		}
 	}
 }
 

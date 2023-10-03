@@ -1,28 +1,12 @@
 import autoComplete from '@tarekraafat/autocomplete.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    function join(arr /* , separator */) {
-        const separator = arguments.length > 1 ? arguments[1] : ', ';
-        return arr
-            .filter(function (n) {
-                return n;
-            })
-            .join(separator);
-    }
-
-    function cityToString(address) {
-        return join([
-            join([address.city_type, address.city], ' '),
-            join([address.settlement_type, address.settlement], ' '),
-        ]);
-    }
-
-    const inputs = document.querySelectorAll('.js-dadata');
+    const inputs = document.querySelectorAll('.js-dadata-city');
     inputs.forEach((input, index) => {
-        input.classList.add(`js-dadata-${index}`);
+        input.classList.add(`js-dadata-city-${index}`);
 
         const autoCompleteJS = new autoComplete({
-            selector: `.js-dadata-${index}`,
+            selector: `.js-dadata-city-${index}`,
             data: {
                 src: async (query) => {
                     try {
@@ -90,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         input.value =
                             selection.data.city || selection.data.settlement;
 
-                        input.dispatchEvent(new Event('change'));
+                        input.dispatchEvent(new CustomEvent('cityChange'));
                     },
                 },
             },

@@ -126,6 +126,25 @@
 			}
 		}
 	}
+	&--search{
+		position: relative;
+		top: 0;
+		right: 0;
+		width: 20px;
+		height: 20px;
+		@include maxBp($bp-768){
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			margin-top: -20px;
+		}
+		&:before{
+			width: 15px;
+		}
+		&:after{
+			height: 15px;
+		}
+	}
 }
 
 .modal__bg {

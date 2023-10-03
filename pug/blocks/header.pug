@@ -12,8 +12,6 @@ header(class="header")
                 div(class="header-city__link")
                     a(href="#" class="link-white link-white--decoration js-modal-city" data-micromodal="modal-city") Moсква
 
-
-
             a(href="tel:+7 (495) 139-66-00" class="link-white") +7 (495) 139-66-00
             a(href="#" class="link-white" data-micromodal="modal-feedback")
                 +icon-sym('phone')
@@ -358,7 +356,7 @@ header(class="header")
 
         ul(class="header-menu-user")
             li(class="header-menu-user__item")
-                a(href="#" class="header-menu-user__link")
+                a(href="#" class="header-menu-user__link js-search-show")
                     +icon-sym('search')
             li(class="header-menu-user__item tablet-hide")
                 a(href="#" class="header-menu-user__link")
@@ -367,6 +365,14 @@ header(class="header")
                 a(href="#" class="header-menu-user__link")
                     +icon-sym('cart')
 
+        div(class="header-search")
+            div(class="wrapper__page header-search__wrapper")
+                form(action="search.html" class="form form--search js-form-validate")
+                    input(type="text" class="form__input form__input--search-form form__input--big" placeholder="Поиск..." required)
+                    button(class="form__search")
+                        +icon-sym('search')
+                div(class="modal__close modal__close--search js-search-close")
+            div(class="header-search__mask js-search-close")
 
         div(class="header-burger js-menu-burger")
             div
