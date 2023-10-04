@@ -1,0 +1,16 @@
+mixin category-popular(items)
+    div(class="swiper-container")
+        div(class="swiper category-list js-slider-category")
+            div(class="swiper-wrapper")
+                each item, index in items
+                    -
+                        const {
+                            name,
+                        } = item;
+                    div(class="category-list__item swiper-slide")
+                        a(href="#" class="btn")
+                            !=name
+        div(class="swiper-button-small swiper-button-prev")
+            +icon-sym('arr-slider')
+        div(class="swiper-button-small swiper-button-next")
+            +icon-sym('arr-slider')

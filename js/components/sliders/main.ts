@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 pauseOnMouseEnter: true,
             },
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: slider.querySelector('.swiper-button-next'),
+                prevEl: slider.querySelector('.swiper-button-prev'),
             },
             pagination: {
-                el: '.swiper-pagination',
+                el: slider.querySelector('.swiper-pagination'),
                 clickable: true,
             },
         });

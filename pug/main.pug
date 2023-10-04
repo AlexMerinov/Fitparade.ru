@@ -1,5 +1,6 @@
 extends ./_layout
 include ./mixins/list/slider-main
+include ./mixins/list/category-popular
 
 block content
 
@@ -34,29 +35,60 @@ block content
         h2 Популярные категории
 
         -
-            const category = [
+            const categoryPopular = [
                 {
-                    name: 'Новые женские осенние коллекции',
-                    url: 'main.html',
-                    picture: {
-                        big: 'images/content/main-slider-1-desktop.jpg',
-                        small: 'images/content/main-slider-1-mobile.jpg'
-                    },
-                    logo: {
-                        src: 'images/content/slider-logo-1.png',
-                        width: 288,
-                        height: 91
-                    }
+                    name: 'Для женщин',
                 },
                 {
-                    name: 'Лучшие седла от итальянских мастеров',
-                    url: 'main.html',
-                    picture: {
-                        big: 'images/content/main-slider-2-desktop.jpg',
-                        small: 'images/content/main-slider-2-mobile.jpg'
-                    },
+                    name: 'Для мужчин',
+                },
+                {
+                    name: 'Обувь',
+                },
+                {
+                    name: 'Попоны и капоры',
+                },
+                {
+                    name: 'Защита для ног',
+                },
+                {
+                    name: 'Гели и амортизаторы',
+                },
+                {
+                    name: 'Корма и подкормки',
+                },
+                {
+                    name: 'Аптечка',
+                },
+                {
+                    name: 'Для дома',
+                },
+                {
+                    name: 'Дополнительная рубрика',
+                },
+                {
+                    name: 'Текст тестовый',
+                },
+                {
+                    name: 'Название',
+                },
+                {
+                    name: 'Попоны и капоры',
+                },
+                {
+                    name: 'Защита для ног',
+                },
+                {
+                    name: 'Гели и амортизаторы',
+                },
+                {
+                    name: 'Корма и подкормки',
+                },
+                {
+                    name: 'Аптечка',
                 },
             ];
+        +category-popular(categoryPopular)
 
 
 
