@@ -1,0 +1,61 @@
+// Пример скриптов для бэка
+script.
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Кнопка +
+        const basketPlus = document.querySelectorAll('.js-basket-plus');
+        basketPlus.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parent = btn.closest('.catalog-list__basket');
+                if (parent !== null && parent !== undefined) {
+                    parent.classList.add('active');
+                    const counter = parent.querySelector('[data-count]');
+                    if (counter !== null && counter !== undefined) {
+                        let count = Number(counter.getAttribute('data-count'));
+                        const step = Number(counter.getAttribute('data-step'));
+                        const max = Number(counter.getAttribute('data-max'));
+
+                        count += step;
+                        counter.setAttribute('data-count', String(count));
+
+                        if (count + step <= max) {
+                            btn.removeAttribute('disabled');
+                        } else {
+                            btn.setAttribute('disabled', 'disabled');
+                        }
+
+                        const btnMinus = parent.querySelector('.catalog-counter .js-basket-minus');
+                        btnMinus?.removeAttribute('disabled');
+                    }
+                }
+            });
+        });
+
+        // Кнопка -
+        const basketMinus = document.querySelectorAll('.js-basket-minus');
+        basketMinus.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parent = btn.closest('.catalog-list__basket');
+                if (parent !== null && parent !== undefined) {
+                    const counter = parent.querySelector('[data-count]');
+                    if (counter !== null && counter !== undefined) {
+                        let count = Number(counter.getAttribute('data-count'));
+                        const step = Number(counter.getAttribute('data-step'));
+
+                        count -= step;
+                        counter.setAttribute('data-count', String(count));
+
+                        if (count <= 0) {
+                            btn.setAttribute('disabled', 'disabled');
+                            parent.classList.remove('active');
+                        }
+
+                        const btnPlus = parent.querySelector('.catalog-counter .js-basket-plus');
+                        btnPlus?.removeAttribute('disabled');
+                    }
+                }
+            });
+        });
+    });
