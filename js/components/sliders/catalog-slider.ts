@@ -20,6 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     '.swiper-button-catalog.swiper-button-prev'
                 ),
             },
+            on: {
+                setTranslate(swiper: any, translate: any) {
+                    const wrapper = slider.querySelector(
+                        '.swiper-wrapper'
+                    ) as HTMLElement;
+                    if (
+                        wrapper !== undefined &&
+                        wrapper !== null &&
+                        !document.body.classList.contains('modal-show')
+                    ) {
+                        wrapper.style.marginLeft = `${translate}px`;
+                    }
+                },
+            },
         });
     });
 });

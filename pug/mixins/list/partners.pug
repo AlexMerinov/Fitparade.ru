@@ -1,0 +1,14 @@
+mixin partners-list(items)
+    div(class="mb-xl partners-list wrapper__wide")
+        div(class="wrapper__page")
+            div(class="swiper-container")
+                div(class="swiper js-slider-partners")
+                    div(class="swiper-wrapper")
+                        each item, index in items
+                            -
+                                const {
+                                    img,
+                                } = item;
+                            div(class="partners-list__item swiper-slide")
+                                a(href="#" class="partners-list__link" target="_blank")
+                                    img(src=img class="partners-list__img" alt="" width="300" height="300")

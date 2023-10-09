@@ -1,7 +1,7 @@
 extends ./_layout
 include ./mixins/list/slider-main
 include ./mixins/list/category-popular
-include ./mixins/list/catalog-list
+include ./mixins/list/partners
 
 block content
 
@@ -92,447 +92,64 @@ block content
         +category-popular(categoryPopular)
 
         h2 Новинки
+        include ./blocks/catalog-list
+
+
         -
-            const categoryNew = [
+            const partners = [
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: ['36','37','38','39','40','41','42','43','44','45','46','47'],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#BA2121',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#FFFFFF',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#374772',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-1.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: [],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-2.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47'],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#BA2121',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#FFFFFF',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#374772',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-3.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: [],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-4.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47'],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#BA2121',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#FFFFFF',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#374772',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-5.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: [],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-6.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47'],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#BA2121',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#FFFFFF',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#374772',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-7.png',
                 },
                 {
-                    name: 'Сапоги зимние Narvik, Euroriding Германия Сапоги зимние Narvik, Euroriding Германия',
-                    price: '53 678 ₽',
-                    price_old: '67 680 ₽',
-                    sizes: [],
-                    labels: [
-                        {
-                            name: 'New',
-                            color: 'gray',
-                        },
-                        {
-                            name: 'Top',
-                            color: 'black',
-                        },
-                        {
-                            name: '-15%',
-                            color: 'red',
-                        }
-                    ],
-                    colors: [
-                        {
-                            hex: '#1A1A1A',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#805137',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        },
-                        {
-                            hex: '#E0C785',
-                            photos: [
-                                'images/content/product-color-1-1.jpg',
-                                'images/content/product-color-1-2.jpg',
-                            ]
-                        }
-                    ]
+                    img: 'images/content/partner-8.png',
+                },
+                {
+                    img: 'images/content/partner-1.png',
+                },
+                {
+                    img: 'images/content/partner-2.png',
+                },
+                {
+                    img: 'images/content/partner-3.png',
+                },
+                {
+                    img: 'images/content/partner-4.png',
+                },
+                {
+                    img: 'images/content/partner-5.png',
+                },
+                {
+                    img: 'images/content/partner-6.png',
+                },
+                {
+                    img: 'images/content/partner-7.png',
+                },
+                {
+                    img: 'images/content/partner-8.png',
                 },
             ];
-        +catalog-list(categoryNew)
+        +partners-list(partners)
 
+        h2 Популярное
+        include ./blocks/catalog-list
 
 
 

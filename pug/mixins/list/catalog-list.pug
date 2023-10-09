@@ -2,7 +2,7 @@ mixin catalog-list(items)
     div(class="swiper-container mb-xl")
         div(class="swiper catalog-list js-slider-catalog")
             div(class="swiper-wrapper")
-                each item, index in items
+                each item, indexProduct in items
                     -
                         const {
                             name,
@@ -13,51 +13,68 @@ mixin catalog-list(items)
                             colors,
                         } = item;
                     div(class="catalog-list__item swiper-slide" data-catalog-size=(sizes.length>0 ? "true" : "false"))
-                        if labels.length>0
-                            div(class="catalog-labels")
-                                each item, index in labels
-                                    div(class="catalog-labels__item catalog-labels__item--"+item.color)
-                                        !=item.name
+                        div(class="catalog-list__wrapper")
+                            if labels.length>0
+                                div(class="catalog-labels")
+                                    each item, index in labels
+                                        div(class="catalog-labels__item catalog-labels__item--"+item.color)
+                                            !=item.name
 
-                        each item, index in colors
-                            -
-                                const {
-                                    hex,
-                                    photos,
-                                } = item;
-                            a(href="#" class=(index === 0 ? "catalog-list__gallery js-catalog-list-gallery" : "catalog-list__gallery js-catalog-list-gallery hide") data-src-bg=photos[0] data-index=index)
-                                each item, index in photos
-                                    span(class=(index === 0 ? "catalog-list__gallery__item active" : "catalog-list__gallery__item") data-img=item)
-
-                        if colors.length>1
-                            div(class="swiper-container catalog-colors")
-                                div(class="swiper-button-vertical-smaller swiper-button-prev")
-                                    +icon-sym('arr-slider')
-                                div(class="swiper js-catalog-colors-slider")
-                                    div(class="swiper-wrapper")
-                                        each item, index in colors
-                                            div(class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change") style="--catalog-color:"+item.hex data-color-white=(item.hex === '#FFFFFF' ? "true" : "false") data-index=index)
-                                div(class="swiper-button-vertical-smaller swiper-button-next")
-                                    +icon-sym('arr-slider')
+                            each item, index in colors
+                                -
+                                    const {
+                                        hex,
+                                        photos,
+                                    } = item;
+                                a(href="#" class=(index === 0 ? "catalog-list__gallery js-catalog-list-gallery" : "catalog-list__gallery js-catalog-list-gallery hide") data-src-bg=photos[0] data-index=index)
+                                    each item, index in photos
+                                        span(class=(index === 0 ? "catalog-list__gallery__item active" : "catalog-list__gallery__item") data-img=item)
 
 
-                        if sizes.length>0
-                            div(class="swiper-container catalog-sizes")
-                                div(class="swiper js-catalog-size-slider")
-                                    div(class="swiper-wrapper")
-                                        each item, index in sizes
-                                            div(class=(index === 0 ? "swiper-slide catalog-sizes__item active" : "swiper-slide catalog-sizes__item") )
-                                                != item
-                                div(class="swiper-button-smaller swiper-button-prev")
-                                    +icon-sym('arr-slider')
-                                div(class="swiper-button-smaller swiper-button-next")
-                                    +icon-sym('arr-slider')
+
+                        div(class="catalog-list__modal" aria-hidden="true")
+                            div(class="catalog-list__modal__bg js-modal-catalog-hide")
+                            div(class="catalog-list__modal__wrapper")
+                                div(class="modal__close catalog-list__modal__close js-modal-catalog-hide")
+
+                                if sizes.length>0
+                                    div(class="catalog-list__modal__caption") Выберите размер
+                                    div(class="swiper-container catalog-sizes")
+                                        div(class="swiper js-catalog-size-slider")
+                                            div(class="swiper-wrapper")
+                                                each item, index in sizes
+                                                    div(class=(index === 0 ? "swiper-slide catalog-sizes__item active" : "swiper-slide catalog-sizes__item") )
+                                                        != item
+                                        div(class="swiper-button-smaller swiper-button-prev")
+                                            +icon-sym('arr-slider')
+                                        div(class="swiper-button-smaller swiper-button-next")
+                                            +icon-sym('arr-slider')
+
+                                if colors.length > 1
+                                    div(class="catalog-list__modal__caption") Выберите цвет
+                                    div(class="swiper-container catalog-colors")
+                                        div(class="swiper-button-vertical-smaller swiper-button-prev")
+                                            +icon-sym('arr-slider')
+                                        div(class="swiper js-catalog-colors-slider")
+                                            div(class="swiper-wrapper")
+                                                each item, index in colors
+                                                    div(class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change") style="--catalog-color:" + item.hex data-color-white=(item.hex === '#FFFFFF' ? "true" : "false") data-index=index)
+                                        div(class="swiper-button-vertical-smaller swiper-button-next")
+                                            +icon-sym('arr-slider')
+
+                                div(class="catalog-list__basket" data-product-id=indexProduct)
+                                    div(class="btn btn--cart js-basket-plus" data-product-id=indexProduct)
+                                        +icon-sym('cart')
+                                        +icon-sym('cart-check')
+                                        span(class="btn__text")
+                                            | В корзину
+                                    div(class="catalog-counter")
+                                        div(class="catalog-counter__btn js-basket-minus" data-product-id=indexProduct) &minus;
+                                        div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=indexProduct)
+                                        div(class="catalog-counter__btn js-basket-plus" data-product-id=indexProduct) &plus;
 
                         a(href="#" class="catalog-list__name")
                             !=name
-
-
-
 
                         div(class="catalog-list__bottom")
                             div(class="catalog-list__price")
@@ -65,16 +82,11 @@ mixin catalog-list(items)
                                 if price_old
                                     s
                                         !=price_old
-                            div(class="catalog-list__basket")
-                                div(class="btn btn--cart js-basket-plus")
+                            div(class="catalog-list__basket catalog-list__basket--modal js-modal-catalog-show js-basket-plus" data-product-id=indexProduct)
+                                div(class="btn btn--cart")
                                     +icon-sym('cart')
                                     +icon-sym('cart-check')
-                                    span(class="btn__text")
-                                        | В корзину
-                                div(class="catalog-counter")
-                                    div(class="catalog-counter__btn js-basket-minus") &minus;
-                                    div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5")
-                                    div(class="catalog-counter__btn js-basket-plus") &plus;
+
 
         div(class="swiper-button-catalog swiper-button-prev")
             +icon-sym('arr-slider')

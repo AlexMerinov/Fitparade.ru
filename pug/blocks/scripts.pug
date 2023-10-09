@@ -3,12 +3,13 @@ script.
     document.addEventListener('DOMContentLoaded', () => {
 
         // Кнопка +
-        const basketPlus = document.querySelectorAll('.js-basket-plus');
-        basketPlus.forEach((btn) => {
-            btn.addEventListener('click', (e) => {
+        document.body.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('js-basket-plus') || e.target.closest('.js-basket-plus')){
                 e.preventDefault();
-                const parent = btn.closest('.catalog-list__basket');
-                if (parent !== null && parent !== undefined) {
+                const btn = e.target.classList.contains('js-basket-plus') ? e.target : e.target.closest('.js-basket-plus');
+                const productId = btn?.getAttribute('data-product-id');
+                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"]');
+                parents.forEach((parent)=>{
                     parent.classList.add('active');
                     const counter = parent.querySelector('[data-count]');
                     if (counter !== null && counter !== undefined) {
@@ -17,45 +18,62 @@ script.
                         const max = Number(counter.getAttribute('data-max'));
 
                         count += step;
-                        counter.setAttribute('data-count', String(count));
+
+                        const btnPlus = parent.querySelector('.catalog-counter .js-basket-plus');
 
                         if (count + step <= max) {
-                            btn.removeAttribute('disabled');
+                            btnPlus?.removeAttribute('disabled');
                         } else {
-                            btn.setAttribute('disabled', 'disabled');
+                            btnPlus?.setAttribute('disabled', 'disabled');
+                        }
+
+                        if (count > max){
+                            count = max;
                         }
 
                         const btnMinus = parent.querySelector('.catalog-counter .js-basket-minus');
                         btnMinus?.removeAttribute('disabled');
+
+                        counter.setAttribute('data-count', String(count));
                     }
-                }
-            });
+                })
+            }
         });
 
         // Кнопка -
-        const basketMinus = document.querySelectorAll('.js-basket-minus');
-        basketMinus.forEach((btn) => {
-            btn.addEventListener('click', (e) => {
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('js-basket-minus') || e.target.closest('.js-basket-minus')) {
                 e.preventDefault();
-                const parent = btn.closest('.catalog-list__basket');
-                if (parent !== null && parent !== undefined) {
+                const btn = e.target.classList.contains('js-basket-minus') ? e.target : e.target.closest('.js-basket-minus');
+                const productId = btn?.getAttribute('data-product-id');
+                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"]');
+                parents.forEach((parent)=>{
                     const counter = parent.querySelector('[data-count]');
                     if (counter !== null && counter !== undefined) {
                         let count = Number(counter.getAttribute('data-count'));
                         const step = Number(counter.getAttribute('data-step'));
 
                         count -= step;
-                        counter.setAttribute('data-count', String(count));
+
+                        const btnMinus = parent.querySelector('.catalog-counter .js-basket-minus');
 
                         if (count <= 0) {
-                            btn.setAttribute('disabled', 'disabled');
-                            parent.classList.remove('active');
+                            btnMinus?.setAttribute('disabled', 'disabled');
+
+                            count = 0;
+
+                            parents.forEach((parent)=>{
+                                parent.classList.remove('active');
+                            });
                         }
 
                         const btnPlus = parent.querySelector('.catalog-counter .js-basket-plus');
                         btnPlus?.removeAttribute('disabled');
+
+                        counter.setAttribute('data-count', String(count));
                     }
-                }
-            });
+                })
+            }
         });
+
     });

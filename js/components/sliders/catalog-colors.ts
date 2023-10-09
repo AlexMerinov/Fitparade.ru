@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 300,
             loop: false,
             grabCursor: true,
-            direction: 'vertical',
+            direction: 'horizontal',
+            observeParents: true,
             navigation: {
                 nextEl: slider.parentElement?.querySelector(
                     '.swiper-button-next'
@@ -20,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevEl: slider.parentElement?.querySelector(
                     '.swiper-button-prev'
                 ),
+            },
+            breakpoints: {
+                // when window width is >= 320px
+                1280: {
+                    direction: 'vertical',
+                },
             },
         });
     });

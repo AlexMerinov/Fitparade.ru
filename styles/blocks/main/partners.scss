@@ -1,0 +1,44 @@
+.partners-list{
+	background: var(--black);
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	.swiper-container{
+		margin: 0 -30px;
+		@include maxBp($bp-1280){
+			margin: 0 -15px;
+		}
+	}
+	.swiper{
+		overflow: visible;
+	}
+	.swiper-wrapper{
+		align-items: center;
+	}
+	&__item{
+		width: auto;
+		margin: 0 30px;
+		height: 150px;
+		align-items: center;
+		display: flex;
+		@include maxBp($bp-1280){
+			margin: 0 15px;
+			height: 100px;
+		}
+	}
+	&__link{
+		border: none;
+	}
+	&__img{
+		width: auto;
+		height: auto;
+		max-width: 150px;
+		max-height: 150px;
+		vertical-align: middle;
+		@include maxBp($bp-1280){
+			max-height: 100px;
+		}
+	}
+}

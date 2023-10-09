@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 300,
             loop: false,
             grabCursor: true,
+            observeParents: true,
             navigation: {
                 nextEl: slider.parentElement?.querySelector(
                     '.swiper-button-next'
