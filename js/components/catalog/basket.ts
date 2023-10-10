@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.setAttribute('aria-hidden', 'false');
 
                 winTop = window.scrollY;
-                document.body.classList.add('modal-show');
+                document.body.classList.add('catalog-modal-show');
                 document.body.style.top = `-${winTop}px`;
                 document.body.style.setProperty('--wintop', `${winTop}px`);
             }
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 catalogList !== undefined &&
                 catalogList !== null
             ) {
-                document.body.classList.remove('modal-show');
+                document.body.classList.remove('catalog-modal-show');
                 window.scroll(0, winTop);
                 document.body.style.removeProperty('top');
                 document.body.style.removeProperty('--wintop');

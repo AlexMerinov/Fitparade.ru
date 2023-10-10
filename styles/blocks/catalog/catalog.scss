@@ -614,3 +614,18 @@
 		}
 	}
 }
+
+.catalog-modal-show {
+	@include maxBp($bp-1280){
+		padding-right: var(--scroll-width);
+		position: fixed !important;
+		overflow: hidden;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		.header {
+			max-width: calc(100% - var(--scroll-width));
+		}
+	}
+}

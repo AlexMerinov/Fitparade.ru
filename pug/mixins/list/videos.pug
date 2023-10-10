@@ -1,0 +1,36 @@
+mixin videos-list(items)
+    section(class="videos-section wrapper__wide mb-xl")
+
+        each item, index in items
+            -
+                const {
+                    name,
+                    img,
+                    img_full,
+                    id,
+                } = item;
+            if index == 0
+                div(class="videos-full js-video-link" data-youtube-id=id)
+                    div(class="videos-full__preview" data-src-bg=img_full)
+                        +icon-sym('play')
+
+        div(class="wrapper__page")
+            div(class="swiper-container videos-list")
+                div(class="swiper js-slider-videos")
+                    div(class="swiper-wrapper")
+                        each item, index in items
+                            -
+                                const {
+                                    name,
+                                    img,
+                                    img_full,
+                                    id,
+                                } = item;
+                            div(class=(index == 0 ? "videos-list__item swiper-slide active" : "videos-list__item swiper-slide") data-youtube-id=id)
+                                div(class="videos-list__preview" data-src-bg=img)
+                                    +icon-sym('play')
+                                != name
+                div(class="swiper-button-prev")
+                    +icon-sym('arr-slider')
+                div(class="swiper-button-next")
+                    +icon-sym('arr-slider')

@@ -2,6 +2,7 @@ extends ./_layout
 include ./mixins/list/slider-main
 include ./mixins/list/category-popular
 include ./mixins/list/partners
+include ./mixins/list/videos
 
 block content
 
@@ -149,6 +150,47 @@ block content
         +partners-list(partners)
 
         h2 Популярное
+        include ./blocks/catalog-list
+
+
+        -
+            const videos = [
+                {
+                    name: 'Технология спорта — это крупнейшая сеть магазинов для конного спорта в России.',
+                    img: 'images/content/video-1.jpg',
+                    img_full: 'images/content/video-1-full.jpg',
+                    id: '2jx21AN8OLA',
+                },
+                {
+                    name: 'Как правильно ухаживать за седлом?',
+                    img: 'images/content/video-2.jpg',
+                    id: 'ab3ooWGqd0Y',
+                },
+                {
+                    name: 'Давит ли седло на лошадь?',
+                    img: 'images/content/video-3.jpg',
+                    id: 'G5fqTm9ECxo',
+                },
+                {
+                    name: 'Про Амортизаторы',
+                    img: 'images/content/video-4.jpg',
+                    id: '-Bmtf69aJjQ',
+                },
+                {
+                    name: 'Всё о сёдлах: широко или узко',
+                    img: 'images/content/video-5.jpg',
+                    id: 'd9cTDEY2L7U',
+                },
+                {
+                    name: 'Всё о сёдлах: ленчик',
+                    img: 'images/content/video-6.jpg',
+                    id: 'HL3X9k8rE_c',
+                },
+            ];
+        +videos-list(videos)
+
+
+        h2 Скидки
         include ./blocks/catalog-list
 
 
