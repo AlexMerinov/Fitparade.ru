@@ -1,16 +1,17 @@
-export function animate(timing: any, draw: any, duration: any) {
+// export function animate(timing: any, draw: any, duration: any) {
+export function animate(animateObj: any) {
     const start = performance.now();
 
     // eslint-disable-next-line @typescript-eslint/no-shadow
     requestAnimationFrame(function animate(time) {
         // timeFraction goes from 0 to 1
-        let timeFraction = (time - start) / duration;
+        let timeFraction = (time - start) / animateObj.duration;
         if (timeFraction > 1) timeFraction = 1;
 
         // calculate the current animation state
-        const progress = timing(timeFraction);
+        const progress = animateObj.timing(timeFraction);
 
-        draw(progress); // draw it
+        animateObj.draw(progress); // draw it
 
         if (timeFraction < 1) {
             requestAnimationFrame(animate);

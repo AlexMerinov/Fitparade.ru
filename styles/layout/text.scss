@@ -19,11 +19,30 @@
 		height: 13px;
 	}
 }
+
+.link-white-opacity{
+	color: var(--white);
+	border: none;
+	opacity: 0.8;
+	&:hover{
+		color: var(--white);
+		opacity: 1;
+	}
+}
+
 .link-gray{
 	color: var(--gray-800);
 	border: none;
 	&:hover{
 		color: var(--green);
+	}
+}
+.link-gray-light{
+	color: var(--gray-500);
+	border-bottom-color: var(--gray-500);
+	&:hover{
+		color: var(--white);
+		border-bottom-color: transparent;
 	}
 }
 

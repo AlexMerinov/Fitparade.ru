@@ -70,10 +70,10 @@ export function slideToggle(link: any, target: any, duration: any) {
             toggleFlag = true;
         }, duration);
         if (window.getComputedStyle(target).display === 'none') {
-            link.classList.add('show');
+            link.classList.add('show-toggle');
             return slideDown(target, duration);
         }
-        link.classList.remove('show');
+        link.classList.remove('show-toggle');
         return slideUp(target, duration);
     }
 }

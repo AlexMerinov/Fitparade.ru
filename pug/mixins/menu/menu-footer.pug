@@ -1,0 +1,55 @@
+mixin menu-footer-list(items)
+    section(class="footer-menu")
+        ul
+            each item, index in items
+                -
+                    const {
+                        name,
+                        url,
+                        items,
+                    } = item;
+                if index == 0
+                    li
+                        a(href=url + '.html' class="footer-menu__name js-menu-toggle")
+                            if items
+                                +icon-sym('arr-down')
+                            != name
+
+                        if items
+                            ul
+                                each item in items
+                                    -
+                                        const {
+                                            name,
+                                            url,
+                                        } = item;
+                                    li
+                                        a(href=url + '.html' class=(page === url ? "active" : ""))
+                                            != name
+
+        ul
+            each item, index in items
+                -
+                    const {
+                        name,
+                        url,
+                        items,
+                    } = item;
+                if index > 0
+                    li
+                        a(href=url + '.html' class="footer-menu__name js-menu-toggle")
+                            if items
+                                +icon-sym('arr-down')
+                            != name
+
+                        if items
+                            ul
+                                each item in items
+                                    -
+                                        const {
+                                            name,
+                                            url,
+                                        } = item;
+                                    li
+                                        a(href=url + '.html' class=(page === url ? "active" : ""))
+                                            != name

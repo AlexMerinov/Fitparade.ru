@@ -13,21 +13,22 @@ export default function ScrollToAnchor(blockid: any, blocksep: any) {
         // eslint-disable-next-line no-param-reassign
         blocksep += (<HTMLElement>header).offsetHeight;
     }
+    let thisblocktop = 0;
     if (typeof thisblock !== 'undefined' && thisblock != null) {
-        let thisblocktop =
+        thisblocktop =
             thisblock.getBoundingClientRect().top + wintop - blocksep;
-
         if (thisblocktop < 0) {
             thisblocktop = 0;
         }
-        // @ts-ignore
-        animate({
-            duration: 700,
-            timing: makeEaseOut(circ),
-            draw(progress: any) {
-                const scrollto = (thisblocktop - wintop) * progress + wintop;
-                window.scrollTo(0, scrollto);
-            },
-        });
     }
+
+    // @ts-ignore
+    animate({
+        duration: 700,
+        timing: makeEaseOut(circ),
+        draw(progress: any) {
+            const scrollto = (thisblocktop - wintop) * progress + wintop;
+            window.scrollTo(0, scrollto);
+        },
+    });
 }

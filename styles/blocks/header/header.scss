@@ -626,7 +626,7 @@
 		border: none;
 		&:hover{
 			.icon-sym{
-				fill: var(--green);
+				fill: var(--color-hover);
 			}
 		}
 		.icon-sym{
@@ -638,6 +638,22 @@
 		.icon-sym--yt{
 			width: 24px;
 			height: 24px;
+		}
+	}
+	&--footer{
+		--black: var(--white);
+		justify-content: flex-end;
+		margin: 30px 0;
+		@include maxBp($bp-768){
+			justify-content: flex-start;
+		}
+		.icon-sym{
+			width: 18px;
+			height: 18px;
+		}
+		.icon-sym--yt{
+			width: 16px;
+			height: 16px;
 		}
 	}
 }
@@ -713,3 +729,4 @@
 		}
 	}
 }
+

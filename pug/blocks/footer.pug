@@ -1,3 +1,144 @@
+include ../mixins/menu/menu-footer
 footer(class="footer")
     div(class="wrapper__page")
-        | Footer
+        div(class="footer__top")
+            div(class="footer-logo")
+                img(src="images/logo.svg" alt="" width="74" height="53" class="footer-logo__img")
+                span(class="footer-logo__text")
+                    span(class="footer-logo__caption") Первый в России
+                    span(class="footer-logo__description") «Технология спорта» — это крупнейшая сеть магазинов для конного спорта в России
+            a(href="#top" class="btn btn--white footer-top-link js-anchor")
+                +icon-sym('arr-slider')
+
+            div(class="footer-menu-wrapper")
+
+                -
+                    const menuFooter = [
+                        {
+                            name: 'Каталог',
+                            url: '#',
+                            items: [
+                                {
+                                    name: 'Для всадника',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Для лошади',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Для собаки',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'В конюшню',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Сувениры',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Литература',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Товары на комиссии',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Распродажа',
+                                    url: '#',
+                                },
+                            ]
+                        },
+                        {
+                            name: 'О компании',
+                            url: '#',
+                            items: [
+                                {
+                                    name: 'О компании',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Вакансии',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Магазины',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Блог',
+                                    url: '#',
+                                },
+                            ]
+                        },
+                        {
+                            name: 'Полезная информация',
+                            url: '#',
+                            items: [
+                                {
+                                    name: 'Оплата и доставка',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Гарантия на товар',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Возврат',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Политика',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Бренды',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Статьи и обзоры',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Вопрос-ответ',
+                                    url: '#',
+                                },
+                                {
+                                    name: 'Помощь покупателям',
+                                    url: '#',
+                                },
+                            ]
+                        },
+                    ]
+                +menu-footer-list(menuFooter)
+
+                div(class="footer-contacts")
+                    a(href="tel:+7 (495) 139-66-00" class="link-white-opacity link-white") +7 (495) 139-66-00
+                    div(class="header-social header-social--footer")
+                        a(href="https://vk.com/" target="_blank" rel="nofollow" class="header-social__link" style="--color-hover:#4680c2")
+                            +icon-sym('vk')
+                        a(href="https://www.youtube.com/" target="_blank" rel="nofollow" class="header-social__link" style="--color-hover:#c4302b")
+                            +icon-sym('yt')
+                    a(href="#" class="btn btn--small btn--white" data-micromodal="modal-feedback") обратный звонок
+        div(class="footer__bottom")
+            div(class="footer__bottom__item")
+                | 2023 &copy; Технология спорта
+            div(class="footer__bottom__item")
+                a(href="#" class="link-gray-light") Политика конфиденциальности
+            div(class="footer__bottom__item")
+                a(href="#" class="link-gray-light") Оферта
+            div(class="footer__bottom__item")
+                | Создание сайта:
+                a(href="https://adn.agency/" class="link-gray-light" target="_blank") ADN
+            div(class="footer__bottom__item footer-pay-icons")
+                div(class="icon-mir")
+                div(class="icon-sber")
+                div(class="icon-ym")
+                div(class="icon-qiwi")
+                div(class="icon-visa")
+                div(class="icon-master")
+                div(class="icon-maestro")
+                div(class="icon-union")

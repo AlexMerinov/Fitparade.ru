@@ -193,5 +193,34 @@ block content
         h2 Скидки
         include ./blocks/catalog-list
 
+        section(class="wrapper__wide main-about")
+            div(class="main-about__item main-about__item--photo" data-src-bg="images/content/main-about.jpg")
+            div(class="main-about__item main-about__item--discount" data-src-bg="images/content/main-about-mobile.jpg")
+                div(class="main-about__discount")
+                    | До <strong>15%</strong> скидка<br> в категории для детей
+                    div(class="main-about__discount__btn")
+                        a(href="#" class="btn btn--big btn--green-border btn--mob-100") Узнать больше
+            div(class="main-about__item main-about__item--text")
+                h3 «Технология спорта» — это крупнейшая сеть магазинов для конного спорта в России
+                p Наш ассортимент включает всё, что нужно спортсмену и владельцу лошади, от самых простых ежедневных мелочей до профессионального, высокотехнологичного, элитного снаряжения и экипировки. Мы предлагаем полный спектр услуг по подбору и обслуживанию седел, купленных в нашем магазине, заказ любых товаров по желанию наших взыскательных клиентов и стараемся предоставлять максимальный уровень сервиса.
+            div(class="main-about__item article__bottom")
+                ul(class="main-benefits")
+                    li(class="main-benefits__item")
+                        div(class="main-benefits__img")
+                            img(data-src="images/content/b-1.svg" class="main-benefits__ico" alt="")
+                        | Доставка по всей России
+                    li(class="main-benefits__item")
+                        div(class="main-benefits__img")
+                            img(data-src="images/content/b-2.svg" class="main-benefits__ico" alt="")
+                        | Возможность примерки при доставке
+                    li(class="main-benefits__item")
+                        div(class="main-benefits__img")
+                            img(data-src="images/content/b-3.svg" class="main-benefits__ico" alt="")
+                        | Удобные способы оплаты
+                    li(class="main-benefits__item")
+                        div(class="main-benefits__img")
+                            img(data-src="images/content/b-4.svg" class="main-benefits__ico" alt="")
+                        | Консультация профессионала онлайн
+
 
 

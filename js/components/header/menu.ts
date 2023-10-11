@@ -51,14 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // const links = document.querySelectorAll('.js-menu-toggle');
-    // links.forEach((link) => {
-    //     link.addEventListener('click', (e) => {
-    //         if (window.matchMedia('(max-width: 1279px)').matches) {
-    //             e.preventDefault();
-    //             const target = link.nextElementSibling;
-    //             slideToggle(link, target, 300);
-    //         }
-    //     });
-    // });
+    const linksToggle = document.querySelectorAll('.js-menu-toggle');
+    linksToggle.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            // if (window.matchMedia('(max-width: 1279px)').matches) {
+            e.preventDefault();
+            const target = link.nextElementSibling;
+            slideToggle(link, target, 300);
+            // }
+        });
+    });
 });

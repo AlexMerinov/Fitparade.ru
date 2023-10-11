@@ -1,7 +1,6 @@
 h1, .h1 {
 	@include text-h1;
 	margin-bottom: var(--space-s);
-
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -17,8 +16,7 @@ h2, .h2 {
 
 h3, .h3 {
 	@include text-h3;
-	margin-bottom: var(--space-2xs);
-
+	margin-bottom: var(--space-xs);
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -27,7 +25,6 @@ h3, .h3 {
 h4, .h4 {
 	@include text-h4;
 	margin-bottom: var(--space-2xs);
-
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -36,7 +33,6 @@ h4, .h4 {
 h5, .h5 {
 	@include text-h5;
 	margin-bottom: var(--space-2xs);
-
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -45,7 +41,6 @@ h5, .h5 {
 h6, .h6 {
 	@include text-h6;
 	margin-bottom: var(--space-2xs);
-
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -54,7 +49,6 @@ h6, .h6 {
 p, .p {
 	padding: 0;
 	margin: 0 0 var(--space-xs) 0;
-
 	&:last-child {
 		margin-bottom: 0;
 	}

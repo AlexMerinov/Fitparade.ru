@@ -74,6 +74,9 @@ body {
             padding-top: 70px;
         }
     }
+    &__bottom{
+        margin-bottom: calc(-1*var(--space-m));
+    }
 }
 
 .fade-in{

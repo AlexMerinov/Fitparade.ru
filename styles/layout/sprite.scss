@@ -1,4 +1,33 @@
-.icon{
-  display: inline-block;
-  vertical-align: middle;
+.icon {
+	display: inline-block;
+	vertical-align: middle;
 }
+.icon-mir {
+	@include svg-pay-mir;
+}
+.icon-sber {
+	@include svg-pay-sber;
+}
+.icon-mir {
+	@include svg-pay-mir;
+}
+.icon-ym {
+	@include svg-pay-ym;
+}
+.icon-qiwi {
+	@include svg-pay-qiwi;
+}
+.icon-visa {
+	@include svg-pay-visa;
+}
+.icon-master {
+	@include svg-pay-master;
+}
+.icon-maestro {
+	@include svg-pay-maestro;
+}
+.icon-union {
+	@include svg-pay-union;
+}
+
+

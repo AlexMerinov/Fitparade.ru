@@ -50,9 +50,34 @@
 		background: var(--green);
 		color: var(--white);
 	}
+	&--green-border{
+		border-color: var(--green);
+		color: var(--green);
+	}
+
+	&--big{
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: 1px;
+		min-width: 280px;
+	}
+	&--small{
+		padding: 8px 17px 9px 17px;
+		@include maxBp($bp-768){
+			padding: 8px 17px 9px 17px;
+		}
+	}
+
 	&--100 {
 		width: 100%;
 		text-align: center;
+	}
+	&--mob-100{
+		@include maxBp($bp-500){
+			width: 100%;
+		}
 	}
 	&[disabled],&--disabled{
 		opacity: 0.5;
@@ -134,5 +159,11 @@
 			}
 		}
 
+	}
+	&--white{
+		--black:var(--white);
+		&:hover{
+			color: $black;
+		}
 	}
 }
