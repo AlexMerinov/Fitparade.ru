@@ -1,0 +1,30 @@
+.breads{
+	@include reset-list;
+	margin: 0 0 25px 0;
+	&__item{
+		display: inline-block;
+		vertical-align: top;
+		font-size: 14px;
+		line-height: 120%;
+		letter-spacing: 0.42px;
+		color: var(--gray-600);
+		&:after{
+			content: ' /';
+			padding: 0 7px;
+			color: transparentize($black,0.1);
+		}
+		&:last-child{
+			&:after{
+				display: none;
+			}
+		}
+	}
+	&__link{
+		color: transparentize($black,0.1);
+		border: none;
+		&:hover{
+			color: var(--green);
+		}
+
+	}
+}

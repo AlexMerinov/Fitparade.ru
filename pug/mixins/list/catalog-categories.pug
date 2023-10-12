@@ -1,0 +1,32 @@
+mixin catalog-categories(items)
+    ul(class="catalog-categories")
+        each item in items
+            -
+                const {
+                    name,
+                    img,
+                    items,
+                } = item;
+            li
+                != name
+                div(
+                    data-src-bg=img
+                    class="catalog-categories__items"
+                    class=(items.length > 15 ? 'catalog-categories__items--15' : '')
+                    class=(items.length > 10 && items.length <= 15 ? 'catalog-categories__items--10' : '')
+                    class=(items.length > 5 && items.length <= 10 ? 'catalog-categories__items--5' : '')
+                    )
+                    div(class="catalog-categories__name")
+                        a(href="#")
+                            != name
+                    ul
+                        each item in items
+                            -
+                                const {
+                                    name,
+                                } = item;
+                            li
+                                a(href="#")
+                                    != name
+                    div(class="catalog-categories__ico")
+                        +icon-sym('horse')

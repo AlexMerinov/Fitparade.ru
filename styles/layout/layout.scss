@@ -69,9 +69,9 @@ body {
     @include animation(fadeIn 0.3s var(--cubic));
     padding-bottom: var(--space-m);
     &__top{
-        padding-top: 108px;
+        padding-top: 138px;
         @include maxBp($bp-1280){
-            padding-top: 70px;
+            padding-top: 90px;
         }
     }
     &__bottom{

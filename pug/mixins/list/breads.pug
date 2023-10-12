@@ -1,0 +1,14 @@
+mixin breads-list(items)
+    ul(class="breads")
+        each item, index in items
+            -
+                const {
+                    name,
+                    url,
+                } = item;
+            li(class="breads__item")
+                if url
+                    a(href=url class="breads__link")
+                        !=name
+                else
+                    !=name

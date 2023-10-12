@@ -1,7 +1,7 @@
 mixin catalog-list(items)
-    div(class="swiper-container mb-xl")
-        div(class="swiper catalog-list js-slider-catalog")
-            div(class="swiper-wrapper")
+    div(class=(!catalogSliderDisable ? "swiper-container mb-xl" : ""))
+        div(class=(!catalogSliderDisable ? "swiper catalog-list js-slider-catalog" : "") )
+            div(class=(!catalogSliderDisable ? "swiper-wrapper" : "catalog-list") )
                 each item, indexProduct in items
                     -
                         const {
@@ -87,8 +87,8 @@ mixin catalog-list(items)
                                     +icon-sym('cart')
                                     +icon-sym('cart-check')
 
-
-        div(class="swiper-button-catalog swiper-button-prev")
-            +icon-sym('arr-slider')
-        div(class="swiper-button-catalog swiper-button-next")
-            +icon-sym('arr-slider')
+        if !catalogSliderDisable
+            div(class="swiper-button-catalog swiper-button-prev")
+                +icon-sym('arr-slider')
+            div(class="swiper-button-catalog swiper-button-next")
+                +icon-sym('arr-slider')

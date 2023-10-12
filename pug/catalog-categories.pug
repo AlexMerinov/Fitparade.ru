@@ -1,0 +1,271 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/list/catalog-categories
+
+block vars
+    -
+        page = 'catalog-categories'
+
+block content
+
+
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Каталог',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Каталог
+
+        -
+            const catalogCategories = [
+                {
+                    name: 'Для всадника',
+                    img: 'images/content/catalog-category-1.jpg',
+                    items: [
+                        {
+                            name: 'Для женщин',
+                        },
+                        {
+                            name: 'Для мужчин',
+                        },
+                        {
+                            name: 'Для детей',
+                        },
+                        {
+                            name: 'Обувь',
+                        },
+                        {
+                            name: 'Головные уборы',
+                        },
+                        {
+                            name: 'Хлысты',
+                        },
+                        {
+                            name: 'Носки и гольфы',
+                        },
+                        {
+                            name: 'Перчатки',
+                        },
+                        {
+                            name: 'Шпоры',
+                        },
+                        {
+                            name: 'Сумки и чехлы',
+                        },
+                        {
+                            name: 'Ремни и очки',
+                        },
+                        {
+                            name: 'Защита',
+                        },
+                    ]
+                },
+                {
+                    name: 'Для собаки',
+                    img: 'images/content/catalog-category-3.jpg',
+                    items: [
+                        {
+                            name: 'Одежда',
+                        },
+                        {
+                            name: 'Попоны',
+                        },
+                        {
+                            name: 'Лежаки',
+                        },
+                        {
+                            name: 'Игрушки',
+                        },
+                        {
+                            name: 'Ошейники',
+                        },
+                        {
+                            name: 'Поводки',
+                        },
+                    ]
+                },
+                {
+                    name: 'В конюшню',
+                    img: 'images/content/catalog-category-4.jpg',
+                    items: [
+                        {
+                            name: 'Кормушки и поилки',
+                        },
+                        {
+                            name: 'Инвентарь',
+                        },
+                        {
+                            name: 'Хранение',
+                        },
+                        {
+                            name: 'Держатели и подставки',
+                        },
+                        {
+                            name: 'Аптечка',
+                        },
+                        {
+                            name: 'Манеж',
+                        },
+                        {
+                            name: 'Ковка',
+                        },
+                    ]
+                },
+                {
+                    name: 'Для лошади',
+                    img: 'images/content/catalog-category-2.jpg',
+                    items: [
+                        {
+                            name: 'Бандажи',
+                        },
+                        {
+                            name: 'Игрушки',
+                        },
+                        {
+                            name: 'Попоны',
+                        },
+                        {
+                            name: 'Защита для ног',
+                        },
+                        {
+                            name: 'Косметика',
+                        },
+                        {
+                            name: 'Вальтрапы и ушки',
+                        },
+                        {
+                            name: 'Гели и амортизаторы',
+                        },
+                        {
+                            name: 'Дополнительное снаряжение',
+                        },
+                        {
+                            name: 'Железо',
+                        },
+                        {
+                            name: 'Защита от насекомых',
+                        },
+                        {
+                            name: 'Ковка',
+                        },
+                        {
+                            name: 'Корма и подкормки',
+                        },
+                        {
+                            name: 'Недоуздки и чомбура',
+                        },
+                        {
+                            name: 'Подпруги',
+                        },
+                        {
+                            name: 'Пони',
+                        },
+                        {
+                            name: 'Работа на корде',
+                        },
+                        {
+                            name: 'Седла',
+                        },
+                        {
+                            name: 'Скачки',
+                        },
+                        {
+                            name: 'Стремена и путлища',
+                        },
+                        {
+                            name: 'Уздечки и оголовья',
+                        },
+                        {
+                            name: 'Чистка и уход',
+                        },
+                    ]
+                },
+                {
+                    name: 'Сувениры',
+                    img: 'images/content/catalog-category-1.jpg',
+                    items: [
+                        {
+                            name: 'Подарочные карты',
+                        },
+                        {
+                            name: 'Для телефонов и ключей',
+                        },
+                        {
+                            name: 'Для дома',
+                        },
+                        {
+                            name: 'Игрушки',
+                        },
+                        {
+                            name: 'Подарочные карты',
+                        },
+                        {
+                            name: 'Для телефонов и ключей',
+                        },
+                        {
+                            name: 'Для дома',
+                        },
+                        {
+                            name: 'Игрушки',
+                        },
+                    ]
+                },
+                {
+                    name: 'Литература',
+                    img: 'images/content/catalog-category-2.jpg',
+                    items: [
+                        {
+                            name: 'Книги',
+                        },
+                        {
+                            name: 'Журналы',
+                        },
+                    ]
+                },
+                {
+                    name: 'Товары на комиссии',
+                    img: 'images/content/catalog-category-3.jpg',
+                    items: [
+                        {
+                            name: 'Комиссия',
+                        },
+                        {
+                            name: 'Седла',
+                        },
+                        {
+                            name: 'Уценка',
+                        },
+                    ]
+                },
+                {
+                    name: 'Распродажа',
+                    img: 'images/content/catalog-category-4.jpg',
+                    items: [
+                        {
+                            name: 'Одежда',
+                        },
+                        {
+                            name: 'Попоны',
+                        },
+                        {
+                            name: 'Лежаки',
+                        },
+                        {
+                            name: 'Игрушки',
+                        },
+                    ]
+                },
+
+            ];
+        +catalog-categories(catalogCategories)
