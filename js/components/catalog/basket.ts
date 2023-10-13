@@ -23,7 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 catalogList !== undefined &&
                 catalogList !== null
             ) {
-                catalogList.swiper.allowTouchMove = false;
+                if (
+                    catalogList.swiper !== null &&
+                    catalogList.swiper !== undefined
+                ) {
+                    catalogList.swiper.allowTouchMove = false;
+                }
                 catalogList.classList.add('catalog-list--show-modal');
                 modal.classList.add('show');
                 modal.setAttribute('aria-hidden', 'false');
@@ -58,7 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.removeProperty('--wintop');
                 modal.setAttribute('aria-hidden', 'true');
                 setTimeout(() => {
-                    catalogList.swiper.allowTouchMove = true;
+                    if (
+                        catalogList.swiper !== null &&
+                        catalogList.swiper !== undefined
+                    ) {
+                        catalogList.swiper.allowTouchMove = true;
+                    }
                     catalogList.classList.remove('catalog-list--show-modal');
                     modal.classList.remove('show');
                 }, 300);

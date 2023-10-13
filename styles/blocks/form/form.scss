@@ -143,8 +143,15 @@
 	position: relative;
 	z-index: 1;
 	cursor: pointer;
+	font-size: 20px;
+	line-height: 120%;
+	min-height: 28px;
+	@include maxBp($bp-1024){
+		font-size: 16px;
+	}
 	&:hover {
 		.input-checkbox__text {
+			color: var(--gray-800);
 			&:before {
 				border-color: var(--gray-800);
 			}
@@ -158,6 +165,7 @@
 		opacity: 0;
 		&:checked {
 			~ .input-checkbox__text {
+				color: var(--black);
 				&:before {
 					border-color: var(--black);
 				}
@@ -173,8 +181,10 @@
 
 			&:after {
 				@include icon-radio;
-				margin: 6px 0 0 6px;
-				border-color: var(--gray-600);
+				border: none;
+				margin: 0;
+				left: 5px;
+				top: 5px;
 			}
 		}
 		&.error{
@@ -189,35 +199,34 @@
 		display: block;
 		position: relative;
 		z-index: 1;
-		padding: 0 0 0 28px;
+		padding: 0 0 0 40px;
 		transition: var(--trans);
+		color: var(--gray-400);
+		@include maxBp($bp-1024){
+			padding-top: 4px;
+		}
 		&:before {
 			content: '';
 			position: absolute;
 			z-index: -1;
 			left: 0;
-			top: 2px;
-			width: 20px;
-			height: 20px;
+			top: 0;
+			width: 28px;
+			height: 28px;
 			border: 1px solid var(--gray-600);
 			transition: var(--trans);
-			@include maxBp($bp-1680) {
-				top: 1px;
-			}
 		}
 		&:after {
 			content: '';
 			@include icon-checkbox;
 			position: absolute;
 			z-index: 1;
-			left: 0;
-			top: 2px;
-			margin: 2px 0 0 6px;
+			left: 9px;
+			top: 3px;
 			border-color: var(--black);
 			opacity: 0;
-			@include maxBp($bp-1680) {
-				top: 1px;
-			}
+			width: 10px;
+			height: 16px;
 		}
 	}
 	~ .error-message {
@@ -227,14 +236,19 @@
 	&--small{
 		@include text-size-12;
 		color: var(--gray-700);
+		min-height: 17px;
 		.input-checkbox__text{
+			padding-left: 28px;
 			&:before{
 				width: 17px;
 				height: 17px;
 				top:1px;
 			}
 			&:after{
-				top: 1px;
+				top: 2px;
+				left: 6px;
+				width: 6px;
+				height: 10px;
 			}
 		}
 	}
@@ -283,5 +297,113 @@
 		opacity: 1;
 		visibility: visible;
 		pointer-events: auto;
+	}
+}
+
+.form-sort{
+	font-size: 16px;
+	line-height: 120%;
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+	min-height: 24px;
+	&__item{
+		color: var(--gray-400);
+		.form-select{
+			margin-left: 5px;
+		}
+	}
+}
+
+.form-select{
+	width: auto;
+	display: inline-block;
+	position: relative;
+	color: var(--black);
+	select{
+		display: none;
+		@include maxBp($bp-1280){
+			display: block !important;
+			position: absolute;
+			z-index: 5;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+		}
+	}
+	.ss-main{
+		display: flex;
+		align-items: center;
+		transition: var(--trans);
+		color: var(--black);
+		cursor: pointer;
+		&:hover{
+			color: var(--green);
+			.ss-arrow{
+				stroke: var(--green);
+			}
+		}
+		&.ss-open-below{
+
+		}
+		.ss-arrow{
+			fill: none;
+			stroke: var(--black);
+			stroke-width: 8px;
+			width: 16px;
+			height: 16px;
+			transform: rotate(0deg);
+			vertical-align: middle;
+			margin: 0 0 -2px 15px;
+			path{
+				transition: var(--trans);
+			}
+		}
+	}
+	.ss-content{
+		position: absolute;
+		z-index: 5;
+		left: -20px;
+		top: 100%;
+		height: auto;
+		min-width: calc(100% + 40px);
+		background: var(--white);
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+		transform: scaleY(0);
+		transition: var(--trans);
+		transform-origin: center top;
+		opacity: 0;
+		margin: 10px 0 0 0 !important;
+		@include maxBp($bp-1280){
+			display: none;
+		}
+		&.ss-open-below{
+			transform: scaleY(1);
+			opacity: 1;
+		}
+		.ss-list{
+			.ss-option{
+				cursor: pointer;
+				transition: var(--trans);
+				padding: 10px 20px;
+				color: var(--gray-400);
+				&.ss-selected,&:hover{
+					color: var(--black);
+				}
+				&:first-child{
+					padding-top: 20px;
+				}
+				&:last-child{
+					padding-bottom: 20px;
+				}
+			}
+		}
+
+	}
+
+	.ss-hide{
+		display: none;
 	}
 }

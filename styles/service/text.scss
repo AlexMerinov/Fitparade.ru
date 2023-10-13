@@ -1,6 +1,6 @@
 h1, .h1 {
 	@include text-h1;
-	margin-bottom: var(--space-s);
+	margin-bottom: var(--space-m);
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -8,7 +8,7 @@ h1, .h1 {
 
 h2, .h2 {
 	@include text-h2;
-	margin-bottom: var(--space-s);
+	margin-bottom: var(--space-m);
 	&:last-child {
 		margin-bottom: 0;
 	}

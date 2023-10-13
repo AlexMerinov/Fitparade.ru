@@ -1,33 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const colors = document.querySelectorAll('.js-catalog-color-change');
-    colors.forEach((color) => {
-        color.addEventListener('click', (e) => {
-            e.preventDefault();
+    document.body.addEventListener('click', (e) => {
+        const color = e.target as Element;
+        if (color !== null && color !== undefined) {
+            if (
+                color.classList.contains('js-catalog-color-change') ||
+                color.closest('.js-catalog-color-change')
+            ) {
+                e.preventDefault();
 
-            const index = color.getAttribute('data-index');
-            const parent = color.closest('.catalog-list__item');
-            console.log('index', index);
-            if (parent !== null && parent !== undefined) {
-                const colorItems = parent.querySelectorAll(
-                    '.js-catalog-color-change'
-                );
-                colorItems.forEach((colorItem) => {
-                    colorItem.classList.remove('active');
-                });
-                color.classList.add('active');
+                const index = color.getAttribute('data-index');
+                const parent = color.closest('.catalog-list__item');
+                if (parent !== null && parent !== undefined) {
+                    const colorItems = parent.querySelectorAll(
+                        '.js-catalog-color-change'
+                    );
+                    colorItems.forEach((colorItem) => {
+                        colorItem.classList.remove('active');
+                    });
+                    color.classList.add('active');
 
-                const galleries = parent.querySelectorAll(
-                    '.catalog-list__gallery'
-                );
-                galleries.forEach((gallery) => {
-                    gallery.classList.add('hide');
-                });
+                    const galleries = parent.querySelectorAll(
+                        '.catalog-list__gallery'
+                    );
+                    galleries.forEach((gallery) => {
+                        gallery.classList.add('hide');
+                    });
 
-                const galleryCurrent = parent.querySelector(
-                    `.catalog-list__gallery[data-index="${index}"]`
-                );
-                galleryCurrent?.classList.remove('hide');
+                    const galleryCurrent = parent.querySelector(
+                        `.catalog-list__gallery[data-index="${index}"]`
+                    );
+                    galleryCurrent?.classList.remove('hide');
+                }
             }
-        });
+        }
     });
 });

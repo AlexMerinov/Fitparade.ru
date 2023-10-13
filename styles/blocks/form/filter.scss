@@ -1,0 +1,79 @@
+.filter{
+	&__caption{
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 120%;
+		margin:40px 0 20px 0;
+		&:first-child{
+			margin-top: 0;
+		}
+	}
+	&__item{
+		margin-bottom: 20px;
+	}
+	&__buttons{
+		margin: 40px 0 -20px 0;
+		padding: 0 0 20px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		position: sticky;
+		z-index: 5;
+		bottom: 0;
+		background: var(--white);
+		box-shadow: 0 0 10px 10px var(--white);
+	}
+	&__more{
+		font-size: 20px;
+		line-height: 120%;
+		letter-spacing: 0.4px;
+		@include maxBp($bp-1280){
+			font-size: 16px;
+		}
+	}
+}
+
+
+@keyframes loader {
+	from{
+		transform: translate3d(0,100%,0) rotate(0);
+	}
+	to{
+		transform: translate3d(0,100%,0) rotate(360deg);
+	}
+}
+.filter-content{
+	position: relative;
+	z-index: 1;
+	transition: var(--trans);
+	&:before{
+		content: '';
+		display: none;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background:conic-gradient(#0000 10%,#000);
+		mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+		-webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+		animation:loader 1s infinite linear;
+		position: sticky;
+		z-index: 10;
+		top: 50%;
+		transform: translate3d(0,100%,0);
+		margin: -40px auto 0;
+	}
+	&--loading{
+		pointer-events: none;
+		&:before{
+			display: block;
+		}
+		>*{
+			opacity: 0.1;
+		}
+		&:before{
+			display: block;
+		}
+	}
+
+}
+

@@ -38,10 +38,15 @@ const observerOptions = {
 
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-const images = document.querySelectorAll('[data-src],[data-src-bg]');
-images.forEach((el) => observer.observe(el));
+const imagesLazyLoader = () => {
+    const images = document.querySelectorAll('[data-src],[data-src-bg]');
+    images.forEach((el) => observer.observe(el));
+};
 
-// document.addEventListener('lazyload',()=>{
-//     const images = document.querySelectorAll('[data-src],[data-src-bg]');
-//     images.forEach((el) => observer.observe(el));
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    imagesLazyLoader();
+});
+
+document.addEventListener('AjaxContentLoaded', () => {
+    imagesLazyLoader();
+});

@@ -76,4 +76,40 @@ script.
             }
         });
 
+        // Пример фильтра
+        const filterInputs = document.querySelectorAll('.js-filter-example input,.js-filter-example select');
+        const filterSubmit = document.querySelector('.js-filter-submit-example');
+        const filterSubmitParent = filterSubmit?.closest('.filter__buttons');
+        const filterContent = document.querySelector('.filter-content');
+        filterInputs.forEach((input)=>{
+            input.addEventListener('change',()=>{
+                filterSubmitParent?.classList.remove('hide');
+            })
+        });
+        filterSubmit?.addEventListener('click',()=>{
+            document.querySelector('.js-anchor[href="#top"]')?.dispatchEvent(new Event('click')); // скролл страницы вверх
+            filterSubmitParent?.classList.add('hide');
+            filterContent?.classList.add('filter-content--loading');
+
+            // Имитация запроса
+
+            setTimeout(()=>{
+                fetch('ajax-catalog-list.html')
+                    .then((response) => {
+                        return response.text();
+                    })
+                    .then((data) => {
+                        filterContent.innerHTML = data;
+                        filterContent?.classList.remove('filter-content--loading');
+                        document.dispatchEvent(new CustomEvent('AjaxContentLoaded')); // иницилизирует слайдеры и т.п.
+                    })
+                    .catch((err) => {
+                        console.warn('Something went wrong.', err);
+                    });
+            },1000)
+
+
+
+        });
+
     });

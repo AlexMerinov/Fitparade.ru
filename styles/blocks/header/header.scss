@@ -44,6 +44,7 @@
 		@include maxBp($bp-1280){
 			height: 70px;
 			background: var(--black);
+			position: static;
 		}
 	}
 }

@@ -1,14 +1,15 @@
 mixin category-popular(items)
-    div(class="swiper-container mb-xl")
+    div(class="swiper-container")
         div(class="swiper category-list js-slider-category")
             div(class="swiper-wrapper")
                 each item, index in items
                     -
                         const {
                             name,
+                            active
                         } = item;
                     div(class="category-list__item swiper-slide")
-                        a(href="#" class="btn")
+                        a(href="catalog-category.html" class=(active ? "btn active" : "btn"))
                             !=name
         div(class="swiper-button-small swiper-button-prev")
             +icon-sym('arr-slider')

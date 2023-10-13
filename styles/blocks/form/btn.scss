@@ -34,19 +34,15 @@
 		transform-origin: left bottom;
 		transition: var(--trans);
 	}
-	&:hover {
+	&:hover,&.active {
 		color: var(--white);
 		border-color: var(--black);
 		&:before{
 			transform: skewX(45deg) scaleX(2);
 		}
 	}
-
-	&:active {
-
-	}
 	&--green{
-		border:none;
+		border-color:var(--green);
 		background: var(--green);
 		color: var(--white);
 	}
@@ -65,6 +61,13 @@
 	}
 	&--small{
 		padding: 8px 17px 9px 17px;
+		@include maxBp($bp-768){
+			padding: 8px 17px 9px 17px;
+		}
+	}
+
+	&--smaller{
+		padding: 13px 17px 14px 17px;
 		@include maxBp($bp-768){
 			padding: 8px 17px 9px 17px;
 		}
@@ -164,6 +167,13 @@
 		--black:var(--white);
 		&:hover{
 			color: $black;
+		}
+	}
+	&--wide{
+		min-width: 320px;
+		@include maxBp($bp-500){
+			min-width: 0;
+			width: 100%;
 		}
 	}
 }

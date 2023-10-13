@@ -1,12 +1,13 @@
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 
-document.addEventListener('DOMContentLoaded', () => {
-    Swiper.use([Navigation]);
-
-    const sliders = document.querySelectorAll('.js-catalog-size-slider');
+const catalogSizeSlider = () => {
+    const sliders = document.querySelectorAll(
+        '.js-catalog-size-slider:not(.js-init)'
+    );
 
     sliders.forEach((slider) => {
+        slider.classList.add('js-init');
         const swiperSlder = new Swiper(slider, {
             slidesPerView: 'auto',
             speed: 300,
@@ -23,4 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     });
+};
+document.addEventListener('DOMContentLoaded', () => {
+    Swiper.use([Navigation]);
+    catalogSizeSlider();
+});
+document.addEventListener('AjaxContentLoaded', () => {
+    catalogSizeSlider();
 });

@@ -1,0 +1,63 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/list/catalog-categories
+
+block vars
+    -
+        page = 'catalog-categories'
+
+block content
+
+
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Каталог',
+                    url: 'catalog-categories.html'
+                },
+                {
+                    name: 'Для всадника',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Для всадника
+
+        section(class="mb-m")
+            -
+                var categoryActive = true
+            include ./blocks/catalog-category-top
+
+        div(class="catalog-cols")
+            aside(class="catalog-cols__aside")
+
+                include ./blocks/filter
+
+
+
+            div(class="catalog-cols__content")
+
+                div(class="form-sort")
+                    div(class="form-sort__item")
+                        | Сортировать:
+                        div(class="js-select form-select")
+                            select
+                                option сначала новые
+                                option сначала старые
+
+
+                div(class="filter-content")
+                    div(class="catalog-list-narrow")
+                        -
+                            var catalogCount = 12
+                        include ./ajax-catalog-list
+
+

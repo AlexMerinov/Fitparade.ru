@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
+const catalogListGallery = () => {
     const listGallery = document.querySelectorAll<HTMLElement>(
-        '.js-catalog-list-gallery'
+        '.js-catalog-list-gallery:not(.js-init)'
     );
     listGallery.forEach((gallery) => {
+        gallery.classList.add('js-init');
         const items = gallery.querySelectorAll('.catalog-list__gallery__item');
         items.forEach((photo) => {
             photo.addEventListener('mouseover', () => {
@@ -16,4 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    catalogListGallery();
+});
+document.addEventListener('AjaxContentLoaded', () => {
+    catalogListGallery();
 });

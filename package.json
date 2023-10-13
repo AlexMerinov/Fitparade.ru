@@ -113,10 +113,12 @@
     "inputmask": "^5.0.8",
     "lodash-es": "^4.17.21",
     "micromodal": "^0.4.10",
+    "nouislider": "^15.7.1",
     "npm-lifecycle": "^3.1.5",
     "regenerator-runtime": "^0.13.9",
     "slim-select": "^2.6.0",
     "swiper": "^10.2.0",
-    "webpack": "^5.67.0"
+    "webpack": "^5.67.0",
+    "wnumb": "^1.2.0"
   }
 }

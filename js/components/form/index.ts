@@ -3,3 +3,7 @@ import './validate';
 import './input-format';
 import './dadata';
 import './input-clear';
+import './range-slider';
+import './filter-more';
+import './filter-checkbox-all';
+import './select';

@@ -1,0 +1,87 @@
+.range-slider {
+	display: block;
+	width: 276px;
+	&__inputs {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 0 20px 0;
+	}
+	&__input {
+		@extend .form__input;
+		width: calc(50% - 5px);
+		padding: 7px 14px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
+
+.noUi-target {
+	background: none;
+	box-shadow: none;
+	border: none;
+	height: 12px;
+	border-radius: 0;
+	padding: 0 4px;
+	.noUi-connects {
+		border-radius: 0;
+		height: 2px;
+		background: var(--gray-600);
+		top: 5px;
+		overflow: visible;
+		&:before{
+			content: '';
+			position: absolute;
+			z-index: -1;
+			left: -4px;
+			width: calc(100% + 8px);
+			height: 100%;
+			background: var(--gray-600);
+		}
+	}
+	.noUi-connect {
+		background: var(--black);
+	}
+
+	.noUi-origin {
+		width: calc(100% - 12px);
+		right: 6px;
+	}
+
+	.noUi-handle {
+		width: 20px;
+		height: 8px;
+		background: var(--black);
+		border-radius: 0;
+		border:none;
+		top: 2px;
+		right: -10px;
+		cursor: grab;
+		box-shadow: none;
+		transition: var(--trans);
+
+		&:active {
+			cursor: grabbing;
+		}
+
+		&:hover {
+			background: var(--black);
+		}
+
+		&:before, &:after {
+			display: none;
+		}
+
+		.noUi-touch-area {
+			width: 300%;
+			height: 300%;
+			background: transparent;
+			position: absolute;
+			z-index: 1;
+			left: 50%;
+			top: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			background: none;
+		}
+	}
+}
+

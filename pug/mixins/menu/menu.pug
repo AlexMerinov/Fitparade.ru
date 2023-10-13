@@ -24,7 +24,7 @@ mixin menu-list(items)
                                         items,
                                     } = item;
                                 li
-                                    a(href=url + '.html' class=(page === url ? "active" : ""))
+                                    a(href="catalog-category.html")
                                         != name
                                         if items
                                             span(class="header-menu__arr js-menu-arr")
@@ -52,5 +52,5 @@ mixin menu-list(items)
                                                             != itemsCount
                                                             +icon-sym('arr-down')
                                                 li
-                                                    a(href=url + '.html' class=(page === url ? "active" : ""))
+                                                    a(href="catalog-category.html")
                                                         != name

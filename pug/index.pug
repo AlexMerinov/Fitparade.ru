@@ -7,19 +7,28 @@ block content
 
         h1 Страницы
 
-        -
-            const pages = [
-                {
-                    name: 'Главная',
-                    url: 'main.html',
-                },
-                {
-                    name: 'Каталог категории',
-                    url: 'catalog-categories.html',
-                },
-                {
-                    name: 'Результаты поиска',
-                    url: 'search.html',
-                },
-            ];
-        +pages-list(pages)
+        di(class="text-content")
+            -
+                const pages = [
+                    {
+                        name: 'Главная',
+                        url: 'main.html',
+                    },
+                    {
+                        name: 'Каталог категории',
+                        url: 'catalog-categories.html',
+                    },
+                    {
+                        name: 'Каталог категория',
+                        url: 'catalog-category.html',
+                    },
+                    {
+                        name: 'Результаты поиска',
+                        url: 'search.html',
+                    },
+                    {
+                        name: 'Результаты поиска (пусто)',
+                        url: 'search-no-result.html',
+                    },
+                ];
+            +pages-list(pages)

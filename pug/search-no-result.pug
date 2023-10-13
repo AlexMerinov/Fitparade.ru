@@ -29,14 +29,11 @@ block content
 
         form(action="search.html" class="form mb-m form--search js-form-validate")
             div(class="form-input-clear js-form-input-clear")
-            input(type="text" class="form__input form__input--search-form form__input--big" value="Сапоги" placeholder="Поиск..." required)
+            input(type="text" class="form__input form__input--search-form form__input--big" value="Всвдуолор" placeholder="Поиск..." required)
             button(class="form__search")
                 +icon-sym('search')
 
-
-        include ./ajax-catalog-list
-
-
-
-
+        div(class="catalog-empty")
+            img(data-src="images/horse-empty.svg" alt="" class="catalog-empty__img")
+            p Результатов по вашему<br> запросу не найдено
 
