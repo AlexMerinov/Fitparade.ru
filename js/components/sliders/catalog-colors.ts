@@ -26,7 +26,11 @@ const catalogColorsSlider = () => {
             breakpoints: {
                 // when window width is >= 320px
                 1280: {
-                    direction: 'vertical',
+                    direction: slider.parentElement?.classList.contains(
+                        'catalog-colors--product'
+                    )
+                        ? 'horizontal'
+                        : 'vertical',
                 },
             },
         });

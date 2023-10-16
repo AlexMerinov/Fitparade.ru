@@ -1,6 +1,6 @@
 mixin catalog-list(items)
     div(class=(!catalogSliderDisable ? "swiper-container mb-xl" : ""))
-        div(class=(!catalogSliderDisable ? "swiper catalog-list js-slider-catalog" : "") )
+        div(class=(!catalogSliderDisable ? (catalogSmall ? "swiper catalog-list catalog-list--small js-slider-catalog" : "swiper catalog-list js-slider-catalog") : "") )
             div(class=(!catalogSliderDisable ? "swiper-wrapper" : "catalog-list fade-in") )
                 each item, indexProduct in items
                     -
@@ -27,7 +27,7 @@ mixin catalog-list(items)
                                             hex,
                                             photos,
                                         } = item;
-                                    a(href="#" class=(index === 0 ? "catalog-list__gallery js-catalog-list-gallery" : "catalog-list__gallery js-catalog-list-gallery hide") data-src-bg=photos[0] data-index=index)
+                                    a(href="catalog-product.html" class=(index === 0 ? "catalog-list__gallery js-catalog-list-gallery" : "catalog-list__gallery js-catalog-list-gallery hide") data-src-bg=photos[0] data-index=index data-photos-length=photos.length)
                                         each item, index in photos
                                             span(class=(index === 0 ? "catalog-list__gallery__item active" : "catalog-list__gallery__item") data-img=item)
 
@@ -74,7 +74,7 @@ mixin catalog-list(items)
                                             div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=indexProduct)
                                             div(class="catalog-counter__btn js-basket-plus" data-product-id=indexProduct) &plus;
 
-                            a(href="#" class="catalog-list__name")
+                            a(href="catalog-product.html" class="catalog-list__name")
                                 !=name
 
                             div(class="catalog-list__bottom")

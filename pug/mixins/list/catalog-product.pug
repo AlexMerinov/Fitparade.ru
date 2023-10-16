@@ -1,0 +1,128 @@
+mixin catalog-product(item)
+    -
+        const {
+            name,
+            price,
+            price_old,
+            sizes,
+            labels,
+            colors,
+        } = item;
+
+    div(class="product")
+        div(class="product__photo")
+            if labels.length>0
+                div(class="catalog-labels catalog-labels--product")
+                    each item, index in labels
+                        div(class="catalog-labels__item catalog-labels__item--"+item.color)
+                            !=item.name
+            each item, index in colors
+                -
+                    const {
+                      hex,
+                      photos,
+                    } = item;
+                div(
+                    class="swiper-wrapper product__gallery fade-in"
+                    class=(index === 0 ? "" : "hide")
+                    data-index=index
+                    )
+                    div(class="swiper js-slider-product")
+                        div(class="swiper-wrapper")
+                            each item, index in photos
+                                div(class="swiper-slide product__gallery__item")
+                                    div(data-swiper-parallax="200")
+                                        div(data-src-bg=item class="product__gallery__item__bg")
+                    div(class="swiper-button-prev swiper-button-prev--inner")
+                        +icon-sym('arr-slider')
+                    div(class="swiper-button-next swiper-button-next--inner")
+                        +icon-sym('arr-slider')
+                    div(class="swiper-pagination swiper-pagination--line")
+
+
+
+
+        div(class="product__text")
+            h1(class="product__caption") Редингот мужской Elite Men Jacket,  GPA Португалия
+            div(class="product__params")
+                div(class="product__article")
+                    div(class="product__article__text") Артикул: 1873625
+                    img(data-src="images/content/price-logo.png" alt="" class="product__logo")
+                div(class="product__price")
+                    div(class="product__price__text") 23 740 ₽
+                    div(class="product__price__discount") -20%
+                    s 27 900 ₽
+            if sizes.length>0
+                div(class="product__label") Выберите размер
+                    a(href="#" class="link-dashed") Таблица размеров
+                div(class="swiper-container catalog-sizes catalog-sizes--product")
+                    div(class="swiper js-catalog-size-slider")
+                        div(class="swiper-wrapper")
+                            each item, index in sizes
+                                div(
+                                    class="swiper-slide catalog-sizes__item"
+                                    class=(index === 0 ? " active" : "")
+                                    class=(index === 4 ? "disabled" : "")
+                                    )
+                                    != item
+                    div(class="swiper-button-smaller swiper-button-prev")
+                        +icon-sym('arr-slider')
+                    div(class="swiper-button-smaller swiper-button-next")
+                        +icon-sym('arr-slider')
+
+                div(class="product__label") Выберите цвет
+                div(class="swiper-container catalog-colors catalog-colors--product")
+                    div(class="swiper-button-vertical-smaller swiper-button-prev")
+                        +icon-sym('arr-slider')
+                    div(class="swiper js-catalog-colors-slider")
+                        div(class="swiper-wrapper")
+                            each item, index in colors
+                                div(class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change") style="--catalog-color:" + item.hex data-color-white=(item.hex === '#FFFFFF' ? "true" : "false") data-index=index)
+                    div(class="swiper-button-vertical-smaller swiper-button-next")
+                        +icon-sym('arr-slider')
+
+                div(class="catalog-list__basket catalog-list__basket--product" data-product-id=1)
+                      div(class="btn btn--cart js-basket-plus" data-product-id=1)
+                          +icon-sym('cart')
+                          span(class="btn__text")
+                              span Добавить в корзину
+                              span В корзине
+                      div(class="catalog-counter")
+                          div(class="catalog-counter__btn js-basket-minus" data-product-id=1) &minus;
+                          div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=1)
+                          div(class="catalog-counter__btn js-basket-plus" data-product-id=1) &plus;
+
+
+                div(class="product__shop")
+                    +icon-sym('shop')
+                    | В наличии 35 шт. в
+                    a(href="#") 14 магазинах
+
+    div(class="wrapper__wide mb-xl")
+        section(class="product-description wrapper__page")
+            h2(class="product-description__caption") Информация о товаре
+            div(class="product-description__item")
+                h6 Характеристики
+                dl(class="product-params")
+                    dt Страна производства
+                    dd Португалия
+                dl(class="product-params")
+                    dt Материал
+                    dd 89% нейлон, 11% эластан.
+                dl(class="product-params")
+                    dt Уход
+                    dd Бережная машинная стирка в холодной воде. Не сушить в стиральной машине.
+            div(class="product-description__item")
+                h6 Состав
+                p Редингот сделан из легкой и эластичной ткани, его легко носит и он не сковывает движения. Застегивается на 3 пуговицы. Контрастный серый воротник из искусственной замши. 89% нейлон, 11% эластан. Бережная машинная стирка в холодной воде. Не сушить в стиральной машине.
+
+    h2 Новинки
+    include ../../blocks/catalog-list
+
+    h2 Сопутствующие товары
+    include ../../blocks/catalog-list
+
+    h2 Просмотренные товары
+    -
+        var catalogSmall = true
+    include ../../blocks/catalog-list

@@ -95,6 +95,20 @@
 		@include maxBp($bp-1280){
 			margin-top: -1px;
 		}
+		span{
+			display: none;
+			&:first-child{
+				display: block;
+				.catalog-list__basket.active &{
+					display: none;
+				}
+			}
+			&:last-child{
+				.catalog-list__basket.active &{
+					display: block;
+				}
+			}
+		}
 	}
 	&--cart{
 		border:none;

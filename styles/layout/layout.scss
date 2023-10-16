@@ -89,7 +89,7 @@ body {
 
 [data-src],[data-src-bg]{
     opacity: 0;
-    transition: var(--trans);
+    transition:opacity 0.3s var(--cubic);
     &.img-loaded{
         opacity: 1;
     }
@@ -119,6 +119,9 @@ body {
 }
 .mb-xl{
     margin-bottom: var(--space-xl) !important;
+    &:last-child{
+        margin-bottom: 0 !important;
+    }
 }
 
 .mt-3xs{

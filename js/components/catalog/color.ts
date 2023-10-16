@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
 
                 const index = color.getAttribute('data-index');
-                const parent = color.closest('.catalog-list__item');
+                const parent =
+                    color.closest('.catalog-list__item') ||
+                    color.closest('.product');
                 if (parent !== null && parent !== undefined) {
                     const colorItems = parent.querySelectorAll(
                         '.js-catalog-color-change'
@@ -19,16 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     color.classList.add('active');
 
-                    const galleries = parent.querySelectorAll(
-                        '.catalog-list__gallery'
-                    );
-                    galleries.forEach((gallery) => {
-                        gallery.classList.add('hide');
-                    });
+                    if (parent.classList.contains('catalog-list__item')) {
+                        const galleries = parent.querySelectorAll(
+                            '.catalog-list__gallery'
+                        );
+                        galleries.forEach((gallery) => {
+                            gallery.classList.add('hide');
+                        });
+                    } else {
+                        const galleries =
+                            parent.querySelectorAll('.product__gallery');
+                        galleries.forEach((gallery) => {
+                            gallery.classList.add('hide');
+                        });
+                    }
 
-                    const galleryCurrent = parent.querySelector(
-                        `.catalog-list__gallery[data-index="${index}"]`
-                    );
+                    const galleryCurrent =
+                        parent.querySelector(
+                            `.catalog-list__gallery[data-index="${index}"]`
+                        ) ||
+                        parent.querySelector(
+                            `.product__gallery[data-index="${index}"]`
+                        );
                     galleryCurrent?.classList.remove('hide');
                 }
             }
