@@ -1,6 +1,9 @@
 .range-slider {
 	display: block;
 	width: 276px;
+	@include maxBp($bp-768){
+		width: 100%;
+	}
 	&__inputs {
 		display: flex;
 		justify-content: space-between;

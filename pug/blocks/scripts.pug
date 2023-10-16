@@ -91,6 +91,9 @@ script.
             filterSubmitParent?.classList.add('hide');
             filterContent?.classList.add('filter-content--loading');
 
+            // Закрытие фильтра на мобиле
+            document.querySelector('.js-modal-filter-hide')?.dispatchEvent(new Event('click'))
+
             // Имитация запроса
 
             setTimeout(()=>{

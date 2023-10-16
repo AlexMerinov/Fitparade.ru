@@ -307,10 +307,28 @@
 	justify-content: flex-end;
 	margin-bottom: 20px;
 	min-height: 24px;
+	@include maxBp($bp-1280){
+		justify-content: flex-start;
+		align-items: center;
+	}
 	&__item{
 		color: var(--gray-400);
 		.form-select{
 			margin-left: 5px;
+		}
+		&--filter{
+			display: none;
+			@include maxBp($bp-1280){
+				display: block;
+				margin-left: auto;
+			}
+		}
+	}
+	&__filter{
+		padding: 20px;
+		margin: -20px;
+		.icon-sym{
+			display: block;
 		}
 	}
 }

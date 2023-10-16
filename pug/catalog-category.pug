@@ -37,10 +37,10 @@ block content
             include ./blocks/catalog-category-top
 
         div(class="catalog-cols")
-            aside(class="catalog-cols__aside")
 
-                include ./blocks/filter
 
+
+            include ./blocks/filter
 
 
             div(class="catalog-cols__content")
@@ -52,7 +52,9 @@ block content
                             select
                                 option сначала новые
                                 option сначала старые
-
+                    div(class="form-sort__item form-sort__item--filter")
+                        div(class="form-sort__filter js-modal-filter-show")
+                            +icon-sym('filter')
 
                 div(class="filter-content")
                     div(class="catalog-list-narrow")

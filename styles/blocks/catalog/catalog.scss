@@ -994,16 +994,123 @@
 .catalog-cols{
 	display: flex;
 	align-items: flex-start;
-	&__aside{
+	@include maxBp($bp-1280){
+		display: block;
+	}
+	&__modal{
+		@include maxBp($bp-1280){
+			background: var(--white);
+			padding:0 30px;
+			max-height: var(--vh-100);
+			overflow: auto;
+			animation-duration: var(--modal-duration);
+			animation-timing-function: var(--cubic);
+			animation-fill-mode: forwards;
+			position: relative;
+			z-index: 5;
+			width: 100%;
+		}
+		@include maxBp($bp-1024){
+			padding: 0 20px;
+		}
+	}
+	&__filter{
 		width: 320px;
 		margin-right: 20px;
 		position: sticky;
 		top: 138px;
 		@include maxBp($bp-1280){
-			top: 90px;
+			top: 0;
+			position: fixed;
+			margin: 0;
+			z-index: 150;
+			left: 0;
+			display: none;
+			align-items: flex-end;
+			width: 100%;
+			height: 100%;
+		}
+		&.show{
+			@include maxBp($bp-1280){
+				display: flex;
+			}
+		}
+		&[aria-hidden='false']{
+			@include maxBp($bp-1280) {
+				animation-name: shadeIn;
+				.catalog-cols__modal{
+					animation-name: slideInMobile;
+				}
+			}
+		}
+
+		&[aria-hidden='true']{
+			@include maxBp($bp-1280) {
+				animation-name: shadeOut;
+				.catalog-cols__modal{
+					animation-name: slideOutMobile;
+				}
+			}
+		}
+	}
+	&__bg{
+		background: rgba(0,0,0,.3);
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transition: var(--trans);
+		opacity: 0;
+		display: none;
+		@include maxBp($bp-1280){
+			display: block;
+		}
+		.filter-modal-show &{
+			opacity: 1;
+		}
+	}
+	&__header{
+		font-size: 24px;
+		line-height: normal;
+		font-weight: 500;
+		letter-spacing: 0.72px;
+		padding: 30px 30px 20px 30px;
+		margin: 0 -30px 20px -30px;
+		box-shadow: 0 0 10px 10px var(--white);
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: var(--white);
+		display: none;
+		@include maxBp($bp-1280){
+			display: block;
+		}
+		@include maxBp($bp-1024){
+			margin: 0 -20px 20px -20px;
+			padding: 20px;
 		}
 	}
 	&__content{
 		width: calc(100% - 340px);
+		@include maxBp($bp-1280){
+			width: 100%;
+		}
+	}
+}
+
+.filter-modal-show {
+	@include maxBp($bp-1280){
+		padding-right: var(--scroll-width);
+		position: fixed !important;
+		overflow: hidden;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		.header {
+			max-width: calc(100% - var(--scroll-width));
+		}
 	}
 }
