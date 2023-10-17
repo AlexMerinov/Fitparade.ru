@@ -40,6 +40,9 @@
 		&:before{
 			transform: skewX(45deg) scaleX(2);
 		}
+		.icon-sym--clear{
+			stroke: var(--white);
+		}
 	}
 	&--green{
 		border-color:var(--green);
@@ -49,6 +52,9 @@
 	&--green-border{
 		border-color: var(--green);
 		color: var(--green);
+	}
+	&--gray{
+		border-color: var(--gray-300);
 	}
 
 	&--big{
@@ -188,6 +194,24 @@
 		@include maxBp($bp-500){
 			min-width: 0;
 			width: 100%;
+		}
+	}
+	.icon-sym--clear{
+		@include icon-stroke;
+		stroke-width: 1px;
+		width: 10px;
+		height: 10px;
+		transition: var(--trans);
+		vertical-align: middle;
+		margin:0 15px 0 -10px;
+		@include maxBp($bp-768){
+			margin: 0 5px 0 -5px;
+		}
+	}
+
+	&--mob-small{
+		@include maxBp($bp-768){
+			padding: 8px 15px 10px;
 		}
 	}
 }

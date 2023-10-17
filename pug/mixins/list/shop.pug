@@ -1,0 +1,19 @@
+mixin shop-list(items)
+    ul(class="product-shop")
+        each item, index in items
+            -
+                const {
+                    name,
+                    contact,
+                    available,
+                } = item;
+            li(class="product-shop__item")
+                +icon-sym('shop')
+                div(class="product-shop__name")
+                    a(href="#")
+                        !=name
+                div(class="product-shop__contact")
+                    !=contact
+                | В наличии&nbsp;
+                !=available
+                | &nbsp;шт.

@@ -1,0 +1,40 @@
+mixin cart-list(items)
+    ul(class="cart-list")
+        each item, index in items
+            -
+                const {
+                    name,
+                    photo,
+                    size,
+                    color,
+                    price,
+                    price_old,
+                } = item;
+            li(class="cart-list__item")
+                a(href="catalog-product.html" class="cart-list__img" data-src-bg=photo)
+                div(class="cart-list__text")
+                    a(href="catalog-product.html" class="cart-list__name")
+                        != name
+                    div(class="text-gray")
+                        | Цвет:&nbsp;
+                        !=size
+                        br
+                        | Цвет:&nbsp;
+                        !=color
+                div(class="cart-list__price")
+                    != price
+                    if price_old
+                        s
+                            !=price_old
+
+                div(class="cart-list__counter" data-product-id=index)
+                    div(class="catalog-counter catalog-counter--cart")
+                        div(class="catalog-counter__btn js-basket-minus" data-product-id=index) &minus;
+                        div(class="catalog-counter__text" data-count="1" data-step="1" data-max="5" data-product-id=index)
+                        div(class="catalog-counter__btn js-basket-plus" data-product-id=index) &plus;
+
+                div(class="cart-list__price")
+                    != price
+                    if price_old
+                        s
+                            !=price_old

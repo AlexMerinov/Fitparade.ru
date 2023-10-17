@@ -77,3 +77,28 @@ block modal
                         a(href="#") персональных данных
             div(class="form__submit")
                 button(type="submit" class="btn btn--green btn--100") Отправить
+
+
++modal({
+    id: 'basket',
+    modifier: 'basket'
+})
+    +slot('header')
+        div(class="cart-header")
+            div(class="cart-header__text")
+                div(class="cart-header__caption") Корзина
+                span(class="text-gray") В корзине
+                | 3 товара
+            a(href="#" class="btn btn--mob-small btn--gray")
+                +icon-sym('clear')
+                | Очистить
+    +slot('body')
+        include ../cart-list
+    +slot('footer')
+        div(class="cart-total")
+            div(class="cart-total__text") Итого:
+            div(class="cart-total__price") 221 343 ₽
+                s 250 343 ₽
+        div(class="cart-btns")
+            div(class="btn btn--green-stroke" data-micromodal-close) Продолжить покупки
+            div(class="btn btn--green") Оформить заказ

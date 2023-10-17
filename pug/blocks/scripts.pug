@@ -8,7 +8,7 @@ script.
                 e.preventDefault();
                 const btn = e.target.classList.contains('js-basket-plus') ? e.target : e.target.closest('.js-basket-plus');
                 const productId = btn?.getAttribute('data-product-id');
-                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"]');
+                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"],.cart-list__counter[data-product-id="'+productId+'"]');
                 parents.forEach((parent)=>{
                     parent.classList.add('active');
                     const counter = parent.querySelector('[data-count]');
@@ -46,7 +46,7 @@ script.
                 e.preventDefault();
                 const btn = e.target.classList.contains('js-basket-minus') ? e.target : e.target.closest('.js-basket-minus');
                 const productId = btn?.getAttribute('data-product-id');
-                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"]');
+                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"],.cart-list__counter[data-product-id="'+productId+'"]');
                 parents.forEach((parent)=>{
                     const counter = parent.querySelector('[data-count]');
                     if (counter !== null && counter !== undefined) {
@@ -65,6 +65,15 @@ script.
                             parents.forEach((parent)=>{
                                 parent.classList.remove('active');
                             });
+
+                            // Удаление товара в корзине
+                            if (parent.closest('.cart-list__item') !== null && parent.closest('.cart-list__item') !== undefined){
+                                parent.closest('.cart-list__item').classList.add('fade-out');
+                                setTimeout(()=>{
+                                    parent.closest('.cart-list__item').remove();
+                                },300)
+                            }
+
                         }
 
                         const btnPlus = parent.querySelector('.catalog-counter .js-basket-plus');

@@ -1,3 +1,6 @@
+include ../basic/_modal
+include ../list/shop
+
 mixin catalog-product(item)
     -
         const {
@@ -16,22 +19,24 @@ mixin catalog-product(item)
                     each item, index in labels
                         div(class="catalog-labels__item catalog-labels__item--"+item.color)
                             !=item.name
-            each item, index in colors
+            each item, indexColor in colors
                 -
                     const {
-                      hex,
-                      photos,
+                        hex,
+                        photos,
+                        photos_full,
+                        photos_small,
                     } = item;
                 div(
                     class="swiper-wrapper product__gallery fade-in"
-                    class=(index === 0 ? "" : "hide")
-                    data-index=index
+                    class=(indexColor === 0 ? "" : "hide")
+                    data-index=indexColor
                     )
-                    div(class="swiper js-slider-product")
+                    div(class="swiper js-slider-product" data-index=indexColor)
                         div(class="swiper-wrapper")
                             each item, index in photos
-                                div(class="swiper-slide product__gallery__item")
-                                    div(data-swiper-parallax="200")
+                                div(class="swiper-slide product__gallery__item" data-micromodal="modal-gallery-"+indexColor)
+                                    div(data-swiper-parallax="100")
                                         div(data-src-bg=item class="product__gallery__item__bg")
                     div(class="swiper-button-prev swiper-button-prev--inner")
                         +icon-sym('arr-slider')
@@ -39,22 +44,72 @@ mixin catalog-product(item)
                         +icon-sym('arr-slider')
                     div(class="swiper-pagination swiper-pagination--line")
 
+                +modal({
+                    id: 'gallery-'+indexColor,
+                    modifier: 'gallery'
+                })
+                    +slot('body')
+                        div(class="swiper-wrapper product-gallery")
+                            div(class="swiper js-slider-product-modal" data-index=indexColor)
+                                div(class="swiper-wrapper")
+                                    each item in photos_full
+                                        div(class="swiper-slide product-gallery__item")
+                                            div(class="product-gallery__item__text")
+                                                != name
+                                            div(class="product-gallery__item__bg")
+                                                div(class="swiper-zoom-container")
+                                                    img(data-src=item alt="")
+                            div(class="swiper-button-prev swiper-button-prev--inner swiper-button-prev--inner--green")
+                                +icon-sym('arr-slider')
+                            div(class="swiper-button-next swiper-button-next--inner swiper-button-next--inner--green")
+                                +icon-sym('arr-slider')
 
+                            if (photos_small.length > 1)
+                                div(class="swiper product-gallery-thumb js-slider-product-modal-thumb")
+                                    div(class="swiper-wrapper")
+                                        each item in photos_small
+                                            div(class="swiper-slide product-gallery-thumb__item")
+                                                div(data-src-bg=item class="product-gallery-thumb__item__bg")
 
 
         div(class="product__text")
-            h1(class="product__caption") Редингот мужской Elite Men Jacket,  GPA Португалия
+            h1(class="product__caption")
+                != name
             div(class="product__params")
                 div(class="product__article")
                     div(class="product__article__text") Артикул: 1873625
                     img(data-src="images/content/price-logo.png" alt="" class="product__logo")
                 div(class="product__price")
-                    div(class="product__price__text") 23 740 ₽
+                    div(class="product__price__text")
+                        !=price
                     div(class="product__price__discount") -20%
-                    s 27 900 ₽
+                    s
+                        !=price_old
             if sizes.length>0
                 div(class="product__label") Выберите размер
-                    a(href="#" class="link-dashed") Таблица размеров
+                    a(href="#" class="link-dashed" data-micromodal="modal-table-size") Таблица размеров
+
+                +modal({
+                    id: 'table-size',
+                    modifier: 'gallery'
+                })
+                    +slot('body')
+                        div(class="swiper-wrapper product-gallery")
+                            div(class="swiper js-slider-product-modal")
+                                div(class="swiper-wrapper")
+                                    div(class="swiper-slide product-gallery__item")
+                                        div(class="product-gallery__item__text")
+                                            | Таблица размеров
+                                        div(class="product-gallery__item__bg")
+                                            div(class="swiper-zoom-container")
+                                                img(data-src="images/content/table-size.png" alt="")
+                            div(class="swiper-button-prev swiper-button-prev--inner swiper-button-prev--inner--green")
+                                +icon-sym('arr-slider')
+                            div(class="swiper-button-next swiper-button-next--inner swiper-button-next--inner--green")
+                                +icon-sym('arr-slider')
+
+
+
                 div(class="swiper-container catalog-sizes catalog-sizes--product")
                     div(class="swiper js-catalog-size-slider")
                         div(class="swiper-wrapper")
@@ -92,11 +147,68 @@ mixin catalog-product(item)
                           div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=1)
                           div(class="catalog-counter__btn js-basket-plus" data-product-id=1) &plus;
 
-
                 div(class="product__shop")
                     +icon-sym('shop')
                     | В наличии 35 шт. в
-                    a(href="#") 14 магазинах
+                    a(href="#" data-micromodal="modal-shop") 14 магазинах
+
+                +modal({
+                    id: 'shop',
+                    modifier: 'shop'
+                })
+                    +slot('header')
+                        | В наличии 32 шт.
+                    +slot('body')
+                        -
+                            const shops = [
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "3"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "12"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "5"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "1"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "2"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "7"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "1"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "1"
+                                },
+                                {
+                                    name: "Магазин в ГБУ СШ «Битца», Москва, Балаклавский проспект, д. 33, подъезд 7, КСК «Битца»",
+                                    contact: "тел: +7 (495) 318-05-81 <br> график работы: 9.30-21.30 Без выходных",
+                                    available: "1"
+                                },
+                            ];
+                        +shop-list(shops)
+
 
     div(class="wrapper__wide mb-xl")
         section(class="product-description wrapper__page")
@@ -116,13 +228,4 @@ mixin catalog-product(item)
                 h6 Состав
                 p Редингот сделан из легкой и эластичной ткани, его легко носит и он не сковывает движения. Застегивается на 3 пуговицы. Контрастный серый воротник из искусственной замши. 89% нейлон, 11% эластан. Бережная машинная стирка в холодной воде. Не сушить в стиральной машине.
 
-    h2 Новинки
-    include ../../blocks/catalog-list
 
-    h2 Сопутствующие товары
-    include ../../blocks/catalog-list
-
-    h2 Просмотренные товары
-    -
-        var catalogSmall = true
-    include ../../blocks/catalog-list
