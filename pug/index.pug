@@ -7,7 +7,7 @@ block content
 
         h1 Страницы
 
-        di(class="text-content")
+        div(class="text-content")
             -
                 const pages = [
                     {
@@ -34,5 +34,37 @@ block content
                         name: 'Результаты поиска (пусто)',
                         url: 'search-no-result.html',
                     },
+                    {
+                        name: 'Корзина',
+                        url: 'basket.html',
+                    },
+                    {
+                        name: 'Корзина (пусто)',
+                        url: 'basket-empty.html',
+                    },
                 ];
             +pages-list(pages)
+
+
+            h4 Модальные окна
+            -
+                var modalLinks = true;
+                const pagesModal = [
+                    {
+                        name: 'Выбор города',
+                        url: 'modal-city',
+                    },
+                    {
+                        name: 'Обратный звонок',
+                        url: 'modal-feedback',
+                    },
+                    {
+                        name: 'Корзина',
+                        url: 'modal-basket',
+                    },
+                    {
+                        name: 'Удалить все товары из корзины?',
+                        url: 'modal-basket-clear',
+                    },
+                ];
+            +pages-list(pagesModal)

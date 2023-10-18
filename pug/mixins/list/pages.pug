@@ -7,5 +7,9 @@ mixin pages-list(items)
                     url,
                 } = item;
             li
-                a(href=url)
-                    !=name
+                if modalLinks
+                    a(data-micromodal=url)
+                        !=name
+                else
+                    a(href=url)
+                        !=name

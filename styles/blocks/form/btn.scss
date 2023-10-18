@@ -5,6 +5,7 @@
 	@include text-size-14;
 	padding: 17px 30px 20px 30px;
 	color: var(--black);
+	--btn-color: var(--black);
 	transition: var(--trans);
 	cursor: pointer;
 	border: 1px solid var(--black);
@@ -36,29 +37,28 @@
 	}
 	&:hover,&.active {
 		color: var(--white);
+		--btn-color: var(--white);
 		border-color: var(--black);
 		&:before{
 			transform: skewX(45deg) scaleX(2);
-		}
-		.icon-sym--clear{
-			stroke: var(--white);
 		}
 	}
 	&--green{
 		border-color:var(--green);
 		background: var(--green);
 		color: var(--white);
+		--btn-color: var(--white);
 	}
 	&--green-border{
 		border-color: var(--green);
 		color: var(--green);
+		--btn-color: var(--green);
 	}
 	&--gray{
 		border-color: var(--gray-300);
 	}
-
 	&--big{
-		font-size: 18px;
+		font-size: 16px;
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
@@ -71,14 +71,12 @@
 			padding: 8px 17px 9px 17px;
 		}
 	}
-
 	&--smaller{
 		padding: 13px 17px 14px 17px;
 		@include maxBp($bp-768){
 			padding: 8px 17px 9px 17px;
 		}
 	}
-
 	&--100 {
 		width: 100%;
 		text-align: center;
@@ -92,7 +90,6 @@
 		opacity: 0.5;
 		pointer-events: none;
 	}
-
 	&__text{
 		display: inline-block;
 		overflow: hidden;
@@ -200,6 +197,18 @@
 		@include icon-stroke;
 		stroke-width: 1px;
 		width: 10px;
+		height: 10px;
+		transition: var(--trans);
+		vertical-align: middle;
+		margin:0 15px 0 -10px;
+		stroke: var(--btn-color);
+		@include maxBp($bp-768){
+			margin: 0 5px 0 -5px;
+		}
+	}
+	.icon-sym--arrow{
+		fill: var(--btn-color);
+		width: 35px;
 		height: 10px;
 		transition: var(--trans);
 		vertical-align: middle;

@@ -1,0 +1,26 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Корзина',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Корзина
+
+        div(class="h5 mb-m") В корзине пока нет товаров
+        a(href="catalog-categories.html" class="btn btn--big btn--green btn--mob-100") Каталог
+
+

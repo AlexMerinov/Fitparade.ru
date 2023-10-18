@@ -176,6 +176,16 @@ body {
         display: none !important;
     }
 }
+.tablet-vertical-show{
+    @include bp($bp-1024){
+        display: none !important;
+    }
+}
+.tablet-vertical-hide{
+    @include maxBp($bp-1024){
+        display: none !important;
+    }
+}
 .mobile-show{
     @include bp($bp-768){
         display: none !important;

@@ -237,8 +237,12 @@
 		@include text-size-12;
 		color: var(--gray-700);
 		min-height: 17px;
+		@include maxBp($bp-1024){
+			font-size: 12px;
+		}
 		.input-checkbox__text{
 			padding-left: 28px;
+			padding-top: 0;
 			&:before{
 				width: 17px;
 				height: 17px;
@@ -423,5 +427,17 @@
 
 	.ss-hide{
 		display: none;
+	}
+}
+
+.form-btns{
+	display: flex;
+	gap:20px;
+	@include maxBp($bp-768){
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+	.btn{
+		flex: auto;
 	}
 }

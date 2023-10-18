@@ -1,0 +1,50 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Корзина',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        div(class="cart-header cart-header--full")
+            h1(class="cart-header__h1 tablet-vertical-hide") Корзина
+            div(class="cart-header__text")
+                div(class="cart-header__caption tablet-vertical-show") Корзина
+                span(class="text-gray") В корзине
+                | 3 товара
+            div(class="btn btn--mob-small btn--green-border" data-micromodal="modal-basket-clear")
+                +icon-sym('clear')
+                | Очистить
+            a(href="catalog-categories.html" class="btn btn--mob-small btn--green-border btn--mob-100")
+                +icon-sym('arrow')
+                | Продолжить покупки
+
+        -
+            var cartFull = true
+        include ./blocks/cart-list
+
+        div(class="cart-footer")
+
+            div(class="cart-total cart-total--full")
+                div(class="cart-total__text") Итого:
+                div(class="cart-total__price" data-text="Стоимость") 221 343 ₽
+                    s(data-text="Скидка") 250 343 ₽
+
+            div(class="cart-total-btn")
+                a(href="order.html " class="btn btn--100 btn--green") Оформить заказ
+
+
+
+

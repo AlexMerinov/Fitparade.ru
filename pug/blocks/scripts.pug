@@ -1,4 +1,4 @@
-// Пример скриптов для бэка
+// Пример скриптов, анимаций для бэка
 script.
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -41,47 +41,65 @@ script.
         });
 
         // Кнопка -
-        document.body.addEventListener('click', (e) => {
-            if (e.target.classList.contains('js-basket-minus') || e.target.closest('.js-basket-minus')) {
-                e.preventDefault();
-                const btn = e.target.classList.contains('js-basket-minus') ? e.target : e.target.closest('.js-basket-minus');
-                const productId = btn?.getAttribute('data-product-id');
-                const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="'+productId+'"],.cart-list__counter[data-product-id="'+productId+'"]');
-                parents.forEach((parent)=>{
-                    const counter = parent.querySelector('[data-count]');
-                    if (counter !== null && counter !== undefined) {
-                        let count = Number(counter.getAttribute('data-count'));
-                        const step = Number(counter.getAttribute('data-step'));
+        const btnMinusFunc = (el) => {
+            const btn = el.classList.contains('js-basket-minus') ? el : el.closest('.js-basket-minus');
+            const productId = btn?.getAttribute('data-product-id');
+            const parents = document.querySelectorAll('.catalog-list__basket[data-product-id="' + productId + '"],.cart-list__counter[data-product-id="' + productId + '"]');
+            parents.forEach((parent) => {
+                const counter = parent.querySelector('[data-count]');
+                if (counter !== null && counter !== undefined) {
+                    let count = Number(counter.getAttribute('data-count'));
+                    const step = Number(counter.getAttribute('data-step'));
 
-                        count -= step;
+                    count -= step;
 
-                        const btnMinus = parent.querySelector('.catalog-counter .js-basket-minus');
+                    const btnMinus = parent.querySelector('.catalog-counter .js-basket-minus');
 
-                        if (count <= 0) {
-                            btnMinus?.setAttribute('disabled', 'disabled');
+                    if (count <= 0) {
+                        btnMinus?.setAttribute('disabled', 'disabled');
 
-                            count = 0;
+                        count = 0;
 
-                            parents.forEach((parent)=>{
-                                parent.classList.remove('active');
-                            });
+                        parents.forEach((parent) => {
+                            parent.classList.remove('active');
+                        });
 
-                            // Удаление товара в корзине
-                            if (parent.closest('.cart-list__item') !== null && parent.closest('.cart-list__item') !== undefined){
-                                parent.closest('.cart-list__item').classList.add('fade-out');
-                                setTimeout(()=>{
-                                    parent.closest('.cart-list__item').remove();
-                                },300)
-                            }
-
+                        // Удаление товара в корзине
+                        if (parent.closest('.cart-list__item') !== null && parent.closest('.cart-list__item') !== undefined) {
+                            parent.closest('.cart-list__item').classList.add('fade-out');
+                            setTimeout(() => {
+                                parent.closest('.cart-list__item').remove();
+                            }, 300)
                         }
 
-                        const btnPlus = parent.querySelector('.catalog-counter .js-basket-plus');
-                        btnPlus?.removeAttribute('disabled');
-
-                        counter.setAttribute('data-count', String(count));
                     }
+
+                    const btnPlus = parent.querySelector('.catalog-counter .js-basket-plus');
+                    btnPlus?.removeAttribute('disabled');
+                    counter.setAttribute('data-count', String(count));
+                }
+            })
+        }
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('js-basket-minus') || e.target.closest('.js-basket-minus')) {
+                console.log('- click event')
+                e.preventDefault();
+                btnMinusFunc(e.target);
+            }
+        });
+
+        // Кнопка x в корзине
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('js-basket-delete') || e.target.closest('.js-basket-delete')) {
+                e.preventDefault();
+                const btn = e.target.classList.contains('js-basket-delete') ? e.target : e.target.closest('.js-basket-delete');
+                const productId = btn?.getAttribute('data-product-id');
+                const counters = document.querySelectorAll('.catalog-counter__text[data-product-id="' + productId + '"]');
+                const btnMinus = document.querySelector('.js-basket-minus[data-product-id="' + productId + '"]');
+                counters.forEach((counter)=>{
+                    counter.setAttribute('data-count','1');
                 })
+                btnMinusFunc(btnMinus);
             }
         });
 
@@ -104,7 +122,6 @@ script.
             document.querySelector('.js-modal-filter-hide')?.dispatchEvent(new Event('click'))
 
             // Имитация запроса
-
             setTimeout(()=>{
                 fetch('ajax-catalog-list.html')
                     .then((response) => {
@@ -119,9 +136,6 @@ script.
                         console.warn('Something went wrong.', err);
                     });
             },1000)
-
-
-
         });
 
     });

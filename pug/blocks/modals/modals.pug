@@ -10,17 +10,6 @@ block modal
     +slot('body')
         p(id="js-modal-message-text")
 
-
-+modal({
-    id: 'example'
-})
-    +slot('header')
-        | Пример модального окна
-    +slot('body')
-        p Сообщение модального окна?
-        div(class="btn" data-micromodal-close) Закрыть
-        div(class="btn") Продолжить
-
 +modal({
     id: 'city',
     modifier: 'small'
@@ -89,16 +78,28 @@ block modal
                 div(class="cart-header__caption") Корзина
                 span(class="text-gray") В корзине
                 | 3 товара
-            a(href="#" class="btn btn--mob-small btn--gray")
+            div(class="btn btn--mob-small btn--gray" data-micromodal="modal-basket-clear")
                 +icon-sym('clear')
                 | Очистить
     +slot('body')
+        -
+            var cartFull = false
         include ../cart-list
     +slot('footer')
         div(class="cart-total")
             div(class="cart-total__text") Итого:
             div(class="cart-total__price") 221 343 ₽
                 s 250 343 ₽
-        div(class="cart-btns")
+        div(class="form-btns")
             div(class="btn btn--green-stroke" data-micromodal-close) Продолжить покупки
-            div(class="btn btn--green") Оформить заказ
+            a(href="order.html " class="btn btn--green") Оформить заказ
+
++modal({
+    id: 'basket-clear',
+})
+    +slot('body')
+        p(class="modal__text") Удалить все товары из корзины?
+        div(class="form-btns")
+            a(href="#" class="btn btn--green") Да
+            div(class="btn btn--green-stroke" data-micromodal="modal-basket") Нет
+

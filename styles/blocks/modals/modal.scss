@@ -68,6 +68,13 @@
 	}
 }
 
+.modal__body{
+	padding-top: 40px;
+	@include maxBp($bp-768) {
+		padding-top: 20px;
+	}
+}
+
 .modal[aria-hidden='false'] .modal__container {
 	animation-name: slideIn;
 	@include maxBp($bp-768) {
@@ -94,12 +101,15 @@
 	position: sticky;
 	z-index: 5;
 	top: 0;
-	box-shadow:0 30px 10px -20px var(--white);
+	box-shadow:0 25px 10px -20px var(--white);
 	@include maxBp($bp-768) {
 		padding: 20px 60px 10px 20px;
 		margin: 0 -20px 10px -20px;
 		font-size: 24px;
 		text-align: left;
+	}
+	~.modal__body{
+		padding-top: 0;
 	}
 }
 .modal__footer{
@@ -110,7 +120,7 @@
 	position: sticky;
 	z-index: 5;
 	bottom: 0;
-	box-shadow:0 -30px 10px -20px var(--white);
+	box-shadow:0 -25px 10px -20px var(--white);
 	@include maxBp($bp-768) {
 		padding: 20px;
 		margin: 20px -20px -20px -20px;
@@ -341,5 +351,11 @@
 			margin-bottom: 20px;
 			font-size: 18px;
 		}
+	}
+}
+
+.modal__text{
+	@include maxBp($bp-768){
+		padding-right: 40px;
 	}
 }
