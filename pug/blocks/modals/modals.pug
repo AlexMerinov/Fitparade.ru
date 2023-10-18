@@ -30,11 +30,12 @@ block modal
                         const inputs = document.querySelectorAll('.js-dadata-city');
                         inputs.forEach((input, index) => {
                             input.addEventListener('cityChange',()=>{
-                                console.log('Название города:', input.value);
-                                window.location.reload();
+                                console.log('Event cityChange:', input.value);
+                                //window.location.reload();
                             })
                         });
                     });
+
             ul(class="header-city-list")
                 li
                     a(href="main.html" class="active") Москва

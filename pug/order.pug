@@ -1,0 +1,109 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Корзина',
+                    url: 'basket.html',
+                },
+                {
+                    name: 'Оформление заказа',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        div(class="cart-header cart-header--full")
+            h1(class="cart-header__h1") Оформление заказа
+            a(href="basket.html" class="btn btn--mob-small btn--green-border btn--mob-100")
+                +icon-sym('arrow')
+                | В корзину
+
+        form(action="#" class="order-cols form js-form-validate")
+            div(class="order-cols__left")
+                div(class="h5 mb-s text-light") При самовывозе товара скидка сайта не действует. Для получения скидки Вы можете воспользоваться своей бонусной или дисконтной картой.
+                h3(class="mb-xs") Регион доставки
+                div(class="form__line")
+                    input(class="form__input js-dadata-city" value="Москва" required)
+                hr(class="form__hr")
+                h3(class="mb-xs") Способ доставки
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--cols")
+                        input(type="radio" name="delivery" checked)
+                        span(class="input-checkbox__text")
+                            span(class="input-checkbox__text__item") Курьер с примеркой
+                            span(class="input-checkbox__text__item") Завтра
+                            span(class="input-checkbox__text__item") 500 ₽ +25 ₽/км за пределы МКАД (более 5 км)
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--cols")
+                        input(type="radio" name="delivery")
+                        span(class="input-checkbox__text")
+                            span(class="input-checkbox__text__item") Курьер СДЭК (без примерки)
+                            span(class="input-checkbox__text__item") 1-3 дня
+                            span(class="input-checkbox__text__item") 500 ₽
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--cols")
+                        input(type="radio" name="delivery")
+                        span(class="input-checkbox__text")
+                            span(class="input-checkbox__text__item") Пункт выдачи СДЭК
+                            span(class="input-checkbox__text__item") 3-5 дней
+                            span(class="input-checkbox__text__item") 100 ₽
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--cols")
+                        input(type="radio" name="delivery")
+                        span(class="input-checkbox__text")
+                            span(class="input-checkbox__text__item") Курьер Деловые линии (без примерки)
+                            span(class="input-checkbox__text__item") 1-2 дня
+                            span(class="input-checkbox__text__item") 450 ₽
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--cols")
+                        input(type="radio" name="delivery")
+                        span(class="input-checkbox__text")
+                            span(class="input-checkbox__text__item") Пункт выдачи Деловые линии
+                            span(class="input-checkbox__text__item") 1-5 дней
+                            span(class="input-checkbox__text__item") 150 ₽
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--cols")
+                        input(type="radio" name="delivery")
+                        span(class="input-checkbox__text")
+                            span(class="input-checkbox__text__item") Самовывоз из магазина
+                            span(class="input-checkbox__text__item") 1-2 дня
+                            span(class="input-checkbox__text__item") Бесплатно
+
+                hr(class="form__hr")
+                h3(class="mb-xs") Способ оплаты
+                div(class="form__line")
+                    label(class="input-checkbox")
+                        input(type="radio" name="payment" checked)
+                        span(class="input-checkbox__text") Онлайн оплата банковской картой
+                div(class="form__line")
+                    label(class="input-checkbox")
+                        input(type="radio" name="payment")
+                        span(class="input-checkbox__text") Наличными курьеру
+
+                hr(class="form__hr")
+                h3(class="mb-xs") Покупатель
+                div(class="form__line")
+                    label(class="form__label" for="order-input-name") ФИО
+                    input(type="text" class="form__input" id="order-input-name" required)
+                div(class="form__line")
+                    label(class="form__label" for="order-input-phone") Телефон
+                    input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="order-input-phone" required)
+                div(class="form__line")
+                    label(class="form__label" for="order-input-name") E-mail
+                    input(type="email" class="form__input" id="order-input-email" required)
+                div(class="form__line")
+                    label(class="form__label" for="order-input-address") Адрес доставки
+                    input(type="text" class="form__input js-dadata-city js-dadata-address" id="order-input-address" required value="Москва")
+
+            aside(class="order-cols__right")
+                | ***

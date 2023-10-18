@@ -1,0 +1,11 @@
+.order-cols{
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	&__left{
+		width: calc(100% - 340px);
+	}
+	&__right{
+		width: 320px;
+	}
+}
