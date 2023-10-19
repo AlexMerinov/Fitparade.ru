@@ -1,5 +1,9 @@
 mixin cart-list(items)
-    ul(class=(cartFull ? "cart-list cart-list--full" : "cart-list"))
+    ul(
+        class="cart-list"
+        class=(cartFull ? "cart-list--full" : "")
+        class=(cartOrder ? "cart-list--full--order" : "")
+        )
         if cartFull
             li(class="cart-list__item cart-list__item--caption")
                 div(class="cart-list__caption")
@@ -25,8 +29,9 @@ mixin cart-list(items)
                     count_name,
                 } = item;
             li(class="cart-list__item")
-                div(class="cart-list__delete js-basket-delete" data-product-id=index)
-                    +icon-sym('clear')
+                if !cartOrder
+                    div(class="cart-list__delete js-basket-delete" data-product-id=index)
+                        +icon-sym('clear')
                 a(href="catalog-product.html" class="cart-list__img" data-src-bg=photo)
                 div(class="cart-list__text")
                     a(href="catalog-product.html" class="cart-list__name")
@@ -56,17 +61,26 @@ mixin cart-list(items)
                 div(class="cart-list__price")
                     != price
                     if price_old
-                        s
-                            !=price_old
+                        div(class="cart-list__price__discount")
+                            s
+                                !=price_old
+                            if cartFull
+                                span -15%
                     if cartFull
                         small
                             != count_name
 
-                div(class="cart-list__counter" data-product-id=index)
-                    div(class="catalog-counter catalog-counter--cart")
-                        div(class="catalog-counter__btn js-basket-minus" data-product-id=index) &minus;
-                        div(class="catalog-counter__text" data-count="1" data-step="1" data-max="5" data-product-id=index)
-                        div(class="catalog-counter__btn js-basket-plus" data-product-id=index) &plus;
+
+                if !cartOrder
+                    div(class="cart-list__counter" data-product-id=index)
+                        div(class="catalog-counter catalog-counter--cart")
+                            div(class="catalog-counter__btn js-basket-minus" data-product-id=index) &minus;
+                            div(class="catalog-counter__text" data-count="1" data-step="1" data-max="5" data-product-id=index)
+                            div(class="catalog-counter__btn js-basket-plus" data-product-id=index) &plus;
+                else
+                    div(class="cart-list__counter cart-list__counter--text")
+                        | 1 шт.
+
 
                 div(class="cart-list__price")
                     != price

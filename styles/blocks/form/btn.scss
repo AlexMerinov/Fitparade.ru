@@ -217,10 +217,26 @@
 			margin: 0 5px 0 -5px;
 		}
 	}
+	.icon-sym--arrow-small{
+		fill: var(--btn-color);
+		width: 18px;
+		height: 10px;
+		transition: var(--trans);
+		display: block;
+	}
 
 	&--mob-small{
 		@include maxBp($bp-768){
 			padding: 8px 15px 10px;
 		}
+	}
+	&--arrow{
+		width: 49px;
+		min-width: 49px;
+		height: 49px;
+		padding: 0 !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }

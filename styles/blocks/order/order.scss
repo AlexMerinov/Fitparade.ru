@@ -2,10 +2,74 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	@include maxBp($bp-1280){
+		display: block;
+	}
 	&__left{
 		width: calc(100% - 340px);
+		@include maxBp($bp-1280){
+			width: auto;
+			margin-bottom: 40px;
+		}
 	}
 	&__right{
 		width: 320px;
+		position: sticky;
+		top: 138px;
+		@include maxBp($bp-1280){
+			width: auto;
+			position: static;
+		}
+	}
+}
+
+.order-total{
+	background: var(--gray-100);
+	padding: 30px;
+	margin-bottom: 30px;
+	@include maxBp($bp-768){
+		padding: 20px;
+		margin-bottom: 20px;
+	}
+	&__caption{
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 120%;
+		@include maxBp($bp-768){
+			font-size: 18px;
+		}
+	}
+	&__hr{
+		border-color: var(--gray-300);
+		margin: 25px -30px;
+		width: auto;
+		@include maxBp($bp-768){
+			margin: 20px -20px;
+		}
+	}
+}
+.order-param{
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	margin: 0 0 10px 0;
+	&:last-child{
+		margin: 0;
+	}
+	dt{
+		color: var(--gray-600);
+		font-weight: 300;
+	}
+	dd{
+		margin: 0;
+		text-align: right;
+		white-space: nowrap;
+	}
+	&--total{
+		dd{
+			font-weight: bold;
+			font-size: 20px;
+			transform: translate3d(0,-2px,0);
+		}
 	}
 }

@@ -138,4 +138,25 @@ script.
             },1000)
         });
 
+        // Страница Оформление заказа, добавление нового адреса
+        const inputAddress = document.querySelectorAll('.js-order-address-radio');
+        inputAddress.forEach((input) => {
+            input.addEventListener('change', () => {
+                const inputAddressNew = document.querySelector('.js-order-address-radio-new');
+                if (input.value === 'new'){
+                    inputAddressNew.classList.remove('hide');
+                    const inp = inputAddressNew.querySelector('input');
+                    // Ставим фокус в конце value
+                    const value = inp.value;
+                    inp.value = '';
+                    inp.focus();
+                    inp.value = value;
+                }
+                else{
+                    inputAddressNew.classList.add('hide');
+                }
+            })
+        });
+
+
     });

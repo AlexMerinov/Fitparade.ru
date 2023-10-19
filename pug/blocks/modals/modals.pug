@@ -62,7 +62,7 @@ block modal
                 input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="feedback-input-phone" required)
             div(class="form__line")
                 label(class="input-checkbox input-checkbox--small")
-                    input(type="checkbox" required)
+                    input(type="checkbox" required checked)
                     span(class="input-checkbox__text") Я согласен на обработку
                         a(href="#") персональных данных
             div(class="form__submit")
@@ -85,6 +85,7 @@ block modal
     +slot('body')
         -
             var cartFull = false
+            var cartOrder = false
         include ../cart-list
     +slot('footer')
         div(class="cart-total")
