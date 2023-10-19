@@ -177,6 +177,17 @@
 				text-align: center;
 			}
 		}
+		&--text-small{
+			font-weight: 500;
+			font-size: 16px;
+			line-height: normal;
+			letter-spacing: -0.16px;
+			text-align: center;
+			@include maxBp($bp-768){
+				margin: 0;
+				text-align: center;
+			}
+		}
 	}
 	&__delete{
 		cursor: pointer;
@@ -287,6 +298,14 @@
 		}
 		strong{
 			font-weight: 500;
+		}
+	}
+	&--small{
+		.cart-list__item{
+			padding-right: 0;
+		}
+		.cart-list__price:last-child{
+			margin-right: 0;
 		}
 	}
 }

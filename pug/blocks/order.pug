@@ -4,7 +4,7 @@ div(class="cart-header cart-header--full")
         +icon-sym('arrow')
         | В корзину
 
-div(class="order-cols form js-form-validate")
+form(action="#" class="order-cols js-form-validate")
     div(class="order-cols__left")
         div(class="h5 mb-s text-light") При самовывозе товара скидка сайта не действует. Для получения скидки Вы можете воспользоваться своей бонусной или дисконтной картой.
         h3(class="mb-xs") Регион доставки
@@ -80,30 +80,31 @@ div(class="order-cols form js-form-validate")
         if orderAuth
             div(class="form__line")
                 label(class="form__label") Выберите адрес для доставки:
+            div(class="form__line__wrapper")
+                div(class="form__line")
+                    label(class="input-checkbox")
+                        input(type="radio" name="address" class="js-order-address-radio" checked)
+                        span(class="input-checkbox__text") г. Москва, ул. Проходчиков, 18
+                div(class="form__line")
+                    label(class="input-checkbox")
+                        input(type="radio" name="address" class="js-order-address-radio")
+                        span(class="input-checkbox__text") г. Москва, ул. Академика Янгеля, 2 стр1
+                div(class="form__line form__line--more")
+                    a(href="#" class="link-more js-menu-more") Показать все адреса
+                        +icon-sym('arr-down')
+                div(class="form__line")
+                    label(class="input-checkbox")
+                        input(type="radio" name="address" class="js-order-address-radio")
+                        span(class="input-checkbox__text") г. Москва, Кутузовский проспект, 31А, стр. 1
+                div(class="form__line")
+                    label(class="input-checkbox")
+                        input(type="radio" name="address" class="js-order-address-radio")
+                        span(class="input-checkbox__text") г. Москва, ул. Ткацкая ул., д.5 стр. 2, этаж 5
             div(class="form__line")
-                label(class="input-checkbox")
-                    input(type="radio" name="address" class="js-order-address-radio" checked)
-                    span(class="input-checkbox__text") г. Москва, ул. Проходчиков, 18
-            div(class="form__line")
-                label(class="input-checkbox")
-                    input(type="radio" name="address" class="js-order-address-radio")
-                    span(class="input-checkbox__text") г. Москва, ул. Академика Янгеля, 2 стр1
-            div(class="form__line form__line--more")
-                a(href="#" class="link-more js-menu-more") Показать все адреса
-                    +icon-sym('arr-down')
-            div(class="form__line")
-                label(class="input-checkbox")
-                    input(type="radio" name="address" class="js-order-address-radio")
-                    span(class="input-checkbox__text") г. Москва, Кутузовский проспект, 31А, стр. 1
-            div(class="form__line")
-                label(class="input-checkbox")
-                    input(type="radio" name="address" class="js-order-address-radio")
-                    span(class="input-checkbox__text") г. Москва, ул. Ткацкая ул., д.5 стр. 2, этаж 5
-            div(class="form__line form__line--show")
                 label(class="input-checkbox")
                     input(type="radio" name="address" class="js-order-address-radio" value="new")
                     span(class="input-checkbox__text") Доставить по новому адресу
-            div(class="form__line form__line--show fade-in hide js-order-address-radio-new")
+            div(class="form__line fade-in hide js-order-address-radio-new")
                 label(class="form__label" for="order-input-address") Новый адрес доставки
                 input(type="text" class="form__input js-dadata-city js-dadata-address" id="order-input-address" required value="Москва ")
 

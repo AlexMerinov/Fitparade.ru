@@ -50,6 +50,18 @@ block content
                         name: 'Оформление заказа (авторизованный)',
                         url: 'order-auth.html',
                     },
+                    {
+                        name: 'Заказ оформлен',
+                        url: 'order-finish.html',
+                    },
+                    {
+                        name: 'Заказ оформлен (оплачен)',
+                        url: 'order-finish-payment.html',
+                    },
+                    {
+                        name: 'Заказ оформлен (ошибка)',
+                        url: 'order-finish-error.html',
+                    },
                 ];
             +pages-list(pages)
 
@@ -68,6 +80,10 @@ block content
                     {
                         name: 'Корзина',
                         url: 'modal-basket',
+                    },
+                    {
+                        name: 'Корзина (пусто)',
+                        url: 'modal-basket-empty',
                     },
                     {
                         name: 'Удалить все товары из корзины?',

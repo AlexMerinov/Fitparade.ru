@@ -1,0 +1,82 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Мои заказы',
+                    url: '#',
+                },
+            ];
+        +breads-list(breads)
+        h1 Благодарим Вас за заказ
+        div(class="order-cols js-form-validate")
+            div(class="order-cols__left")
+                div(class="h5 mb-s text-light")
+                    | Ваш заказ <strong>№78767868-09</strong> от 25.07.2023 16:03  принят
+                a(href="#" class="btn btn--big btn--green btn--mob-100") Перейти к оплате
+
+                hr(class="form__hr")
+
+                div(class="order-cols-user")
+                    div(class="order-cols-user__item")
+                        h5 Информация о покупателе:
+                        dl(class="order-params")
+                            dt Имя:
+                            dd Олег
+                        dl(class="order-params")
+                            dt Фамилия:
+                            dd Филимонов
+                        dl(class="order-params")
+                            dt Телефон:
+                            dd +7 (987) 344-43-67
+                        dl(class="order-params")
+                            dt E-mail:
+                            dd mailexample@mail.ru
+                    div(class="order-cols-user__item")
+                        h5 Способ доставки:
+                        p Курьером
+                        h5 Срок доставки:
+                        p 1-2 рабочих дня
+                    div(class="order-cols-user__item order-cols-user__item--wide")
+                        h5 Адрес:
+                        p г. Москва, ул. Проходчиков, 18, кв. 48
+                    div(class="order-cols-user__itemorder-cols-user__item--wide")
+                        h5 Комментарий:
+                        p Текст тестовый, комментарий выводится, если было заполнено комментарий поле при оформлении заказа
+
+                hr(class="form__hr")
+
+                div(class="order-cols-user")
+                    div(class="order-cols-user__item")
+                        h5 Оплата заказа:
+                        p Онлайн-оплата на сайте
+                    div(class="order-cols-user__item")
+                        h5 Статус оплаты:
+                        p Оплачен
+
+                hr(class="form__hr")
+                h3(class="mb-xs") Ваш заказ:
+                -
+                    var cartOrderFinish = true
+                include ./blocks/cart-list
+                div(class="order-finish-total")
+                    dl(class="order-param")
+                        dt Стоимость
+                        dd 21 343 ₽
+                    dl(class="order-param")
+                        dt Доставка
+                        dd 500 ₽
+                    dl(class="order-param order-param--total")
+                        dt Итого
+                        dd 21 793 ₽
+
+

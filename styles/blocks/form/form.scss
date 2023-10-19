@@ -2,6 +2,9 @@
 	&__line {
 		position: relative;
 		margin: 0 0 20px 0;
+		&__wrapper{
+			margin: 0 0 20px 0;
+		}
 		.error-message {
 			z-index: 1;
 		}
@@ -141,6 +144,9 @@
 	&__hr{
 		border-color: var(--gray-300);
 		margin: var(--space-m) 0;
+		&--small{
+			margin: var(--space-s) 0;
+		}
 	}
 	&__input-btn{
 		display: flex;

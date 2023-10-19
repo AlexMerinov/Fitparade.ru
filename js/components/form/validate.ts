@@ -1,5 +1,4 @@
 import Bouncer from 'formbouncerjs';
-import Inputmask from 'inputmask';
 
 document.addEventListener('DOMContentLoaded', () => {
     const jsform = document.querySelectorAll('.js-form-validate');

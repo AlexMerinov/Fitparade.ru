@@ -3,18 +3,24 @@ import { slideToggle } from '@js/components/animation/toggle';
 document.addEventListener('DOMContentLoaded', () => {
     const { body } = document;
     const jsMenuBurger = document.querySelector('.js-menu-burger');
-    let wintop = 0;
+    let winTop = 0;
 
     jsMenuBurger?.addEventListener('click', (e) => {
         e.preventDefault();
         if (!body.classList.contains('menu-show')) {
-            wintop = window.scrollY;
+            winTop = window.scrollY;
             body.classList.add('menu-show');
-            body.style.top = `-${wintop}px`;
-            body.style.setProperty('--wintop', `${wintop}px`);
+            body.style.top = `-${winTop}px`;
+            body.style.setProperty('--wintop', `${winTop}px`);
         } else {
             body.classList.remove('menu-show');
-            window.scroll(0, wintop);
+            document
+                .querySelector('html')
+                ?.classList.add('scroll-smooth-disabled');
+            window.scroll(0, winTop);
+            document
+                .querySelector('html')
+                ?.classList.remove('scroll-smooth-disabled');
             body.style.removeProperty('top');
             body.style.removeProperty('--wintop');
 
@@ -23,14 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.remove('header-menu-show');
             });
         }
-    });
-
-    const linksMore = document.querySelectorAll('.js-menu-more');
-    linksMore.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            link.parentElement?.classList.add('hide');
-        });
     });
 
     const linksArr = document.querySelectorAll('.js-menu-arr');
@@ -60,5 +58,19 @@ document.addEventListener('DOMContentLoaded', () => {
             slideToggle(link, target, 300);
             // }
         });
+    });
+
+    document.body.addEventListener('click', (e) => {
+        const target = e.target as Element;
+        if (
+            target.classList.contains('js-menu-more') ||
+            target.closest('.js-menu-more')
+        ) {
+            e.preventDefault();
+            const link = target.classList.contains('js-menu-more')
+                ? target
+                : target.closest('.js-menu-more');
+            link?.parentElement?.classList.add('hide');
+        }
     });
 });

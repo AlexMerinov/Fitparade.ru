@@ -86,6 +86,7 @@ block modal
         -
             var cartFull = false
             var cartOrder = false
+            var cartOrderFinish = false
         include ../cart-list
     +slot('footer')
         div(class="cart-total")
@@ -95,6 +96,21 @@ block modal
         div(class="form-btns")
             div(class="btn btn--green-stroke" data-micromodal-close) Продолжить покупки
             a(href="order.html " class="btn btn--green") Оформить заказ
+
++modal({
+    id: 'basket-empty',
+    modifier: 'basket'
+})
+    +slot('header')
+        div(class="cart-header")
+            div(class="cart-header__text")
+                div(class="cart-header__caption") Корзина
+    +slot('body')
+        div(class="h5 mb-m text-light") В корзине пока нет товаров
+        a(href="catalog-categories.html " class="btn btn--big btn--green btn--mob-100") Каталог
+
+
+
 
 +modal({
     id: 'basket-clear',

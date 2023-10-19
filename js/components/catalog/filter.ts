@@ -31,7 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             document.body.classList.remove('filter-modal-show');
+            document
+                .querySelector('html')
+                ?.classList.add('scroll-smooth-disabled');
             window.scroll(0, winTop);
+            document
+                .querySelector('html')
+                ?.classList.remove('scroll-smooth-disabled');
             document.body.style.removeProperty('top');
             document.body.style.removeProperty('--wintop');
             const modal = document.querySelector('.catalog-cols__filter');

@@ -1,0 +1,31 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Мои заказы',
+                    url: '#',
+                },
+            ];
+        +breads-list(breads)
+        h1 Заказ оплачен
+        div(class="order-cols js-form-validate")
+            div(class="order-cols__left")
+                div(class="h5 mb-s text-light")
+                    | Ваш заказ <strong>№78767868-09</strong> от 25.07.2023 16:03 успешно оплачен
+
+                hr(class="form__hr form__hr--small")
+
+                div(class="text-light mb-s") Вы можете отслеживать статус заказа в личном кабинете
+
+                a(href="#" class="btn btn--big btn--green btn--mob-100") Личный кабинет
+
