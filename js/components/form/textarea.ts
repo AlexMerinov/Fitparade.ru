@@ -26,3 +26,13 @@ const fTextareaInit = () => {
 document.addEventListener('DOMContentLoaded', () => {
     fTextareaInit();
 });
+
+document.addEventListener('modalOpen', () => {
+    const jstextarea = document.querySelectorAll('.modal .js-textarea');
+    jstextarea.forEach((textarea, index) => {
+        fTextarea(textarea);
+        textarea.addEventListener('input', () => {
+            window.dispatchEvent(new Event('resize')); // Для пересчета позиции модалки
+        });
+    });
+});

@@ -1,0 +1,66 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Личный кабинет',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+
+        div(class="cart-header cart-header--full")
+            h1(class="cart-header__h1 tablet-vertical-hide") Личный кабинет
+            div(class="cart-header__text")
+                div(class="cart-header__caption tablet-vertical-show") Личный кабинет
+            div(class="btn btn--mob-small btn--gray" data-micromodal="modal-feedback-message")
+                | Обратная связь
+            a(href="catalog-categories.html" class="btn btn--mob-small btn--gray btn--mob-100 mobile-hide")
+                +icon-sym('arrow')
+                | Выйти из аккаунта
+
+        div(class="swiper lk-menu js-lk-menu-slider")
+            div(class="swiper-wrapper")
+                div(class="lk-menu__item swiper-slide")
+                    a(href="lk-profile.html" class="lk-menu__link active") Личные данные
+                div(class="lk-menu__item swiper-slide")
+                    a(href="#" class="lk-menu__link") Текущие заказы
+                div(class="lk-menu__item swiper-slide")
+                    a(href="#" class="lk-menu__link") История заказов
+                div(class="lk-menu__item swiper-slide")
+                    a(href="#" class="lk-menu__link") Корзина
+
+        form(action="#" class="form form-col js-form-validate")
+            div(class="form__line")
+                label(class="form__label" for="reg-input-name") ФИО
+                input(type="text" class="form__input" id="reg-input-name" required value="Олег")
+            div(class="form__line")
+                label(class="form__label" for="reg-input-phone") Телефон
+                input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="reg-input-phone" required value="+7 (987) 344-43-68")
+            div(class="form__line")
+                label(class="form__label" for="email-input-name") E-mail
+                input(type="email" class="form__input" id="email-input-name" required value="mailexample@mail.ru")
+            div(class="form__line")
+                label(class="input-checkbox")
+                    input(type="checkbox")
+                    span(class="input-checkbox__text") Получать уведомления по смс
+            div(class="form__text")
+                a(href="#" data-micromodal="modal-password-change") Поменять пароль
+            div(class="form__submit")
+                button(type="submit" class="btn btn--green btn--100") Сохранить изменения
+
+
+
+        hr(class="hr-big mobile-show")
+        a(href="catalog-categories.html" class="btn btn--mob-small btn--gray btn--mob-100 mobile-show")
+            +icon-sym('arrow')
+            | Выйти из аккаунта

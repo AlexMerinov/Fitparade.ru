@@ -1,0 +1,39 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Личный кабинет',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+        div(class="cart-header cart-header--full")
+            h1(class="cart-header__h1") Личный кабинет
+            a(href="main.html" class="btn btn--mob-small btn--gray btn--mob-100")
+                +icon-sym('arrow')
+                | Выйти из аккаунта
+
+        div(class="lk-sections")
+            a(href="lk-profile.html" class="lk-sections__item")
+                span(class="lk-sections__name") Личные данные
+                +icon-sym('lk-profile')
+            a(href="lk-orders.html" class="lk-sections__item")
+                span(class="lk-sections__name") Текукщие заказы
+                +icon-sym('lk-orders')
+            a(href="lk-orders-history.html" class="lk-sections__item")
+                span(class="lk-sections__name") История заказов
+                +icon-sym('lk-history')
+            a(href="lk-addresses.html" class="lk-sections__item")
+                span(class="lk-sections__name") Адреса
+                +icon-sym('lk-addresses')
+
