@@ -107,3 +107,33 @@
 .link-dashed{
 	border-bottom-style: dashed;
 }
+
+.link-vk{
+	border: none;
+	font-size: 14px;
+	line-height: 120%;
+	color: var(--black);
+	display: inline-block;
+	&:hover{
+		color: var(--green);
+		.link-vk__icon{
+			background: var(--green);
+		}
+	}
+	&__icon{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: middle;
+		width: 30px;
+		height: 30px;
+		background: #416DA9;
+		transition: var(--trans);
+		margin: -2px 0 0 10px;
+		.icon-sym{
+			fill: var(--white);
+			width: 18px;
+			height: 18px;
+		}
+	}
+}

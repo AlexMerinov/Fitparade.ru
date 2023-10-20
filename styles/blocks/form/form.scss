@@ -24,6 +24,12 @@
 		}
 	}
 
+	&__text{
+		margin: 20px 0;
+		font-size: 14px;
+		line-height: 120%;
+	}
+
 	&__label {
 		display: block;
 		@include text-size-14;
@@ -498,5 +504,12 @@
 	}
 	.btn{
 		flex: auto;
+	}
+}
+
+.form-col{
+	max-width: 430px;
+	@include maxBp($bp-500){
+		max-width: none;
 	}
 }

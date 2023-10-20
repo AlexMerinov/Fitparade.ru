@@ -3,22 +3,19 @@ import defaultSettings from './settings';
 import { openModal, closeModal } from './utils';
 
 const fModalPosition = () => {
-    const modal = document.querySelector('.modal.is-open .modal__container');
-    const modalParent = document.querySelector(
-        '.modal.is-open .modal__overlay'
+    const modals = document.querySelectorAll(
+        '.modal.is-open .modal__container'
     );
-    if (
-        typeof modal !== 'undefined' &&
-        modal != null &&
-        typeof modalParent !== 'undefined' &&
-        modalParent != null
-    ) {
-        if (modal.clientHeight > modalParent.clientHeight) {
-            modalParent.classList.add('modal__overlay--block');
-        } else {
-            modalParent.classList.remove('modal__overlay--block');
+    modals.forEach((modal) => {
+        const modalParent = modal.closest('.modal__overlay');
+        if (typeof modalParent !== 'undefined' && modalParent != null) {
+            if (modal.clientHeight > modalParent.clientHeight) {
+                modalParent.classList.add('modal__overlay--block');
+            } else {
+                modalParent.classList.remove('modal__overlay--block');
+            }
         }
-    }
+    });
 };
 
 const scrollWidth = () => {

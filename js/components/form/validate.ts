@@ -1,4 +1,5 @@
 import Bouncer from 'formbouncerjs';
+import Inputmask from 'inputmask';
 
 document.addEventListener('DOMContentLoaded', () => {
     const jsform = document.querySelectorAll('.js-form-validate');
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         inputFileAccept: 'Неверный формат файла',
                         inputFileSize: 'Неверный размер файла',
                         inputPasswordMatch: 'Введенные пароли не совпадают',
+                        inputPhone: 'Некорректный номер телефона',
                     },
                     customValidations: {
                         requiredVisible(field: any) {
@@ -111,6 +113,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                     }
                                 }
                                 return true;
+                            }
+                        },
+                        inputPhone(field) {
+                            if (
+                                field.classList.contains(
+                                    'js-input-format-phone'
+                                ) &&
+                                field.value.length > 0
+                            ) {
+                                return !Inputmask.isValid(field.value, {
+                                    mask: '+7 (999) 999-99-99',
+                                });
                             }
                         },
                     },

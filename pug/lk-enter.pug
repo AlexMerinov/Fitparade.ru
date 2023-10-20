@@ -1,0 +1,43 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Вход',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+        h1 Вход
+
+        form(action="#" class="form form-col js-form-validate")
+            div(class="form__line")
+                label(class="form__label" for="enter-input-name") E-mail
+                input(type="email" class="form__input" id="enter-input-name" required)
+            div(class="form__line")
+                label(class="form__label" for="enter-input-pass") Пароль
+                input(type="password" class="form__input" id="enter-input-pass" required)
+            div(class="form__text")
+                a(href="lk-password-email.html") Забыли пароль?
+            div(class="form__submit")
+                button(type="submit" class="btn btn--green btn--100") Войти
+            div(class="form__text")
+                | Нет аккаунта?
+                a(href="lk-registration.html") Регистрация
+
+        hr(class="hr-big")
+        a(href="#" class="link-vk")
+            | Вход через
+            span(class="link-vk__icon")
+                +icon-sym('vk')
+
+

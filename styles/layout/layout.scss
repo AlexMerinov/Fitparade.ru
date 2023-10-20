@@ -225,6 +225,21 @@ hr,.hr{
         margin-bottom: 0;
     }
 }
+.hr-big{
+    margin: var(--space-m) -50px;
+    @include maxBp($bp-1280){
+        margin: var(--space-m) -32px;
+    }
+    @include maxBp($bp-1024){
+        margin: var(--space-m) -20px;
+    }
+    .modal &{
+        margin: var(--space-s) -65px;
+        @include maxBp($bp-768){
+            margin: var(--space-s) -20px;
+        }
+    }
+}
 
 .clear{
     clear: both;

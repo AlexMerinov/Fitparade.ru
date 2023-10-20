@@ -62,6 +62,22 @@ block content
                         name: 'Заказ оформлен (ошибка)',
                         url: 'order-finish-error.html',
                     },
+                    {
+                        name: 'Личный кабинет (вход)',
+                        url: 'lk-enter.html',
+                    },
+                    {
+                        name: 'Личный кабинет (забыл пароль)',
+                        url: 'lk-password-email.html',
+                    },
+                    {
+                        name: 'Личный кабинет (введите новый пароль)',
+                        url: 'lk-password.html',
+                    },
+                    {
+                        name: 'Личный кабинет (регистрация)',
+                        url: 'lk-registration.html',
+                    },
                 ];
             +pages-list(pages)
 
@@ -69,6 +85,10 @@ block content
             -
                 var modalLinks = true;
                 const pagesModal = [
+                    {
+                        name: 'Сообщение',
+                        url: 'modal-message',
+                    },
                     {
                         name: 'Выбор города',
                         url: 'modal-city',
@@ -88,6 +108,18 @@ block content
                     {
                         name: 'Удалить все товары из корзины?',
                         url: 'modal-basket-clear',
+                    },
+                    {
+                        name: 'Войти',
+                        url: 'modal-enter',
+                    },
+                    {
+                        name: 'Восстановить пароль',
+                        url: 'modal-password-email',
+                    },
+                    {
+                        name: 'Регистрация',
+                        url: 'modal-registration',
                     },
                 ];
             +pages-list(pagesModal)

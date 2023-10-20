@@ -1,0 +1,54 @@
+extends ./_layout
+include ./mixins/list/breads
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Регистрация',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+        h1 Регистрация
+
+        form(action="#" class="form form-col js-form-validate")
+            div(class="form__line")
+                label(class="form__label" for="reg-input-name") ФИО
+                input(type="email" class="form__input" id="reg-input-name" required)
+            div(class="form__line")
+                label(class="form__label" for="reg-input-phone") Телефон
+                input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="reg-input-phone" required)
+            div(class="form__line")
+                label(class="form__label" for="email-input-name") E-mail
+                input(type="email" class="form__input" id="email-input-name" required)
+            div(class="form__line")
+                label(class="form__label" for="reg-input-password-1") Пароль
+                input(type="password" class="form__input" id="reg-input-password-1" minlength="8" required)
+            div(class="form__line")
+                label(class="form__label" for="reg-input-password-2") Повторите пароль
+                input(type="password" class="form__input" id="reg-input-password-2" data-password-match="#reg-input-password-1" required)
+            div(class="form__line")
+                label(class="input-checkbox input-checkbox--small")
+                    input(type="checkbox" required checked)
+                    span(class="input-checkbox__text") Я согласен на обработку
+                        a(href="#") персональных данных
+            div(class="form__submit")
+                button(type="submit" class="btn btn--green btn--100") Зарегистрироваться
+            div(class="form__text")
+                | Есть аккаунт?
+                a(href="lk-enter.html") Войти
+        hr(class="hr-big")
+        a(href="#" class="link-vk")
+            | Вход через
+            span(class="link-vk__icon")
+                +icon-sym('vk')
+
+
