@@ -1,0 +1,16 @@
+mixin menu-lk(items)
+    div(class="swiper lk-menu js-lk-menu-slider")
+        div(class="swiper-wrapper")
+            each item in items
+                -
+                    const {
+                        name,
+                        url,
+                    } = item;
+                div(class="lk-menu__item swiper-slide")
+                    a(
+                        href=url+".html"
+                        class="lk-menu__link"
+                        class=(page == url ? "active" : "")
+                        )
+                        !=name

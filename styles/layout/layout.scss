@@ -224,6 +224,9 @@ hr,.hr{
     &:last-child{
         margin-bottom: 0;
     }
+    &--gray{
+        border-top-color: var(--gray-300);
+    }
 }
 .hr-big{
     margin: var(--space-m) -50px;

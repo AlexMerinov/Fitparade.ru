@@ -8,7 +8,9 @@ block modal
     +slot('header')
         span(id="js-modal-message-caption") Сообщение
     +slot('body')
-        p(id="js-modal-message-text") Пример модального окна с текстовым сообщением.
+        p(id="js-modal-message-text" class="modal__message") Пример модального окна с текстовым сообщением.
+        div(class="form-btns")
+            div(class="btn btn--green btn--100" data-micromodal-close) Хорошо
 
 +modal({
     id: 'city',
@@ -121,6 +123,15 @@ block modal
             a(href="#" class="btn btn--green") Да
             div(class="btn btn--green-stroke" data-micromodal="modal-basket") Нет
 
++modal({
+    id: 'order-cancel',
+})
+    +slot('header')
+    +slot('body')
+        p(class="modal__text") Отменить заказ?
+        div(class="form-btns")
+            a(href="lk-orders.html" class="btn btn--green") Да
+            div(class="btn btn--green-stroke" data-micromodal-close) Нет
 
 +modal({
     id: 'enter'

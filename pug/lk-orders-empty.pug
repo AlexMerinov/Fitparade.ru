@@ -1,0 +1,11 @@
+extends ./_layout-lk
+include ./mixins/list/lk-orders
+
+block vars
+    -
+        page = "lk-orders"
+
+block content-lk
+
+    div(class="h5 mb-m text-light") Текущих заказов нет
+    a(href="catalog-categories.html" class="btn btn--big btn--green btn--mob-100") Каталог

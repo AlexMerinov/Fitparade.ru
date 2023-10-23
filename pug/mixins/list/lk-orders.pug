@@ -1,0 +1,118 @@
+include ../basic/_icon-sym
+
+mixin lk-orders(items)
+    each item in items
+        -
+            const {
+                name,
+                date,
+                delivery,
+                address,
+                total,
+                pay,
+            } = item;
+
+        dl(class="lk-orders fade-in")
+            dt(class="lk-orders__header js-menu-toggle")
+                div(class="lk-orders__header__item")
+                    != name + ' от '
+                    != date
+                    small
+                        != delivery + ': '
+                        != address
+                div(class="lk-orders__header__item")
+                    != total
+                div(class="lk-orders__header__item")
+                    if orderHistory
+                        if pay
+                            | Выполнен
+                            != ' '+date
+                        else
+                            span(class="text-gray") Отменен
+                    else
+                        if pay
+                            span(class="text-green") Оплачен
+                        else
+                            span(class="text-red") Не оплачен
+                div(class="lk-orders__header__item")
+                    if orderHistory
+                        a(href="basket.html" class="btn btn--100 btn--green") Повторить
+                    else
+                        if !pay
+                            a(href="#" class="btn btn--100 btn--green") Оплатить
+                div(class="lk-orders__header__arr")
+                    +icon-sym('arr')
+
+            dd(class="lk-orders__content")
+                -
+                    var cartFull = true
+                    var cartOrder = true
+                include ../../blocks/cart-list
+                div(class="order-finish-total order-finish-total--big")
+                    dl(class="order-param")
+                        dt Стоимость
+                        dd 21 343 ₽
+                    dl(class="order-param")
+                        dt Доставка
+                        dd 500 ₽
+                    dl(class="order-param order-param--total")
+                        dt Итого
+                        dd 21 793 ₽
+
+                hr(class="form__hr")
+
+                div(class="order-cols-user order-cols-user--lk")
+                    div(class="order-cols-user__item")
+                        h5 Информация о покупателе:
+                        dl(class="order-params")
+                            dt Имя:
+                            dd Олег
+                        dl(class="order-params")
+                            dt Фамилия:
+                            dd Филимонов
+                        dl(class="order-params")
+                            dt Телефон:
+                            dd +7 (987) 344-43-67
+                        dl(class="order-params")
+                            dt E-mail:
+                            dd mailexample@mail.ru
+                        h5 Адрес:
+                        p г. Москва, ул. Проходчиков, 18, кв. 48
+                    div(class="order-cols-user__item")
+                        h5 Способ оплаты:
+                        p Онлайн оплата банковской картой
+                        h5 Способ доставки:
+                        p Курьером
+                        h5 Срок доставки:
+                        p 1-2 рабочих дня
+                    div(class="order-cols-user__item")
+                        if !pay && !orderHistory
+                            a(href="#" class="order-cols-user__btn btn btn--green mobile-hide") Оплатить
+                        h5 Статус оплаты:
+                        p
+                            if pay
+                                span(class="text-green") Оплачен
+                            else
+                                span(class="text-red") Не оплачен
+
+                        h5 Статус заказа:
+                        p
+                            if orderHistory
+                                if pay
+                                    | Выполнен
+                                else
+                                    span(class="text-gray") Отменен
+                            else
+                                if pay
+                                    | Готов к отправке
+                                else
+                                    | Принят, ожидается оплата
+                        h5 Комментарий:
+                        p Текст тестовый, комментарий выводится, если было заполнено комментарий поле при оформлении заказа
+
+                if !pay
+                    a(href="#" class="btn btn--100 btn--green mobile-show mt-s") Оплатить
+                if orderHistory
+                    a(href="basket.html" class="btn btn--wide btn--mobile-100 btn--green mt-s") Повторить заказ
+                else
+                    a(href="#" class="btn btn--wide btn--mobile-100 btn--gray mt-s" data-micromodal="modal-order-cancel") Отменить заказ

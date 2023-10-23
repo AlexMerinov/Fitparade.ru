@@ -49,15 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const linksToggle = document.querySelectorAll('.js-menu-toggle');
-    linksToggle.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            // if (window.matchMedia('(max-width: 1279px)').matches) {
+    document.body.addEventListener('click', (e) => {
+        const target = e.target as Element;
+        if (
+            (target.classList.contains('js-menu-toggle') ||
+                target.closest('.js-menu-toggle')) &&
+            !target.classList.contains('btn')
+        ) {
             e.preventDefault();
-            const target = link.nextElementSibling;
-            slideToggle(link, target, 300);
-            // }
-        });
+            const link = target.classList.contains('js-menu-toggle')
+                ? target
+                : target.closest('.js-menu-toggle');
+            const linkTarget = link?.nextElementSibling;
+            slideToggle(link, linkTarget, 300);
+        }
     });
 
     document.body.addEventListener('click', (e) => {

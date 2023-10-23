@@ -1,0 +1,11 @@
+extends ./_layout-lk
+include ./mixins/list/lk-orders
+
+block vars
+    -
+        page = "lk-orders"
+
+block content-lk
+
+    div(class="lk-orders-wrapper")
+        include ./ajax-order-list

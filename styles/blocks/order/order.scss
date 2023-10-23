@@ -90,10 +90,53 @@
 		&--wide{
 			width: 100%;
 		}
-		p+h5{
+		h5{
 			margin-top: 30px;
 			@include maxBp($bp-768){
 				margin-top: 20px;
+			}
+			&:first-child{
+				margin-top: 0;
+				@include maxBp($bp-768){
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	&__btn{
+		float: right;
+		margin-left: -100%;
+		width: 155px;
+		@include maxBp($bp-1280){
+			width: 147px;
+		}
+		+h5{
+			margin-top: 0;
+			@include maxBp($bp-768){
+				margin-top: 0;
+			}
+		}
+	}
+	&--lk{
+		gap: 0;
+		@include maxBp($bp-1024){
+			gap:40px;
+		}
+		.order-cols-user__item {
+			padding-right: 40px;
+			width: calc(100%/3);
+			@include maxBp($bp-1024){
+				width: calc(50% - 20px);
+				padding-right: 0;
+			}
+			@include maxBp($bp-500){
+				width: 100%;
+			}
+			&:last-child{
+				padding-right: 0;
+				@include maxBp($bp-1024){
+					width: 100%;
+				}
 			}
 		}
 	}
@@ -101,7 +144,7 @@
 
 .order-params{
 	display: flex;
-	margin: 0 0 10px 0;
+	margin: 0 0 6px 0;
 	@include maxBp($bp-768){
 		margin-bottom: 5px;
 	}
@@ -130,6 +173,21 @@
 		width: 310px;
 		@include maxBp($bp-768){
 			width: 100%;
+		}
+	}
+	&--big{
+		.order-param{
+			width:calc(100% / 3);
+			@include maxBp($bp-1440){
+				width:calc(33% + 4px);
+				padding-left: 0;
+			}
+			@include maxBp($bp-1024){
+				width: 190px;
+			}
+			@include maxBp($bp-768){
+				width: 100%;
+			}
 		}
 	}
 }

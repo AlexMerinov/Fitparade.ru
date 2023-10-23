@@ -1,0 +1,57 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/menu/lk
+
+block content
+
+    div(class="wrapper__page article__top")
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Личный кабинет',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+
+        div(class="cart-header cart-header--full")
+            h1(class="cart-header__h1 tablet-vertical-hide") Личный кабинет
+            div(class="cart-header__text")
+                div(class="cart-header__caption tablet-vertical-show") Личный кабинет
+            div(class="btn btn--mob-small btn--gray" data-micromodal="modal-feedback-message")
+                | Обратная связь
+            a(href="catalog-categories.html" class="btn btn--mob-small btn--gray btn--mob-100 mobile-hide")
+                +icon-sym('arrow')
+                | Выйти из аккаунта
+
+        -
+            const lkMenu = [
+                {
+                    name: 'Личные данные',
+                    url: 'lk-profile',
+                },
+                {
+                    name: 'Текущие заказы',
+                    url: 'lk-orders',
+                },
+                {
+                    name: 'История заказов',
+                    url: 'lk-history',
+                },
+                {
+                    name: 'Адреса',
+                    url: 'lk-addresses',
+                },
+            ];
+        +menu-lk(lkMenu)
+
+        block content-lk
+
+        hr(class="hr-big hr--gray mobile-show")
+        a(href="catalog-categories.html" class="btn btn--mob-small btn--gray btn--mob-100 mobile-show")
+            +icon-sym('arrow')
+            | Выйти из аккаунта

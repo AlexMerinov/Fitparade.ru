@@ -359,3 +359,11 @@
 		padding-right: 40px;
 	}
 }
+
+.modal__message{
+	text-align: center;
+	margin-bottom: 20px;
+	@include maxBp($bp-768){
+		text-align: left;
+	}
+}

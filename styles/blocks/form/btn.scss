@@ -81,6 +81,11 @@
 		width: 100%;
 		text-align: center;
 	}
+	&--mobile-100{
+		@include maxBp($bp-768){
+			width: 100%;
+		}
+	}
 	&--mob-100{
 		@include maxBp($bp-500){
 			width: 100%;

@@ -86,6 +86,14 @@ block content
                         name: 'Личный кабинет (личные данные)',
                         url: 'lk-profile.html',
                     },
+                    {
+                        name: 'Личный кабинет (Текущие заказы)',
+                        url: 'lk-orders.html',
+                    },
+                    {
+                        name: 'Личный кабинет (Текущие заказы, пусто)',
+                        url: 'lk-orders-empty.html',
+                    },
                 ];
             +pages-list(pages)
 
@@ -136,6 +144,10 @@ block content
                     {
                         name: 'Обратная связь',
                         url: 'modal-feedback-message',
+                    },
+                    {
+                        name: 'Отменить заказ',
+                        url: 'modal-order-cancel',
                     },
                 ];
             +pages-list(pagesModal)
