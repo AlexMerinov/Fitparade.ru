@@ -168,7 +168,7 @@
 						@include maxBp($bp-1024){
 							color: var(--white);
 						}
-						&:hover{
+						&:hover,&.active{
 							border-bottom-color: var(--white);
 							color: var(--white);
 						}

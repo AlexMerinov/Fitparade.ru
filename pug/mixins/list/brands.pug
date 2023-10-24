@@ -1,0 +1,9 @@
+mixin brands-list(items)
+    div(class="lk-sections lk-sections--logos page-in")
+        each item, index in items
+            -
+                const {
+                    src,
+                } = item;
+            a(href="catalog-category.html" class="lk-sections__item")
+                img(data-src=src alt="Название бренда" width="180" height="180" class="lk-sections__logo")
