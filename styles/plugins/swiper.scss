@@ -780,7 +780,7 @@
 	height: 60px;
 	width: 20px;
 	margin-top: -30px;
-	box-shadow: 0 0 10px 10px var(--white);
+	box-shadow: 0 0 5px 5px var(--white);
 	background: var(--white);
 	@include maxBp($bp-1280){
 		display: none;

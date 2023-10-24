@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesPerView: 'auto',
             speed: 300,
             loop: false,
-            centerInsufficientSlides: true,
-            centeredSlidesBounds: true,
-            centeredSlides: true,
+            // centerInsufficientSlides: true,
+            // centeredSlidesBounds: true,
+            // centeredSlides: true,
             grabCursor: true,
             navigation: {
                 nextEl: slider.parentElement?.querySelector(

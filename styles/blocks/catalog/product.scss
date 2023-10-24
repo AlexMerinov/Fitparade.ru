@@ -301,6 +301,7 @@
 			position: relative;
 			z-index: 1;
 		}
+
 		&__text{
 			text-align: center;
 			margin-bottom: 20px;
@@ -316,6 +317,22 @@
 				font-size: 14px;
 				letter-spacing: normal;
 			}
+		}
+		iframe{
+			aspect-ratio: 16/9;
+			width: 100%;
+			height: auto;
+			max-height: 100%;
+			background: var(--black);
+			margin:0;
+			padding: 0;
+			border: none;
+			display: block;
+			position: absolute;
+			z-index: 1;
+			left: 50%;
+			top: 50%;
+			transform: translate3d(-50%,-50%,0);
 		}
 	}
 	.product-gallery-thumb.swiper{
@@ -407,3 +424,6 @@
 		margin-bottom: 10px;
 	}
 }
+
+
+

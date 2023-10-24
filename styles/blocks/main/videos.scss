@@ -2,6 +2,7 @@
 	padding-top: 30px;
 	padding-bottom: 40px;
 	width: auto;
+	display: flex;
 	@include maxBp($bp-768){
 		padding-top: 20px;
 		padding-bottom: 30px;
@@ -84,6 +85,23 @@
 		margin: 0 0 20px 0;
 		@include maxBp($bp-768){
 			margin: 0 0 10px 0;
+		}
+	}
+	&--full{
+		flex-wrap: wrap;
+		margin: -40px -12px 0 -12px;
+		padding: 0;
+		@include maxBp($bp-1024){
+			margin: -20px -7px 0 -7px;
+		}
+		@include maxBp($bp-768){
+			padding: 0;
+		}
+		.videos-list__item{
+			margin-top: 40px;
+			@include maxBp($bp-1024){
+				margin-top: 20px;
+			}
 		}
 	}
 }

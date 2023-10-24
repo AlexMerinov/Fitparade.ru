@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const yId = link.getAttribute('data-youtube-id');
             let iframe = link.querySelector('iframe');
-            const src = `https://www.youtube.com/embed/${yId}?autoplay=1`;
+            const src = `https://www.youtube.com/embed/${yId}?autoplay=1&mute=1`;
             if (iframe !== null && iframe !== undefined) {
                 iframe.src = src;
             } else {
@@ -18,6 +18,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 iframe.setAttribute('allowfullscreen', 'allowfullscreen');
                 link.appendChild(iframe);
             }
+        });
+    });
+
+    document.body.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (
+            target.classList.contains('js-video-modal') ||
+            target.closest('.js-video-modal')
+        ) {
+            e.preventDefault();
+            const btn = target.classList.contains('js-video-modal')
+                ? target
+                : target.closest('.js-video-modal');
+
+            const yId = btn?.getAttribute('data-youtube-id') || '';
+            const modalId = btn?.getAttribute('data-micromodal');
+            const videoLink = document.querySelector(
+                `#${modalId} .js-video-link`
+            );
+            videoLink?.setAttribute('data-youtube-id', yId);
+            videoLink?.dispatchEvent(new Event('click'));
+        }
+    });
+
+    document.addEventListener('modalClose', () => {
+        console.log('modalClose');
+        const iframes = document.querySelectorAll(
+            '.modal .js-video-link iframe'
+        );
+        iframes.forEach((iframe: any) => {
+            iframe.src = '';
         });
     });
 });

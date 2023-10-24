@@ -1,0 +1,28 @@
+include ../basic/_modal
+
+mixin videos-list-full(items)
+    div(class="videos-list videos-list--full")
+        each item, index in items
+            -
+                const {
+                    name,
+                    img,
+                    img_full,
+                    id,
+                } = item;
+            div(class="videos-list__item js-video-modal" data-youtube-id=id data-micromodal="modal-video")
+                div(class="videos-list__preview" data-src-bg=img)
+                    +icon-sym('play')
+                != name
+
+
+    +modal({
+        id: 'video',
+        modifier: 'gallery'
+    })
+        +slot('body')
+            div(class="swiper-wrapper product-gallery")
+                div(class="swiper")
+                    div(class="swiper-wrapper")
+                        div(class="swiper-slide product-gallery__item")
+                            div(class="product-gallery__item__bg js-video-link")
