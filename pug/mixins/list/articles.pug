@@ -1,0 +1,16 @@
+mixin articles-list(items)
+    ul(class="articles")
+        each item, index in items
+            -
+                const {
+                    name,
+                    img,
+                    text,
+                } = item;
+            li(class="articles__item")
+                a(href="articles-detail.html" class="articles__photo" data-src-bg=img)
+                div(class="articles__text")
+                    a(href="articles-detail.html" class="articles__name h2")
+                        !=name
+                    p
+                        !=text
