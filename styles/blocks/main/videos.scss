@@ -15,7 +15,10 @@
 		letter-spacing: 0.32px;
 		font-weight: 500;
 		margin: 0 12px;
-		transition: opacity 0.3s var(--cubic);
+		transition: opacity 0.3s var(--cubic),color 0.3s var(--cubic);
+		display: block;
+		border: none;
+		color: var(--black);
 		@include maxBp($bp-1680){
 			width: calc(100%/3 - 24px);
 		}
@@ -29,6 +32,7 @@
 		}
 
 		&:hover{
+			color: var(--green);
 			.icon-sym--play{
 				opacity: 1;
 				transform: translate3d(-50%,-50%,0) scale(1.1);
@@ -83,6 +87,9 @@
 		position: relative;
 		z-index: 1;
 		margin: 0 0 20px 0;
+		display: inline-block;
+		width: 100%;
+		vertical-align: top;
 		@include maxBp($bp-768){
 			margin: 0 0 10px 0;
 		}
@@ -101,6 +108,20 @@
 			margin-top: 40px;
 			@include maxBp($bp-1024){
 				margin-top: 20px;
+			}
+		}
+	}
+	&--articles-top{
+		.videos-list__item{
+			&:nth-child(4){
+				@include maxBp($bp-1680){
+					display: none;
+				}
+			}
+			&:nth-child(3){
+				@include maxBp($bp-1024){
+					display: none;
+				}
 			}
 		}
 	}

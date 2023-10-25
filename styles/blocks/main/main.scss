@@ -244,3 +244,10 @@
 		}
 	}
 }
+
+.main-caption-cols{
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-bottom: var(--space-s);
+}

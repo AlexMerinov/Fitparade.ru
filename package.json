@@ -110,6 +110,7 @@
     "core-js": "^3.13.0",
     "formbouncerjs": "^1.4.6",
     "gulp-typograf": "^4.1.0",
+    "ilyabirman-likely": "^3.1.0",
     "inputmask": "^5.0.8",
     "lodash-es": "^4.17.21",
     "micromodal": "^0.4.10",

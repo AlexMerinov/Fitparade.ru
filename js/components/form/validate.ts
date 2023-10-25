@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (field.getAttribute('accept')) {
                                 const { value } = field;
                                 let accept = field.getAttribute('accept');
-                                console.log(parent);
                                 accept = accept
                                     .replace(/\./g, '')
                                     .replace(/\s+/g, '')
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const maxsize =
                                     field.getAttribute('data-max-size') * 1;
                                 let size = 0;
-                                Object.values(files).forEach((file, index) => {
+                                Object.values(files).forEach((file: any) => {
                                     size += file.size;
                                 });
                                 if (value.length > 0) {

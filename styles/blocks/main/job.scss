@@ -1,0 +1,61 @@
+.job-cols {
+	display: flex;
+	justify-content: space-between;
+	@include maxBp($bp-768){
+		display: block;
+	}
+	&__item{
+		width: calc(50% - 20px);
+		@include maxBp($bp-1280){
+			width: calc(50% - 10px);
+		}
+		@include maxBp($bp-768){
+			width: auto;
+		}
+		img{
+			margin: 0;
+			height: auto;
+			width: 100%;
+			@include maxBp($bp-768){
+				margin-top: 20px;
+			}
+		}
+	}
+}
+
+.job-wrapper{
+	display: flex;
+	gap: 40px;
+}
+
+
+.job-item {
+	font-weight: 300;
+	margin: 0 0 30px 0;
+	@include maxBp($bp-1280){
+		margin: 0 0 20px 0;
+	}
+	&:last-child{
+		margin-bottom: 0;
+	}
+	ul {
+		li:last-child {
+			padding-bottom: 12px;
+		}
+	}
+	&--wide {
+		ul {
+			column-count: 2;
+			column-gap: 40px;
+			@include maxBp($bp-1280){
+				column-gap: 20px;
+			}
+			@include maxBp($bp-768){
+				column-count: 1;
+				column-gap: 0;
+			}
+		}
+	}
+
+}
+

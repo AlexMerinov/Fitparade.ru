@@ -1,0 +1,185 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/list/vacancies
+include ./mixins/basic/_modal
+
+block vars
+    -
+        page = 'vacancies'
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Вакансии',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Вакансии
+
+        div(class="text-col mb-m")
+            p Добро пожаловать на страницу вакансий нашей компании! Мы гордимся тем, что предлагаем своим сотрудникам не только интересные и разнообразные задачи, но и отличные условия труда. Работая у нас, вы можете рассчитывать на стабильную заработную плату, профессиональное развитие, приятный коллектив и множество других преимуществ.
+
+        -
+            const vacanciesItems = [
+                {
+                    name: 'Продавец-кассир в КСК «Дивный»',
+                    city: 'Москва',
+                    salary: '50 000 ₽ - 80 000 ₽',
+                    salary_text: '',
+                    img: 'images/content/job-1.jpg',
+                    decription: [
+                        {
+                            name: 'Обязанности',
+                            items: [
+                                'Общение с покупателями',
+                                'Работа на кассе и с кассовой документацией',
+                                'Выкладка товара',
+                                'Заказ товара и работа с ассортиментом',
+                                'Подгрузка фото — контента в систему 1С и на сайт',
+                            ]
+                        },
+                        {
+                            name: 'Требования',
+                            items: [
+                                'Опыт работы не требуется',
+                            ]
+                        },
+                        {
+                            name: 'Условия',
+                            items: [
+                                'Магазин в КСК «Дивный», Истринский р-он, дер. Падиково, ближайшее м. Тушинская',
+                                'График работы 5/2, Вт-Сб с 11:00 до 20:00',
+                            ]
+                        },
+                    ]
+                },
+                {
+                    name: 'Продавец-кассир в КСК «Maxima Stables»',
+                    city: 'Москва',
+                    salary: '50 000 ₽ - 80 000 ₽',
+                    salary_text: '',
+                    img: 'images/content/job-2.jpg',
+                    decription: [
+                        {
+                            name: 'Обязанности',
+                            items: [
+                                'Общение с покупателями',
+                                'Работа на кассе и с кассовой документацией',
+                                'Выкладка товара',
+                                'Заказ товара и работа с ассортиментом',
+                                'Подгрузка фото — контента в систему 1С и на сайт',
+                            ]
+                        },
+                        {
+                            name: 'Требования',
+                            items: [
+                                'Опыт работы не требуется',
+                            ]
+                        },
+                        {
+                            name: 'Условия',
+                            items: [
+                                'Магазин в КСК «Maxima Stables», Дмитровский р-он, дер. Горки Сухаревские, ближайшее м. Алтуфьево',
+                                'График работы 2/2 с 9:00 до 21:00',
+                            ]
+                        },
+                    ]
+                },
+                {
+                    name: 'Менеджер по оптовым продажам ',
+                    city: 'Москва',
+                    salary: '',
+                    salary_text: 'По договоренности',
+                    img: 'images/content/job-3.jpg',
+                    decription: [
+                        {
+                            name: 'Обязанности',
+                            items: [
+                                'Продажи ключевым клиентам компании',
+                                'Увеличение объемов продаж',
+                                'Поиск и обслуживание новых клиентов',
+                                'Подготовка стандартных договоров и коммерческих предложений',
+                                'Ведение деловых переговоров и переписки с клиентами компании',
+                                'Оформление, продление и установка ЭЦП',
+                                'Регистрация на соответствующих коммерческих и некоммерческих электронных площадках, прохождение аккредитации',
+                                'Мониторинг заказов в ЕИС, на электронных площадках',
+                                'Анализ конкурсной документации и оценка целесообразности участия в торгах',
+                                'Подготовка и участие в торгах',
+                                'Работа с офертами на Портале Поставщиков',
+                                'Участие в выставках 2 раза в год',
+                            ]
+                        },
+                        {
+                            name: 'Требования',
+                            items: [
+                                'Высшее образование',
+                                 'Опыт работы в в продажах 1-3 года обязателен',
+                                 'Активная жизненная позиция, умение располагать клиента к себе',
+                                 'Желание работать и зарабатывать',
+                                 'Опытный пользователь ПК (Word, Excel, 1С)',
+                            ]
+                        },
+                        {
+                            name: 'Условия',
+                            items: [
+                                'Светлый, просторный офис, в районе м. Чертановская, Балаклавский проспект',
+                                'Официальное трудоустройство',
+                                'Пятидневная рабочая неделя, с 10 до 19 (сб,вс - выходной)',
+                            ]
+                        },
+                    ]
+                },
+            ];
+        +vacancies(vacanciesItems)
+
+        div(class="catalog-load-more")
+            div(class="btn btn--wide btn--green" data-micromodal="modal-job") Отправить резюме
+
+    +modal({
+        id: 'job'
+    })
+        +slot('header')
+            | Отправить резюме
+        +slot('body')
+            form(action="#" class="form js-form-validate js-form-action")
+                div(class="form__line")
+                    label(class="form__label" for="modal-job-input-name") ФИО
+                    input(type="text" class="form__input" id="modal-job-input-name" required)
+                div(class="form__line")
+                    label(class="form__label" for="modal-job-input-phone") Телефон
+                    input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="modal-job-input-phone" required)
+                div(class="form__line")
+                    label(class="form__label" for="modal-job-input-email") E-mail
+                    input(type="email" class="form__input" id="modal-job-input-email" required)
+                div(class="form__line")
+                    label(class="form__label" for="modal-job-input-vacancy") Название вакансии
+                    div(class="js-select form-select form-select--input")
+                        select(id="modal-job-input-vacancy" required data-placeholder="Выберите вакансию")
+                            option(data-placeholder="true")
+                            option Продавец-кассир в КСК «Дивный»
+                            option Продавец-кассир в КСК «Maxima Stables»
+                            option Менеджер по оптовым продажам
+                div(class="form__line")
+                    label(class="form__label" for="modal-job-input-file") Прикрепить резюме
+                    input(type="file" class="js-file" id="modal-job-input-file" accept=".doc,.docx,.pdf" data-max-size="15728640" data-placeholder="Выберите файл" required)
+                    small(class="form__input-description") не более 15 Мб, формат: doc/docx или pdf
+                div(class="form__line")
+                    label(class="form__label" for="modal-job-input-comment") Комментарий
+                    textarea(class="form__input js-textarea" id="modal-job-input-comment")
+                div(class="form__line")
+                    label(class="input-checkbox input-checkbox--small")
+                        input(type="checkbox" required checked)
+                        span(class="input-checkbox__text") Я согласен на обработку
+                            a(href="#") персональных данных
+                div(class="form__submit")
+                    button(type="submit" class="btn btn--green btn--100") Отправить

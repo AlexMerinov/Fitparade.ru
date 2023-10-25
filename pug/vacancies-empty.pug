@@ -1,0 +1,66 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/basic/_modal
+
+block vars
+    -
+        page = 'vacancies'
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Вакансии',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Вакансии
+
+        div(class="h5 mb-m text-light text-col") На данный момент у нас нет открытых вакансий, но вы можете отправить резюме для рассмотрения вашей кандитатуры на перспективу.
+        div(class="btn btn--big btn--green btn--mob-100" data-micromodal="modal-job") Отправить резюме
+
+
+        +modal({
+            id: 'job'
+        })
+            +slot('header')
+                | Отправить резюме
+            +slot('body')
+                form(action="#" class="form js-form-validate js-form-action")
+                    div(class="form__line")
+                        label(class="form__label" for="modal-job-input-name") ФИО
+                        input(type="text" class="form__input" id="modal-job-input-name" required)
+                    div(class="form__line")
+                        label(class="form__label" for="modal-job-input-phone") Телефон
+                        input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="modal-job-input-phone" required)
+                    div(class="form__line")
+                        label(class="form__label" for="modal-job-input-email") E-mail
+                        input(type="email" class="form__input" id="modal-job-input-email" required)
+                    div(class="form__line")
+                        label(class="form__label" for="modal-job-input-vacancy") Желаемая должность
+                        input(type="text" class="form__input" id="modal-job-input-vacancy" required)
+                    div(class="form__line")
+                        label(class="form__label" for="modal-job-input-file") Прикрепить резюме
+                        input(type="file" class="js-file" id="modal-job-input-file" accept=".doc,.docx,.pdf" data-max-size="15728640" data-placeholder="Выберите файл" required)
+                        small(class="form__input-description") не более 15 Мб, формат: doc/docx или pdf
+                    div(class="form__line")
+                        label(class="form__label" for="modal-job-input-comment") Комментарий
+                        textarea(class="form__input js-textarea" id="modal-job-input-comment")
+                    div(class="form__line")
+                        label(class="input-checkbox input-checkbox--small")
+                            input(type="checkbox" required checked)
+                            span(class="input-checkbox__text") Я согласен на обработку
+                                a(href="#") персональных данных
+                    div(class="form__submit")
+                        button(type="submit" class="btn btn--green btn--100") Отправить
+
+

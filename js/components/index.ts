@@ -6,3 +6,4 @@ import './cookie';
 import './sliders';
 import './catalog';
 import './video';
+import './like';

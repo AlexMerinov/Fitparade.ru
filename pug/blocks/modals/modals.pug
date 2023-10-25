@@ -108,7 +108,7 @@ block modal
             div(class="cart-header__text")
                 div(class="cart-header__caption") Корзина
     +slot('body')
-        div(class="h5 mb-m text-light") В корзине пока нет товаров
+        div(class="h5 mb-m text-light text-col") В корзине пока нет товаров
         a(href="catalog-categories.html " class="btn btn--big btn--green btn--mob-100") Каталог
 
 
@@ -260,3 +260,25 @@ block modal
             div(class="form__submit")
                 button(type="submit" class="btn btn--green btn--100") Отправить
 
++modal({
+    id: 'share'
+})
+    +slot('body')
+        h6 Поделиться
+        div(class="form-share-btn likely")
+            div(class="vkontakte")
+            div(class="odnoklassniki")
+        h6 Скопировать ссылку на страницу
+        div(class="form-share-link")
+            div(class="form__input form__input--text")
+                | https://racessport.ru/blog/sovety-pokupatelyam/slovar-terminov-prestige/
+            a(href="https://racessport.ru/blog/sovety-pokupatelyam/slovar-terminov-prestige/" class="btn btn--arrow btn--green js-link-copy")
+                +icon-sym('copy')
+
++modal({
+    id: 'link-copy'
+})
+    +slot('header')
+        | Ссылка скопирована
+    +slot('body')
+        div(class="btn btn--green btn--100" data-micromodal-close) Хорошо

@@ -1,0 +1,22 @@
+include ../basic/_icon-sym
+
+mixin faq-list(items)
+    div(class="lk-orders-wrapper")
+        each item in items
+            -
+                const {
+                    name,
+                    text,
+                } = item;
+
+            dl(class="lk-orders lk-orders--job lk-orders--faq")
+                dt(class="lk-orders__header js-menu-toggle")
+                    div(class="lk-orders__header__item")
+                        != name
+
+                    div(class="lk-orders__header__arr")
+                        +icon-sym('arr')
+
+                dd(class="lk-orders__content text-content")
+                    div(class="text-col")
+                        != text

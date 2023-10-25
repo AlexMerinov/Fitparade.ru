@@ -1,0 +1,60 @@
+include ../basic/_icon-sym
+
+mixin vacancies(items)
+    div(class="lk-orders-wrapper")
+        each item in items
+            -
+                const {
+                    name,
+                    city,
+                    salary,
+                    salary_text,
+                    decription,
+                    img,
+                } = item;
+
+            dl(class="lk-orders lk-orders--job")
+                dt(class="lk-orders__header js-menu-toggle")
+                    div(class="lk-orders__header__item")
+                        != name
+                        small
+                            != city
+
+                    div(class="lk-orders__header__item")
+                        != salary
+                        if salary_text
+                            small(class="mt-0")
+                                != salary_text
+
+                    div(class="lk-orders__header__arr")
+                        +icon-sym('arr')
+
+                dd(class="lk-orders__content text-content")
+
+
+                    div(class="job-item job-item--wide")
+                        h3
+                            != decription[0].name
+                        ul
+                            each text in decription[0].items
+                                li
+                                    !=text
+
+                    div(class="job-cols")
+                        div(class="job-cols__item")
+                            div(class="job-item text-content")
+                                h3
+                                    != decription[1].name
+                                ul
+                                    each text in decription[1].items
+                                        li
+                                            !=text
+                            div(class="job-item text-content")
+                                h3
+                                    != decription[2].name
+                                ul
+                                    each text in decription[2].items
+                                        li
+                                            !=text
+                        div(class="job-cols__item")
+                            img(data-src=img alt="")

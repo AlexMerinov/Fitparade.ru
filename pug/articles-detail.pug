@@ -1,7 +1,7 @@
 extends ./_layout
 include ./mixins/list/breads
-include ./mixins/list/articles
 include ./mixins/list/category-popular
+include ./mixins/list/videos-list
 
 block vars
     -
@@ -18,8 +18,8 @@ block content
                     url: 'main.html',
                 },
                 {
-                    name: 'Медиа',
-                    url: 'mdeia.html',
+                    name: 'Статьи',
+                    url: 'articles.html',
                 },
                 {
                     name: 'Конный этикет: проверьте корректность поведения своей лошади',
@@ -83,3 +83,35 @@ block content
                 li Некомфортное для лошади место (слишком узкий проход, темное помещение, близкое расположение другой лошади).
             p Во время работы ваша лошадь должна быть сосредоточена на вас, а не на происходящие вокруг события. К этому относятся и другие лошади.
             p Не позволяйте лошади отвлекаться на своих «коллег» во время тренировки. Это поможет вам наладить более тесный контакт с лошадью, а выполнять элементы станет легче, когда он будет сконцентрирован только на работе.
+
+            div(class="mt-s")
+                a(href="#" class="btn btn--green-border" data-micromodal="modal-share")
+                    +icon-sym('share')
+                    | Поделиться
+
+        div(class="main-caption-cols")
+            h2(class="mb-0") Другие статьи
+            a(href="articles.html" class="link-more link-more--right") Все статьи
+                +icon-sym('arr-down')
+        -
+            const isArticles = true;
+            const articlesMore = [
+                {
+                    name: 'Технология спорта — это крупнейшая сеть магазинов для конного спорта в России.',
+                    img: 'images/content/video-1.jpg',
+                },
+                {
+                    name: 'Как правильно ухаживать за седлом?',
+                    img: 'images/content/video-2.jpg',
+                },
+                {
+                    name: 'Давит ли седло на лошадь?',
+                    img: 'images/content/video-3.jpg',
+                },
+                {
+                    name: 'Про Амортизаторы',
+                    img: 'images/content/video-4.jpg',
+                },
+
+            ];
+        +videos-list-full(articlesMore)

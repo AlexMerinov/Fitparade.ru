@@ -309,6 +309,7 @@
 			margin-top: 8px;
 			@include maxBp($bp-1280){
 				font-size: 14px;
+				margin-top: 5px;
 			}
 		}
 		&.show-toggle{
@@ -327,6 +328,71 @@
 		}
 		@include maxBp($bp-375){
 			padding: 10px;
+		}
+	}
+	&--job{
+		.lk-orders__header__item{
+			font-weight: normal;
+			@include bp($bp-1280){
+				font-size: 32px;
+				font-weight: normal;
+			}
+			@include maxBp($bp-1280){
+				font-weight: 500;
+			}
+			small{
+				@include bp($bp-1280) {
+					font-size: 20px;
+				}
+			}
+			&:nth-child(1){
+				transition: var(--trans);
+				width: calc(50% + 45px);
+				@include maxBp($bp-1280){
+					width: calc(50% + 35px);
+					margin-bottom: 0;
+				}
+				@include maxBp($bp-768){
+					width: 100%;
+					padding-right: 0;
+					margin-bottom: 10px;
+				}
+			}
+			&:nth-child(2){
+				margin-right: 0;
+				white-space: nowrap;
+				width: auto;
+				@include maxBp($bp-1024){
+					margin-right: 0;
+				}
+				@include maxBp($bp-768){
+					margin-right: 0;
+					width: 100%;
+					padding-right: 0;
+				}
+				@include maxBp($bp-500){
+					width: 100%;
+				}
+			}
+		}
+	}
+	&--faq{
+		.lk-orders__header__item{
+			&:nth-child(1){
+				width: auto;
+				max-width: 1200px;
+				padding-right: 0;
+				@include maxBp($bp-1680){
+					max-width: 1000px;
+				}
+				@include maxBp($bp-1280){
+					width: auto;
+				}
+				@include maxBp($bp-768){
+					width: 100%;
+					margin: 0;
+				}
+			}
 		}
 	}
 }
