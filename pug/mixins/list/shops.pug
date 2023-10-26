@@ -1,0 +1,46 @@
+include ../list/shop
+
+mixin shops-list(items)
+
+    div(class="shops-col")
+        div(class="shops-col__items")
+
+            div(class="form__line mb-s")
+                div(class="js-select form-select form-select--input")
+                    // option value должен быть индекс 0, 1, 2 ..., не id
+                    select(class="js-ymap-city-change")
+                        each item, index in items
+                            -
+                                const {
+                                    city,
+                                } = item;
+                            option(value=index selected=(index==0))
+                                !=city
+
+            each item, index in items
+                -
+                    const {
+                        city,
+                        items
+                    } = item;
+                div(
+                    class="shops-list-wrapper fade-in"
+                    class=(index != 0 ? 'hide' : '')
+                    )
+
+                    +shop-list(items)
+
+
+        div(class="shops-col__map")
+            div(class="ymap js-ymap" data-pin="images/pin.svg" data-api-key="4e67b2f1-b530-4c0b-926f-d1c78548f3b0" id="ymap")
+                each item, index in items
+                    -
+                        const {
+                            city,
+                            items
+                        } = item;
+                    div(class="ymap__area ymap__area-"+index)
+                        each shop, indexShop in items
+                            div(class="ymap__item" data-coordinates=item.items[indexShop].point data-name=item.items[indexShop].name)
+                                div(class="ymap-content")
+                                    +shop-list([item.items[indexShop]])

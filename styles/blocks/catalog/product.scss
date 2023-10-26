@@ -397,11 +397,17 @@
 		margin-bottom: 40px;
 		position: relative;
 		z-index: 1;
-		padding: 0 0 0 47px;
+		padding: 0 0 0 50px;
 		font-size: 14px;
 		line-height: 125%;
+		@include maxBp($bp-768){
+			margin-bottom: 20px;
+		}
 		&:last-child{
 			margin-bottom: 0;
+		}
+		.ymap-content &{
+			padding-left: 0;
 		}
 		.icon-sym{
 			position: absolute;
@@ -410,12 +416,68 @@
 			top: 0;
 			width: 27px;
 			height: 27px;
+			@include maxBp($bp-768){
+				margin-top: 5px;
+			}
+			.ymap-content &{
+				display: none;
+			}
 		}
-
+		&--contacts{
+			.product-shop__name{
+				max-width: 300px;
+				font-size: 16px;
+				line-height: normal;
+				@include maxBp($bp-1024){
+					max-width: none;
+					font-size: 16px;
+					line-height: 150%;
+				}
+				.ymap-content &{
+					font-size: 14px;
+					line-height: normal;
+				}
+				a{
+					border-bottom: none;
+					&:hover{
+						color: var(--black);
+					}
+				}
+			}
+		}
 	}
 	&__contact{
 		color: var(--gray-600);
 		margin-bottom: 10px;
+	}
+	&__contacts{
+		display: flex;
+		gap: 20px;
+		color: var(--gray-400);
+		font-size: 15px;
+		line-height: normal;
+		@include maxBp($bp-1024){
+			display: block;
+			font-size: 14px;
+			line-height: 150%;
+		}
+		&__item{
+			max-width: 280px;
+			width: calc(50% - 10px);
+			@include maxBp($bp-1024){
+				width: auto;
+				max-width: none;
+			}
+			.ymap-content &{
+				width: auto;
+				max-width: none;
+			}
+		}
+		.ymap-content &{
+			font-size: 12px;
+			line-height: 150%;
+			display: block;
+		}
 	}
 	&__name{
 		font-size: 15px;

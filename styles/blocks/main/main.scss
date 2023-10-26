@@ -251,3 +251,15 @@
 	justify-content: space-between;
 	margin-bottom: var(--space-s);
 }
+
+.main-picture{
+	height: 224px;
+	background: no-repeat center top;
+	background-size: cover;
+	@include maxBp($bp-1280){
+		height: 180px;
+	}
+	@include maxBp($bp-768){
+		height: 100px;
+	}
+}

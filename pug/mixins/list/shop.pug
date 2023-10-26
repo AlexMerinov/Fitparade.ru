@@ -6,14 +6,30 @@ mixin shop-list(items)
                     name,
                     contact,
                     available,
+                    worktime,
+                    email,
+                    phone,
                 } = item;
-            li(class="product-shop__item")
+            li(class=(available ? "product-shop__item" : "product-shop__item product-shop__item--contacts"))
                 +icon-sym('shop')
                 div(class="product-shop__name")
-                    a(href="#")
+                    a(href="shops-detail.html")
                         !=name
-                div(class="product-shop__contact")
-                    !=contact
-                | В наличии&nbsp;
-                !=available
-                | &nbsp;шт.
+                if available
+                    div(class="product-shop__contact")
+                        !=contact
+                    | В наличии&nbsp;
+                    !=available
+                    | &nbsp;шт.
+                else
+                    div(class="product-shop__contacts")
+                        div(class="product-shop__contacts__item")
+                            !=worktime
+                            br
+                            a(href="mailto:" + email class="link-gray-lighter")
+                                !=email
+                        div(class="product-shop__contacts__item")
+                            each item_phone in phone
+                                a(href="tel:"+item_phone class="link-gray-lighter")
+                                    !=item_phone
+                                br

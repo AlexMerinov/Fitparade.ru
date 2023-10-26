@@ -3,9 +3,9 @@ include ../mixins/menu/menu
 header(class="header")
     div(class="wrapper__page header__top")
         nav(class="header-menu-top")
-            a(href="#" class="link-white active") О компании
-            a(href="vacancies.html" class="link-white") Вакансии
-            a(href="#" class="link-white") Наши магазины
+            a(href="#" class=(page == "about" ? "link-white active" : "link-white")) О компании
+            a(href="vacancies.html" class=(page == "vacancies" ? "link-white active" : "link-white")) Вакансии
+            a(href="shops.html" class=(page == "shops" ? "link-white active" : "link-white")) Наши магазины
         div(class="header-menu-top-right")
             div(class="header-city")
                 | Ваш город:

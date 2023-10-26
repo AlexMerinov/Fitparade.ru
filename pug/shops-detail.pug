@@ -1,0 +1,84 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/list/shop
+include ./mixins/basic/_modal
+
+block vars
+    -
+        page = 'shops'
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Наши магазины',
+                    url: 'shops.html',
+                },
+                {
+                    name: 'Магазин в КСК «Отрада»',
+                    url: '',
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Магазин в КСК «Отрада»
+
+        div(class="shops-col")
+            div(class="shops-col__items pt-0")
+                ul(class="shop-contact shop-contact--inner")
+                    li(class="shop-contact__item")
+                        div(class="shop-contact__icon")
+                            +icon-sym('pin-big')
+                        div(class="shop-contact__text")
+                            div(class="shop-contact__caption") Адрес
+                            | КСК Вента, Ленинградская область, Всеволожский р-он, д. Хирвости, Центральная ул., 62А<br>
+                            a(href="https://yandex.ru/maps/?rtext=~55.544649169808,37.862323318618" rel="nofollow" target="_blank") Проложить маршрут
+                    li(class="shop-contact__item")
+                        div(class="shop-contact__icon")
+                            +icon-sym('support')
+                        div(class="shop-contact__text")
+                            div(class="shop-contact__caption") Телефон
+                            a(href="tel:8 (495) 139-66-00" class="link-gray-lighter") 8 (495) 139-66-00 <br>
+                            a(href="tel:8 (495) 139-66-00" class="link-gray-lighter") 8 (495) 139-66-00
+                            | / 100
+                    li(class="shop-contact__item")
+                        div(class="shop-contact__icon")
+                            +icon-sym('email')
+                        div(class="shop-contact__text")
+                            div(class="shop-contact__caption") E-mail
+                            a(href="mailto:zakaz@racesport.ru" class="link-gray-lighter") zakaz@racesport.ru
+                    li(class="shop-contact__item")
+                        div(class="shop-contact__icon")
+                            +icon-sym('clock')
+                        div(class="shop-contact__text")
+                            div(class="shop-contact__caption") Режим работы
+                            | с 10 до 19 часов, выходные ПН, ВТ
+                    li(class="shop-contact__item")
+                        a(href="shops.html" class="btn btn--wide btn--green btn--mob-100") Все магазины
+
+            div(class="shops-col__map")
+                div(class="ymap js-ymap" data-pin="images/pin.svg" data-api-key="4e67b2f1-b530-4c0b-926f-d1c78548f3b0" id="ymap")
+                    div(class="ymap__area ymap__area-0")
+                        div(class="ymap__item" data-coordinates="55.544649169808,37.862323318618" data-name="Магазин в КСК «Отрада», Красногорский р-он, пос. Отрадное")
+                            div(class="ymap-content")
+                                -
+                                    const shopDetail = [
+                                        {
+                                            name: 'Магазин в КСК «Отрада», Красногорский р-он, пос. Отрадное',
+                                            worktime: '10.00 -19.00 Без выходных',
+                                            email: 'otrada@racesport.ru',
+                                            phone: [
+                                                '8 (495) 139-66-00 / 100',
+                                                '8 (963) 640-93-75',
+                                            ],
+                                            point: '55.544649169808,37.862323318618',
+                                        },
+                                    ]
+                                +shop-list(shopDetail)
