@@ -173,6 +173,16 @@ block content
                 ];
             +pages-list(pages)
 
+            h4 Email письма
+            -
+                const pageEmail = [
+                    {
+                        name: 'Письмо заказ принят',
+                        url: 'mail-new-order.html',
+                    },
+                ];
+            +pages-list(pageEmail)
+
             h4 Модальные окна
             -
                 var modalLinks = true;
@@ -224,6 +234,14 @@ block content
                     {
                         name: 'Отменить заказ',
                         url: 'modal-order-cancel',
+                    },
+                    {
+                        name: 'Ваш город - Москва?',
+                        url: 'modal-your-city',
+                    },
+                    {
+                        name: 'Мы используем cookie',
+                        url: 'modal-cookie',
                     },
                 ];
             +pages-list(pagesModal)

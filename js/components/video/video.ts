@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('modalClose', () => {
-        console.log('modalClose');
         const iframes = document.querySelectorAll(
             '.modal .js-video-link iframe'
         );

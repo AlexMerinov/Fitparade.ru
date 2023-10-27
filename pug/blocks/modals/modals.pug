@@ -282,3 +282,23 @@ block modal
         | Ссылка скопирована
     +slot('body')
         div(class="btn btn--green btn--100" data-micromodal-close) Хорошо
+
+
++modal({
+    id: 'your-city',
+    modifier: 'middle'
+})
+    +slot('body')
+        p(class="modal__text") <strong>Ваш город</strong> - Москва?
+        div(class="form-btns")
+            div(class="btn btn--green" data-micromodal-close) Да, все верно
+            div(class="btn btn--green-border" data-micromodal="modal-city") Выбрать другой
+
+
++modal({
+    id: 'cookie',
+    modifier: 'cookie'
+})
+    +slot('body')
+        p Сайт собирает информацию посредством Cookies, чтобы мы могли сделать его удобнее и быстрее.
+        div(class="btn btn--white") Хорошо

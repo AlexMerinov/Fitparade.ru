@@ -2,6 +2,8 @@ import MicroModal from 'micromodal';
 import defaultSettings from './settings';
 import { openModal, closeModal } from './utils';
 
+MicroModal.modalSettings = defaultSettings;
+
 const fModalPosition = () => {
     const modals = document.querySelectorAll(
         '.modal.is-open .modal__container'

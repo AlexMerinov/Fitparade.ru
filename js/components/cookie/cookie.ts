@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 openModal('modal-cookie');
             }, 1000);
+
             const btn = modal.querySelector('.btn');
             btn?.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     path: '/',
                     expires: cookieDateAgree,
                 });
+
                 closeModal();
             });
         }
