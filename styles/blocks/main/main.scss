@@ -263,3 +263,24 @@
 		height: 100px;
 	}
 }
+
+.main-404{
+	text-align: center;
+	.h1{
+		text-transform: uppercase;
+		margin: 0;
+	}
+	h1{
+		font-size: 200px;
+		line-height: 1;
+		margin: 0 0 20px 0;
+		font-weight: 300;
+		@include maxBp($bp-768){
+			font-size: 100px;
+		}
+	}
+	p{
+		color: var(--gray-500);
+		margin-bottom: var(--space-m);
+	}
+}

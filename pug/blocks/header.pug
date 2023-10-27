@@ -3,7 +3,7 @@ include ../mixins/menu/menu
 header(class="header")
     div(class="wrapper__page header__top")
         nav(class="header-menu-top")
-            a(href="#" class=(page == "about" ? "link-white active" : "link-white")) О компании
+            a(href="about.html" class=(page == "about" ? "link-white active" : "link-white")) О компании
             a(href="vacancies.html" class=(page == "vacancies" ? "link-white active" : "link-white")) Вакансии
             a(href="shops.html" class=(page == "shops" ? "link-white active" : "link-white")) Наши магазины
         div(class="header-menu-top-right")
@@ -264,11 +264,11 @@ header(class="header")
                     },
                     {
                         name: 'Покупателям',
-                        url: '#',
+                        url: 'help',
                     },
                     {
                         name: 'Оплата и доставка',
-                        url: '#',
+                        url: 'payment-and-delivery',
                     },
                 ];
             +menu-list(menu)

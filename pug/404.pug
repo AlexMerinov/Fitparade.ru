@@ -1,0 +1,13 @@
+extends ./_layout
+include ./mixins/list/pages
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        div(class="main-404")
+            div(class="h1") Ошибка
+            h1 404
+            p Запрашиваемая страница не найдена
+            a(href="main.html" class="btn btn--green btn--wide") Главная страница
+

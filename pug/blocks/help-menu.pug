@@ -1,0 +1,33 @@
+include ../mixins/list/category-popular
+
+-
+    const menuHelp = [
+        {
+            name: 'Гарантия на товар',
+            link: 'help-warranty.html',
+            active: page == 'help-warranty',
+        },
+        {
+            name: 'Возврат',
+            link: 'help-return.html',
+            active: page == 'help-return',
+        },
+        {
+            name: 'Тарифы выездного специалиста по седлам',
+            link: 'help-rates.html',
+            active: page == 'help-rates',
+        },
+        {
+            name: 'Положение о бонусной программе',
+            link: 'help-bonus.html',
+            active: page == 'help-bonus',
+        },
+        {
+            name: 'Правила оплаты и безопасность платежей',
+            link: 'help-security.html',
+            active: page == 'help-security',
+        },
+    ];
+
+section(class="mb-m")
+    +category-popular(menuHelp)

@@ -8,3 +8,4 @@ import './catalog';
 import './video';
 import './like';
 import './contacts';
+import './content';
