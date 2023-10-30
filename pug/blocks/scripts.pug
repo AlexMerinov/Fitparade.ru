@@ -36,7 +36,11 @@ script.
 
                         counter.setAttribute('data-count', String(count));
                     }
-                })
+                });
+
+                const btnCartHeader = document.querySelector('.header-menu-user__link[data-micromodal="modal-basket"]');
+                btnCartHeader?.classList.add('header-menu-user__link--basket-active')
+
             }
         });
 
