@@ -9,6 +9,9 @@ h1, .h1 {
 h2, .h2 {
 	@include text-h2;
 	margin-bottom: var(--space-m);
+	@include maxBp($bp-768){
+		font-weight: 500;
+	}
 	&:last-child {
 		margin-bottom: 0;
 	}

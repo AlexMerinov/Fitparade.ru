@@ -60,7 +60,7 @@ block content
                         div(class="shop-contact__text")
                             div(class="shop-contact__caption") Режим работы
                             | с 10 до 19 часов, выходные ПН, ВТ
-                    li(class="shop-contact__item")
+                    li(class="shop-contact__item mobile-hide")
                         a(href="shops.html" class="btn btn--wide btn--green btn--mob-100") Все магазины
 
             div(class="shops-col__map")
@@ -82,3 +82,5 @@ block content
                                         },
                                     ]
                                 +shop-list(shopDetail)
+        div(class="mobile-show mt-m")
+            a(href="shops.html" class="btn btn--wide btn--green btn--100") Все магазины

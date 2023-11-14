@@ -21,20 +21,23 @@
 		}
 		@include maxBp($bp-1024){
 			height: 730px;
+			text-align: center;
 		}
 		@include maxBp($bp-768){
 			height: calc(var(--vh-100) - 70px);
 			min-height: 400px;
-			text-align: center;
 		}
 	}
 	&__text{
 		width: 550px;
 		min-height: 285px;
 		padding-bottom: 100px;
-		@include maxBp($bp-768){
+		@include maxBp($bp-1024){
 			width: auto;
 			padding-bottom: 80px;
+			min-height: 200px;
+		}
+		@include maxBp($bp-768){
 			min-height: 230px;
 		}
 	}
@@ -64,8 +67,9 @@
 		font-style: normal;
 		display: inline-block;
 		vertical-align: top;
-		@include maxBp($bp-768){
+		@include maxBp($bp-1024){
 			font-size: 24px;
+			max-width: 320px;
 		}
 		&:hover{
 			color: var(--white);
@@ -175,7 +179,7 @@
 		font-size: 32px;
 		font-weight: 400;
 		line-height: normal;
-		@include maxBp($bp-1280){
+		@include maxBp($bp-768){
 			font-size: 24px;
 		}
 		@include maxBp($bp-500){
@@ -183,13 +187,13 @@
 		}
 		strong{
 			font-size: 64px;
-			@include maxBp($bp-1280){
+			@include maxBp($bp-768){
 				font-size: 40px;
 			}
 		}
 		&__btn{
 			margin-top: 40px;
-			@include maxBp($bp-1280){
+			@include maxBp($bp-768){
 				margin-top: 25px;
 			}
 		}
@@ -217,6 +221,9 @@
 		line-height: normal;
 		letter-spacing: 0.4px;
 		text-align: center;
+		@include maxBp($bp-1024){
+			font-size: 14px;
+		}
 		@include maxBp($bp-768){
 			width: calc(50% - 10px);
 			font-size: 14px;

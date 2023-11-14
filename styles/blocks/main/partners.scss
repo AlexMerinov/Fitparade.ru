@@ -23,7 +23,7 @@
 		height: 150px;
 		align-items: center;
 		display: flex;
-		@include maxBp($bp-1280){
+		@include maxBp($bp-768){
 			margin: 0 15px;
 			height: 100px;
 		}

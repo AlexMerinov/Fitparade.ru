@@ -28,12 +28,18 @@ mixin cart-list(items)
                     price_old,
                     price_discount,
                     count_name,
+                    labels,
                 } = item;
             li(class="cart-list__item")
                 if !cartOrder && !cartOrderFinish
                     div(class="cart-list__delete js-basket-delete" data-product-id=index)
                         +icon-sym('clear')
                 a(href="catalog-product.html" class="cart-list__img" data-src-bg=photo)
+                    if labels
+                        div(class="catalog-labels catalog-labels--small")
+                            each itemLabel in labels
+                                div(class="catalog-labels__item catalog-labels__item--" + itemLabel.color)
+                                    !=itemLabel.name
                 div(class="cart-list__text")
                     a(href="catalog-product.html" class="cart-list__name")
                         if cartFull

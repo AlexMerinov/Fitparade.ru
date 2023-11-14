@@ -78,10 +78,11 @@
 			border: 1px solid transparentize($black,0.9);
 		}
 		@include maxBp($bp-1024){
-			width: calc(100%/2 - 14px);
+			padding: 20px;
 		}
 		@include maxBp($bp-768){
 			padding: 12px;
+			width: calc(100%/2 - 14px);
 		}
 		@include maxBp($bp-375){
 			width: calc(100% - 14px);
@@ -560,6 +561,9 @@
 		left: -20px;
 		top: -45px;
 	}
+	@include maxBp($bp-1024){
+		top: 0;
+	}
 	@include maxBp($bp-768){
 		top: 0;
 		left: -12px;
@@ -584,23 +588,42 @@
 	&__item{
 		min-width: 56px;
 		background: var(--black);
-		padding: 4px;
+		padding:10px 4px;
 		text-align: center;
 		color: var(--white);
 		font-size: 14px;
 		line-height: 120%;
 		text-transform: uppercase;
 		letter-spacing: 0.28px;
-		@include maxBp($bp-768){
+		@include maxBp($bp-1024){
 			font-size: 12px;
 			line-height: 120%;
 			min-width: 36px;
+			padding: 4px;
 		}
 		&--gray{
 			background: var(--gray-400);
 		}
 		&--red{
 			background: var(--red);
+		}
+	}
+	&--small{
+		left: 0;
+		top: 10px;
+		@include maxBp($bp-1280){
+			left: 0;
+			top: 10px;
+		}
+		@include maxBp($bp-768){
+			left: 0;
+			top: 10px;
+		}
+		.catalog-labels__item{
+			font-size: 12px;
+			line-height: 120%;
+			min-width: 36px;
+			padding: 4px;
 		}
 	}
 }
@@ -699,10 +722,10 @@
 		}
 		&[data-color-white="true"]{
 			&:before{
-				border-color: var(--black);
+				border-color: var(--gray-600);
 			}
 			&:hover,&.active{
-				border-color: var(--black);
+				border-color: var(--gray-600);
 			}
 		}
 	}

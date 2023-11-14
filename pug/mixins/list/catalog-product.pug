@@ -81,10 +81,14 @@ mixin catalog-product(item)
                     img(data-src="images/content/price-logo.png" alt="" class="product__logo")
                 div(class="product__price")
                     div(class="product__price__text")
-                        !=price
-                    div(class="product__price__discount") -20%
-                    s
-                        !=price_old
+                        if catalogEmpty
+                            | Нет в наличии
+                        else
+                            !=price
+                    if !catalogEmpty
+                        div(class="product__price__discount") -20%
+                        s
+                            !=price_old
             if sizes.length>0
                 div(class="product__label") Выберите размер
                     a(href="#" class="link-dashed" data-micromodal="modal-table-size") Таблица размеров
@@ -136,21 +140,22 @@ mixin catalog-product(item)
                     div(class="swiper-button-vertical-smaller swiper-button-next")
                         +icon-sym('arr-slider')
 
-                div(class="catalog-list__basket catalog-list__basket--product" data-product-id=1)
-                      div(class="btn btn--cart js-basket-plus" data-product-id=1)
-                          +icon-sym('cart')
-                          span(class="btn__text")
-                              span Добавить в корзину
-                              span В корзине
-                      div(class="catalog-counter")
-                          div(class="catalog-counter__btn js-basket-minus" data-product-id=1) &minus;
-                          div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=1)
-                          div(class="catalog-counter__btn js-basket-plus" data-product-id=1) &plus;
+                if !catalogEmpty
+                    div(class="catalog-list__basket catalog-list__basket--product" data-product-id=1)
+                          div(class="btn btn--cart js-basket-plus" data-product-id=1)
+                              +icon-sym('cart')
+                              span(class="btn__text")
+                                  span Добавить в корзину
+                                  span В корзине
+                          div(class="catalog-counter")
+                              div(class="catalog-counter__btn js-basket-minus" data-product-id=1) &minus;
+                              div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=1)
+                              div(class="catalog-counter__btn js-basket-plus" data-product-id=1) &plus;
 
-                div(class="product__shop")
-                    +icon-sym('shop')
-                    | В наличии 35 шт. в
-                    a(href="#" data-micromodal="modal-shop") 14 магазинах
+                    div(class="product__shop")
+                        +icon-sym('shop')
+                        | В наличии 35 шт. в
+                        a(href="#" data-micromodal="modal-shop") 14 магазинах
 
                 +modal({
                     id: 'shop',
