@@ -78,7 +78,7 @@ mixin catalog-product(item)
             div(class="product__params")
                 div(class="product__article")
                     div(class="product__article__text") Артикул: 1873625
-                    img(data-src="images/content/price-logo.png" alt="" class="product__logo")
+                    img(data-src="images/content/price-logo.png" alt="" class="product__logo mobile-show")
                 div(class="product__price")
                     div(class="product__price__text")
                         if catalogEmpty
@@ -89,7 +89,8 @@ mixin catalog-product(item)
                         div(class="product__price__discount") -20%
                         s
                             !=price_old
-            if sizes.length>0
+                    img(data-src="images/content/price-logo.png" alt="" class="product__logo mobile-hide")
+            if sizes.length>0 && !catalogEmpty
                 div(class="product__label") Выберите размер
                     a(href="#" class="link-dashed" data-micromodal="modal-table-size") Таблица размеров
 
