@@ -1,0 +1,68 @@
+extends ./_layout
+include ./mixins/list/breads
+include ./mixins/list/catalog-categories
+
+block vars
+    -
+        page = 'catalog-categories'
+
+block content
+
+    div(class="wrapper__page article__top")
+
+        -
+            const breads = [
+                {
+                    name: 'Главная',
+                    url: 'main.html',
+                },
+                {
+                    name: 'Бренды',
+                    url: 'brands.html'
+                },
+                {
+                    name: 'Kentucky',
+                    url: ''
+                },
+            ];
+        +breads-list(breads)
+
+        h1 Kentucky
+
+        .brend-desc 
+            .brend-desc__text 
+                p Kentucky Horsewear - бельгийский бренд, специализирующийся на ногавках для всех видов конного спорта. С растущей группой ведущих международных спортсменов, которые ездят, тренируются и соревнуются в ногавках Kentucky Horsewear. Запустившись в 2010 году, компания уже продает свою коллекцию по всей Европе, США и Австралии.
+                p Каждый из продуктов органично сочетает в себе ремесленные традиции с технологическими инновациями, основателями которых являются Prestige.Каждое седло, стремя и повод разработаны с целью обеспечения максимально возможного комфорта для лошади и всадника. Этот результат является кульминацией опыта, приобретенного с течением времени с использованием самых современных технологий и материалов.Конный интернет - магазин «Технология спорта» является официальным представителем компании Prestige и поможет вам подобрать и купить выездковое, конкурное, троеборное, прогулочное седло марки Prestige с примеркой и доставкой по всей России.
+            picture.brend-desc__preview     
+                img(src="images/content/brand-17.png" width='100%' height='100%' alt="Kentucky")
+
+
+        section(class="mb-m")
+            -
+                var categoryActive = true
+            include ./blocks/catalog-category-top
+
+        h2 Товары Kentucky в нашем магазине
+
+        div(class="catalog-cols")
+
+            include ./blocks/filter-brand
+
+            div(class="catalog-cols__content")
+
+                div(class="form-sort")
+                    div(class="form-sort__item")
+                        | Сортировать:
+                        div(class="js-select form-select")
+                            select
+                                option сначала новые
+                                option сначала старые
+                    div(class="form-sort__item form-sort__item--filter")
+                        div(class="form-sort__filter js-modal-filter-show")
+                            +icon-sym('filter')
+
+                div(class="filter-content")
+                    div(class="catalog-list-narrow")
+                        -
+                            var catalogCount = 12
+                        include ./ajax-catalog-list

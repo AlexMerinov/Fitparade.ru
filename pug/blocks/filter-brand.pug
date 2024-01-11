@@ -1,0 +1,81 @@
+aside(class="catalog-cols__filter" aria-hidden="true")
+    div(class="catalog-cols__bg js-modal-filter-hide")
+    div(class="catalog-cols__modal")
+        div(class="catalog-cols__header")
+            | Фильтры
+            div(class="modal__close js-modal-filter-hide")
+
+        div(class="filter js-filter-example")
+            div(class="filter__caption") Цена
+            div(class="filter__item")
+                div(class="range-slider js-range-slider")
+                    div(class="range-slider__inputs")
+                        input(type="tel" class="range-slider__input" data-value-min)
+                        input(type="tel" class="range-slider__input" data-value-max)
+                    div(class="range-slider__line" data-min="500" data-max="50000" data-value-min="3950" data-value-max="35000" data-suffix="₽")
+
+
+            div(class="filter__caption") Изделие
+
+
+            div(class="filter__group")
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox" checked class="js-checkbox-all")
+                        span(class="input-checkbox__text") Все
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Обувь
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Носки и гольфы
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Сумки, чехлы
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Головные уборы
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Обувь
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Носки и гольфы
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Сумки, чехлы
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Головные уборы
+                //- a(href="#" class="filter__more js-filter-more") Посмотреть все
+
+
+            div(class="filter__caption") Новинка
+
+            div(class="filter__group")
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Да
+
+
+            div(class="filter__caption") Скидка
+
+            div(class="filter__group")
+                div(class="filter__item")
+                    label(class="input-checkbox")
+                        input(type="checkbox")
+                        span(class="input-checkbox__text") Да
+
+
+            div(class="filter__buttons hide fade-in")
+                button(class="btn btn--smaller btn--green btn--100  js-filter-submit-example js-modal-filter-hide") Применить
+                a(href="catalog-category.html" class="btn btn--smaller btn--green-border btn--100") Сбросить
