@@ -25,14 +25,14 @@ block modal
     +slot('body')
         div(class="form")
             div(class="form__line")
-                input(class="form__input form__input--search js-dadata-city")
+                input(class="form__input form__input--search js-dadata-city" data-json="images/json/search-city.json")
                 script.
                     // Пример события выбора города в инпуте (при программинге удалить)
                     document.addEventListener('DOMContentLoaded', () => {
                         const inputs = document.querySelectorAll('.js-dadata-city');
                         inputs.forEach((input, index) => {
-                            input.addEventListener('cityChange',()=>{
-                                console.log('Event cityChange:', input.value);
+                            input.addEventListener('cityChange',(e)=>{
+                                console.log('Event cityChange:', e.detail);
                                 //window.location.reload();
                             })
                         });
