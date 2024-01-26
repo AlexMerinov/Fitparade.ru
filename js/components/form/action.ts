@@ -17,7 +17,6 @@ const closeOpenModals = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('bouncerFormValid', (e) => {
-        console.log('bouncerFormValid');
         const form = e.target as HTMLFormElement | null;
         if (form === null || !form.classList.contains('js-form-action')) {
             return;

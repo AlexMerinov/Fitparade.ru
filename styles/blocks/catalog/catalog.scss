@@ -513,10 +513,12 @@
 	}
 	.swiper{
 		margin: 0 -5px;
+		width: calc(100% + 10px);
 		@include maxBp($bp-1280){
 			margin: 0 -20px;
 			padding: 0 12px;
 			overflow: hidden;
+			width: calc(100% + 40px);
 		}
 	}
 	&__item{

@@ -146,13 +146,15 @@ block modal
             div(class="form__line")
                 label(class="form__label" for="enter-input-pass-modal") Пароль
                 input(type="password" class="form__input" id="enter-input-pass-modal" required)
-            div(class="form__text")
+            div(class="form__text form__text--links")
                 a(href="#" data-micromodal="modal-password-email") Забыли пароль?
             div(class="form__submit")
                 button(type="submit" class="btn btn--green btn--100") Войти
-            div(class="form__text")
-                | Нет аккаунта?
-                a(href="#" data-micromodal="modal-registration") Регистрация
+            div(class="form__text form__text--links")
+                a(href="#" data-micromodal="modal-enter-phone") Войти через телефон
+                div(class="form__text__item")
+                    | Нет аккаунта?
+                    a(href="#" data-micromodal="modal-registration") Регистрация
 
         hr(class="hr-big")
         a(href="#" class="link-vk")
@@ -160,6 +162,56 @@ block modal
             span(class="link-vk__icon")
                 +icon-sym('vk')
 
+
++modal({
+    id: 'enter-phone'
+})
+    +slot('header')
+        | Вход
+    +slot('body')
+        div(id="js-form-code-step-1")
+            form(action="#" class="form js-form-validate js-form-submit-disabled" id="js-form-code")
+                div(class="form__line")
+                    label(class="form__label" for="enter-input-tel-modal") Телефон
+                    input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="enter-input-tel-modal" required)
+                div(class="form__submit")
+                    button(type="submit" class="btn btn--green btn--100" id="js-form-code-button") Получить код
+                div(class="form__text form__text--links")
+                    a(href="#" data-micromodal="modal-enter") Войти через email
+                    div(class="form__text__item")
+                        | Нет аккаунта?
+                        a(href="#" data-micromodal="modal-registration") Регистрация
+
+            hr(class="hr-big")
+            a(href="#" class="link-vk")
+                | Вход через
+                span(class="link-vk__icon")
+                    +icon-sym('vk')
+
+        div(id="js-form-code-step-2" class="hide")
+            div(class="form__line text-center")
+                label(class="form__label" for="enter-input-code-modal") Введите код
+                input(type="text" inputmode="tel" maxlength="4" autocomplete="one-time-code" class="form__input-code js-input-format-number" id="enter-input-code-modal" required)
+            div(class="form__text")
+                | Отправили код в смс. Действителен в течение 10 минут. Получить новый код можно через 26 минут. Либо еще какой-то текст, например
+                br
+                a(href="#") Отправить смс еще раз
+        script.
+            // пример отправки формы и переключения, на бэке удалить
+            document.getElementById('js-form-code').addEventListener('bouncerFormValid',()=>{
+                document.getElementById('js-form-code-button').setAttribute('disabled', 'disabled');
+                // Например отправляется запрос
+                setTimeout(()=>{
+                    document.getElementById('js-form-code-step-1').classList.add('hide');
+                    document.getElementById('js-form-code-step-2').classList.remove('hide');
+                    document.getElementById('enter-input-code-modal').focus();
+                    document.getElementById('enter-input-code-modal').addEventListener('input',(e)=>{
+                       if (e.target.value.length === 4){
+                           window.location.reload();
+                       }
+                    })
+                },1000);
+            })
 
 +modal({
     id: 'password-email'

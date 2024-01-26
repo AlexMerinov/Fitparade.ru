@@ -10,4 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
             rightAlign: false,
         }).mask(input);
     });
+
+    const numbers = document.querySelectorAll('.js-input-format-number');
+    numbers.forEach((input) => {
+        Inputmask('numeric', {
+            rightAlign: false,
+            showMaskOnHover: false,
+            placeholder: '',
+        }).mask(input);
+    });
 });

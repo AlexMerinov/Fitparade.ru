@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             let disableSubmit = false;
-            if (form.classList.contains('js-form-action')) {
+            if (
+                form.classList.contains('js-form-action') ||
+                form.classList.contains('js-form-submit-disabled')
+            ) {
                 disableSubmit = true;
             }
             if (formflag) {
