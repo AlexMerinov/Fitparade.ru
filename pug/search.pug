@@ -29,7 +29,7 @@ block content
 
         form(action="search.html" class="form mb-m form--search js-form-validate")
             div(class="form-input-clear js-form-input-clear")
-            input(type="text" class="form__input form__input--search-form form__input--big" value="Сапоги" placeholder="Поиск..." required)
+            input(type="text" class="form__input form__input--search-form form__input--big js-autocomplete-search" value="Сапоги" placeholder="Поиск..." required data-url="images/json/search.json")
             button(class="form__search")
                 +icon-sym('search')
 

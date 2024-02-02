@@ -13,10 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
                 src: async (query: any) => {
                     try {
-                        const category = input.getAttribute('data-category');
-                        const source = await fetch(
-                            `${url}?category=${category}&query=${query}`
-                        );
+                        const source = await fetch(`${url}?query=${query}`);
                         const data = await source.json();
                         return data;
                     } catch (error) {
@@ -24,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 keys: ['name'],
+            },
+            searchEngine: (query, record) => {
+                return record;
             },
             threshold: 2,
             resultsList: {
@@ -36,12 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         const li = list.querySelectorAll('li');
                         data.results.forEach((item: any, index: any) => {
-                            const div = document.createElement('div');
-                            div.classList.add('autoComplete-img');
-                            div.style.backgroundImage = `url("${item.value.img}")`;
                             li[index].innerHTML = '';
-                            li[index].appendChild(div);
+                            if (item.value.img) {
+                                const div = document.createElement('div');
+                                div.classList.add('autoComplete-img');
+                                div.style.backgroundImage = `url("${item.value.img}")`;
+                                li[index].appendChild(div);
+                            }
                             li[index].innerHTML += `<div>${item.match}</div>`;
+                            if (item.value.price) {
+                                li[
+                                    index
+                                ].innerHTML += `<div class="autoComplete-price">${item.value.price}</div>`;
+                            }
                         });
                     }
                 },
@@ -80,17 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (input.value.length > 0) {
                 form?.classList.remove('error');
             }
-        });
-    });
-
-    const selects = document.querySelectorAll(
-        'select.js-autocomplete-search-category'
-    );
-    selects.forEach((select: any, index) => {
-        const form = select.closest('form');
-        const input = form?.querySelector('.js-autocomplete-search');
-        select.addEventListener('change', () => {
-            input?.setAttribute('data-category', select.value);
         });
     });
 });

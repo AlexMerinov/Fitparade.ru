@@ -9,3 +9,4 @@ import './filter-checkbox-all';
 import './select';
 import './textarea';
 import './file';
+import './autocomplete';
