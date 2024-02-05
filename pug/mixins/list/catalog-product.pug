@@ -137,7 +137,7 @@ mixin catalog-product(item)
                     div(class="swiper js-catalog-colors-slider")
                         div(class="swiper-wrapper")
                             each item, index in colors
-                                div(class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change") style="--catalog-color:" + item.hex data-color-white=(item.hex === '#FFFFFF' ? "true" : "false") data-index=index)
+                                div(class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change") style="--catalog-color:" + item.hex data-color-white=(item.hex === '#FFFFFF' ? "true" : "false") data-index=index data-text=item.text)
                     div(class="swiper-button-vertical-smaller swiper-button-next")
                         +icon-sym('arr-slider')
 
