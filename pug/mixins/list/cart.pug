@@ -24,6 +24,7 @@ mixin cart-list(items)
                     size,
                     color,
                     color_hex,
+                    multicolor,
                     price,
                     price_old,
                     price_discount,
@@ -60,7 +61,12 @@ mixin cart-list(items)
                             div(class="cart-list__params__item")
                                 strong Цвет:&nbsp;
                                 !=color
-                                span(class=(color_hex == '#FFFFFF' ? "color-bullet color-bullet--white" : "color-bullet") style="background:"+color_hex)
+                                span(
+                                    class="color-bullet"
+                                    data-color-white=(color_hex === '#FFFFFF' ? "true" : "false")
+                                    style=(multicolor ? ("--catalog-color-1:" + color_hex + "; --catalog-color-2: #374772; --catalog-color-3: #356A41; --catalog-color-4: #FF4545;") : ("--catalog-color-1:" + color_hex))
+                                    data-color-count=(multicolor ? "4" : (color_hex ? "1" : "0"))
+                                    )
                             div(class="cart-list__params__item")
                                 strong Размер:&nbsp;
                                 !=size

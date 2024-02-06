@@ -467,11 +467,30 @@
 .color-bullet{
 	display: inline-block;
 	vertical-align: middle;
-	width: 14px;
-	height: 14px;
-	border-radius: 50%;
+	width: 24px;
+	height: 24px;
 	margin: 0 3px;
+	background: var(--catalog-color-1);
 	&--white{
 		border: 1px solid var(--black);
+	}
+	&[data-color-white="true"]{
+		border: 1px solid var(--black);
+	}
+	&[data-color-count="0"]{
+		--catalog-color-1: #356A41 !important;
+		--catalog-color-2: #805137;
+		--catalog-color-3: #416DA9;
+		--catalog-color-4: #2F2F2F;
+		background: linear-gradient(135deg, var(--catalog-color-1) 0%, var(--catalog-color-2) 33%, var(--catalog-color-3) 66%, var(--catalog-color-4) 100%);
+	}
+	&[data-color-count="2"]{
+		background: linear-gradient(135deg, var(--catalog-color-1) 50%,  var(--catalog-color-2) 50%);
+	}
+	&[data-color-count="3"]{
+		background: linear-gradient(135deg, var(--catalog-color-1) 33%, var(--catalog-color-2) 33%, var(--catalog-color-2) 66%, var(--catalog-color-3) 66%);
+	}
+	&[data-color-count="4"]{
+		background: linear-gradient(135deg, var(--catalog-color-1) 25%, var(--catalog-color-2) 25%, var(--catalog-color-2) 50%, var(--catalog-color-3) 50%, var(--catalog-color-3) 75%, var(--catalog-color-4) 75%);
 	}
 }

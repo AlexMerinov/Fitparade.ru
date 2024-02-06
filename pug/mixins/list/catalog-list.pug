@@ -66,10 +66,9 @@ mixin catalog-list(items)
                                                             div(
                                                                 class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change")
                                                                 style=(item.multicolor ? ("--catalog-color-1:" + item.hex + "; --catalog-color-2: #374772; --catalog-color-3: #356A41; --catalog-color-4: #FF4545;") : ("--catalog-color-1:" + item.hex))
-                                                                data-color-count=(item.multicolor ? "4" : "1")
+                                                                data-color-count=(item.multicolor ? "4" : (item.hex ? "1" : "0"))
                                                                 data-color-white=(item.hex === '#FFFFFF' ? "true" : "false")
                                                                 data-index=index
-                                                                data-text=item.text
                                                                 onclick=("document.getElementById('catalog-colors-text-"+indexProduct+"').innerText = 'Название цвета "+index+"'")
                                                             )
                                                 div(class="swiper-button-vertical-smaller swiper-button-next")

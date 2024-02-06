@@ -695,16 +695,7 @@
 			margin: 0 0 40px 0;
 		}
 		.catalog-colors__item{
-			&[data-text]{
-				&:before{
-					--catalog-color-1: #356A41;
-					--catalog-color-2: #805137;
-					--catalog-color-3: #416DA9;
-					--catalog-color-4: #2F2F2F;
-					border: none;
-					background: linear-gradient(135deg, var(--catalog-color-1) 0%, var(--catalog-color-2) 33%, var(--catalog-color-3) 66%, var(--catalog-color-4) 100%);
-				}
-			}
+
 		}
 	}
 
@@ -771,26 +762,14 @@
 				border-color: var(--gray-600);
 			}
 		}
-		&[data-text]{
-			--catalog-color-1:var(--white) !important;
+		&[data-color-count="0"]{
 			&:before{
-				border-color: var(--gray-600);
-				@include maxBp($bp-1280){
-					display: none;
-				}
-			}
-			&:after{
-				@include maxBp($bp-1280){
-					content: attr(data-text);
-					border:1px solid var(--gray-600);
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					padding: 4px 8px;
-				}
-			}
-			&:hover,&.active{
-				border-color: var(--gray-600);
+				--catalog-color-1: #356A41;
+				--catalog-color-2: #805137;
+				--catalog-color-3: #416DA9;
+				--catalog-color-4: #2F2F2F;
+				border: none;
+				background: linear-gradient(135deg, var(--catalog-color-1) 0%, var(--catalog-color-2) 33%, var(--catalog-color-3) 66%, var(--catalog-color-4) 100%);
 			}
 		}
 		&[data-color-count="2"]{
