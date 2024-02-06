@@ -56,13 +56,22 @@ mixin catalog-list(items)
 
                                         if colors.length > 1
                                             div(class="catalog-list__modal__caption") Выберите цвет
+                                            div(class="catalog-colors-text" id="catalog-colors-text-"+indexProduct) Название цвета 0
                                             div(class="swiper-container catalog-colors")
                                                 div(class="swiper-button-vertical-smaller swiper-button-prev")
                                                     +icon-sym('arr-slider')
                                                 div(class="swiper js-catalog-colors-slider")
                                                     div(class="swiper-wrapper")
                                                         each item, index in colors
-                                                            div(class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change") style="--catalog-color:" + item.hex data-color-white=(item.hex === '#FFFFFF' ? "true" : "false") data-index=index data-text=item.text)
+                                                            div(
+                                                                class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change")
+                                                                style=(item.multicolor ? ("--catalog-color-1:" + item.hex + "; --catalog-color-2: #374772; --catalog-color-3: #356A41; --catalog-color-4: #FF4545;") : ("--catalog-color-1:" + item.hex))
+                                                                data-color-count=(item.multicolor ? "4" : "1")
+                                                                data-color-white=(item.hex === '#FFFFFF' ? "true" : "false")
+                                                                data-index=index
+                                                                data-text=item.text
+                                                                onclick=("document.getElementById('catalog-colors-text-"+indexProduct+"').innerText = 'Название цвета "+index+"'")
+                                                            )
                                                 div(class="swiper-button-vertical-smaller swiper-button-next")
                                                     +icon-sym('arr-slider')
 
