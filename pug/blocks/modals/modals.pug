@@ -236,7 +236,7 @@ block modal
         form(action="#" class="form js-form-validate")
             div(class="form__line")
                 label(class="form__label" for="modal-reg-input-name") ФИО
-                input(type="email" class="form__input" id="modal-reg-input-name" required)
+                input(type="text" class="form__input" id="modal-reg-input-name" required)
             div(class="form__line")
                 label(class="form__label" for="modal-reg-input-phone") Телефон
                 input(type="text" inputmode="tel" class="form__input js-input-format-phone" id="modal-reg-input-phone" required)
@@ -248,7 +248,7 @@ block modal
                 input(type="password" class="form__input" id="modal-reg-input-password-1" minlength="8" required)
             div(class="form__line")
                 label(class="form__label" for="modal-reg-input-password-2") Повторите пароль
-                input(type="password" class="form__input" id="modal-reg-input-password-2" data-password-match="#reg-input-password-1" required)
+                input(type="password" class="form__input" id="modal-reg-input-password-2" data-password-match="#modal-reg-input-password-1" required)
             div(class="form__line")
                 label(class="input-checkbox input-checkbox--small")
                     input(type="checkbox" required checked)
