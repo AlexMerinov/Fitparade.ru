@@ -3,6 +3,10 @@ import Inputmask from 'inputmask';
 import { maskNumeric, maskPhone } from '@js/components/form/input-format';
 
 const formValidate = (form: any, formIndex: any) => {
+    if (form === null || form === undefined) {
+        return;
+    }
+
     if (!formIndex) {
         formIndex = Math.floor(Math.random() * 1000);
     }

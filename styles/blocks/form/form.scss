@@ -824,3 +824,14 @@
 	}
 
 }
+
+.input-validate-css{
+	&:invalid{
+		border-color: var(--red);
+		@include input-error;
+
+		~ .form__label {
+			@include text-error;
+		}
+	}
+}
