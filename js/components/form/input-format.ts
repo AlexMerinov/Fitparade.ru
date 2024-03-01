@@ -17,14 +17,18 @@ export const maskNumeric = (input) => {
     }).mask(input);
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const phones = document.querySelectorAll('.js-input-format-phone');
-    phones.forEach((input) => {
-        maskPhone(input);
-    });
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        const phones = document.querySelectorAll('.js-input-format-phone');
+        phones.forEach((input) => {
+            maskPhone(input);
+        });
 
-    const numbers = document.querySelectorAll('.js-input-format-number');
-    numbers.forEach((input) => {
-        maskNumeric(input);
-    });
-});
+        const numbers = document.querySelectorAll('.js-input-format-number');
+        numbers.forEach((input) => {
+            maskNumeric(input);
+        });
+    },
+    { once: true }
+);

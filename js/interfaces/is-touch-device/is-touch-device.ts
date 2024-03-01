@@ -8,8 +8,12 @@ const IsTouchDevice = () => {
 
 export default IsTouchDevice();
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (IsTouchDevice()) {
-        document.body.classList.add('is-touch-device');
-    }
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        if (IsTouchDevice()) {
+            document.body.classList.add('is-touch-device');
+        }
+    },
+    { once: true }
+);

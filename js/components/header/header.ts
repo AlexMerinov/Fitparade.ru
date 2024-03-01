@@ -20,10 +20,14 @@ const f100vh = () => {
     document.body.style.setProperty('--vh-100', `${bodyHeight}px`);
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    fHeader();
-    f100vh();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        fHeader();
+        f100vh();
+    },
+    { once: true }
+);
 
 window.addEventListener('resize', () => {
     fHeader();

@@ -90,9 +90,13 @@ const rangeInit = (item: any) => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const ranges = document.querySelectorAll('.js-range-slider');
-    ranges.forEach((item) => {
-        rangeInit(item);
-    });
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        const ranges = document.querySelectorAll('.js-range-slider');
+        ranges.forEach((item) => {
+            rangeInit(item);
+        });
+    },
+    { once: true }
+);

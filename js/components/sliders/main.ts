@@ -12,36 +12,40 @@ const fDataParallax = () => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    Swiper.use([Navigation, Pagination, Parallax, Autoplay]);
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        Swiper.use([Navigation, Pagination, Parallax, Autoplay]);
 
-    const sliders = document.querySelectorAll('.js-slider-main');
+        const sliders = document.querySelectorAll('.js-slider-main');
 
-    sliders.forEach((slider) => {
-        const swiperSlder = new Swiper(slider, {
-            slidesPerView: 'auto',
-            speed: 700,
-            parallax: true,
-            loop: true,
-            grabCursor: true,
-            autoplay: {
-                delay: 7000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            navigation: {
-                nextEl: slider.querySelector('.swiper-button-next'),
-                prevEl: slider.querySelector('.swiper-button-prev'),
-            },
-            pagination: {
-                el: slider.querySelector('.swiper-pagination'),
-                clickable: true,
-            },
+        sliders.forEach((slider) => {
+            const swiperSlder = new Swiper(slider, {
+                slidesPerView: 'auto',
+                speed: 700,
+                parallax: true,
+                loop: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 7000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                navigation: {
+                    nextEl: slider.querySelector('.swiper-button-next'),
+                    prevEl: slider.querySelector('.swiper-button-prev'),
+                },
+                pagination: {
+                    el: slider.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+            });
         });
-    });
 
-    fDataParallax();
-});
+        fDataParallax();
+    },
+    { once: true }
+);
 
 window.addEventListener('resize', () => {
     fDataParallax();

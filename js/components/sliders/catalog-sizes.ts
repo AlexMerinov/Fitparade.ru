@@ -25,10 +25,14 @@ const catalogSizeSlider = () => {
         });
     });
 };
-document.addEventListener('DOMContentLoaded', () => {
-    Swiper.use([Navigation]);
-    catalogSizeSlider();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        Swiper.use([Navigation]);
+        catalogSizeSlider();
+    },
+    { once: true }
+);
 document.addEventListener('AjaxContentLoaded', () => {
     catalogSizeSlider();
 });

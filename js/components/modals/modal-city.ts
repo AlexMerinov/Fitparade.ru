@@ -10,9 +10,13 @@ const cityPosition = () => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    cityPosition();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        cityPosition();
+    },
+    { once: true }
+);
 
 window.addEventListener('resize', () => {
     cityPosition();

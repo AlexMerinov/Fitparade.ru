@@ -37,10 +37,14 @@ const catalogColorsSlider = () => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    Swiper.use([Navigation]);
-    catalogColorsSlider();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        Swiper.use([Navigation]);
+        catalogColorsSlider();
+    },
+    { once: true }
+);
 document.addEventListener('AjaxContentLoaded', () => {
     catalogColorsSlider();
 });

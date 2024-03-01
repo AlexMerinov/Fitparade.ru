@@ -46,9 +46,13 @@ const scrollParallax = (current: any) => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const jsprlx = document.querySelectorAll('[data-prlx]');
-    jsprlx.forEach((item, index) => {
-        scrollParallax(item);
-    });
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        const jsprlx = document.querySelectorAll('[data-prlx]');
+        jsprlx.forEach((item, index) => {
+            scrollParallax(item);
+        });
+    },
+    { once: true }
+);

@@ -43,9 +43,13 @@ const imagesLazyLoader = () => {
     images.forEach((el) => observer.observe(el));
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    imagesLazyLoader();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        imagesLazyLoader();
+    },
+    { once: true }
+);
 
 document.addEventListener('AjaxContentLoaded', () => {
     imagesLazyLoader();

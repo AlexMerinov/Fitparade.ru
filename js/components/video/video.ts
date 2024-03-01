@@ -1,53 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.js-video-link');
-    links.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const yId = link.getAttribute('data-youtube-id');
-            let iframe = link.querySelector('iframe');
-            const src = `https://www.youtube.com/embed/${yId}?autoplay=1&mute=1`;
-            if (iframe !== null && iframe !== undefined) {
-                iframe.src = src;
-            } else {
-                iframe = document.createElement('iframe');
-                iframe.src = src;
-                iframe.setAttribute(
-                    'allow',
-                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        const links = document.querySelectorAll('.js-video-link');
+        links.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const yId = link.getAttribute('data-youtube-id');
+                let iframe = link.querySelector('iframe');
+                const src = `https://www.youtube.com/embed/${yId}?autoplay=1&mute=1`;
+                if (iframe !== null && iframe !== undefined) {
+                    iframe.src = src;
+                } else {
+                    iframe = document.createElement('iframe');
+                    iframe.src = src;
+                    iframe.setAttribute(
+                        'allow',
+                        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                    );
+                    iframe.setAttribute('allowfullscreen', 'allowfullscreen');
+                    link.appendChild(iframe);
+                }
+            });
+        });
+
+        document.body.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            if (
+                target.classList.contains('js-video-modal') ||
+                target.closest('.js-video-modal')
+            ) {
+                e.preventDefault();
+                const btn = target.classList.contains('js-video-modal')
+                    ? target
+                    : target.closest('.js-video-modal');
+
+                const yId = btn?.getAttribute('data-youtube-id') || '';
+                const modalId = btn?.getAttribute('data-micromodal');
+                const videoLink = document.querySelector(
+                    `#${modalId} .js-video-link`
                 );
-                iframe.setAttribute('allowfullscreen', 'allowfullscreen');
-                link.appendChild(iframe);
+                videoLink?.setAttribute('data-youtube-id', yId);
+                videoLink?.dispatchEvent(new Event('click'));
             }
         });
-    });
 
-    document.body.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement;
-        if (
-            target.classList.contains('js-video-modal') ||
-            target.closest('.js-video-modal')
-        ) {
-            e.preventDefault();
-            const btn = target.classList.contains('js-video-modal')
-                ? target
-                : target.closest('.js-video-modal');
-
-            const yId = btn?.getAttribute('data-youtube-id') || '';
-            const modalId = btn?.getAttribute('data-micromodal');
-            const videoLink = document.querySelector(
-                `#${modalId} .js-video-link`
+        document.addEventListener('modalClose', () => {
+            const iframes = document.querySelectorAll(
+                '.modal .js-video-link iframe'
             );
-            videoLink?.setAttribute('data-youtube-id', yId);
-            videoLink?.dispatchEvent(new Event('click'));
-        }
-    });
-
-    document.addEventListener('modalClose', () => {
-        const iframes = document.querySelectorAll(
-            '.modal .js-video-link iframe'
-        );
-        iframes.forEach((iframe: any) => {
-            iframe.src = '';
+            iframes.forEach((iframe: any) => {
+                iframe.src = '';
+            });
         });
-    });
-});
+    },
+    { once: true }
+);

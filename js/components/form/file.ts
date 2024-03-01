@@ -104,8 +104,12 @@ function addMultiEventListener(el: any, e: any, fn: any) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    new InputFile('.js-file');
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        new InputFile('.js-file');
+    },
+    { once: true }
+);
 
 export default InputFile;

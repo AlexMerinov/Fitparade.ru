@@ -23,9 +23,13 @@ const fTextareaInit = () => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    fTextareaInit();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        fTextareaInit();
+    },
+    { once: true }
+);
 
 document.addEventListener('modalOpen', () => {
     const jstextarea = document.querySelectorAll('.modal .js-textarea');

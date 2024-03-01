@@ -18,6 +18,10 @@ export default function inputFilled() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    inputFilled();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        inputFilled();
+    },
+    { once: true }
+);

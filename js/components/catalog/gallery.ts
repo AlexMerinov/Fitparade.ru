@@ -19,9 +19,13 @@ const catalogListGallery = () => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    catalogListGallery();
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        catalogListGallery();
+    },
+    { once: true }
+);
 document.addEventListener('AjaxContentLoaded', () => {
     catalogListGallery();
 });

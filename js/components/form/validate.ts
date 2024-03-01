@@ -143,11 +143,15 @@ const formValidate = (form: any, formIndex: any) => {
     // });
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const jsform = document.querySelectorAll('.js-form-validate');
-    jsform.forEach((form, index) => {
-        formValidate(form, index);
-    });
-});
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        const jsform = document.querySelectorAll('.js-form-validate');
+        jsform.forEach((form, index) => {
+            formValidate(form, index);
+        });
+    },
+    { once: true }
+);
 
 document.formValidate = formValidate;

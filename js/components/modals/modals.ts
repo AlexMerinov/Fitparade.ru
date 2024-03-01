@@ -29,32 +29,36 @@ const scrollWidth = () => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    scrollWidth();
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        scrollWidth();
 
-    MicroModal.init(defaultSettings);
+        MicroModal.init(defaultSettings);
 
-    const modallinks = document.querySelectorAll('[data-micromodal]');
-    modallinks.forEach((item, index) => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
+        const modallinks = document.querySelectorAll('[data-micromodal]');
+        modallinks.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
 
-            const modalID = item.getAttribute('data-micromodal') as string;
-            if (modalID !== null && modalID !== undefined) {
-                openModal(modalID);
+                const modalID = item.getAttribute('data-micromodal') as string;
+                if (modalID !== null && modalID !== undefined) {
+                    openModal(modalID);
 
-                setTimeout(() => {
-                    fModalPosition();
-                }, 100);
-            }
+                    setTimeout(() => {
+                        fModalPosition();
+                    }, 100);
+                }
+            });
         });
-    });
 
-    const modalOpenLinks = document.querySelectorAll('.js-modal-open');
-    modalOpenLinks.forEach((item, index) => {
-        item.dispatchEvent(new Event('click'));
-    });
-});
+        const modalOpenLinks = document.querySelectorAll('.js-modal-open');
+        modalOpenLinks.forEach((item, index) => {
+            item.dispatchEvent(new Event('click'));
+        });
+    },
+    { once: true }
+);
 
 window.addEventListener('resize', () => {
     scrollWidth();
