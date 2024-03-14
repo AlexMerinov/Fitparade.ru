@@ -492,8 +492,9 @@
 		height: auto;
 		max-width: 100%;
 		.catalog-sizes__item{
-			width: 54px;
+			min-width: 54px;
 			height: 35px;
+			white-space: nowrap;
 			font-size: 15px;
 			@include maxBp($bp-1280){
 				margin: 0 8px;
