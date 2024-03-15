@@ -37,14 +37,19 @@ const catalogColorsSlider = () => {
     });
 };
 
+const startCatalogColorsSlider = () => {
+    Swiper.use([Navigation]);
+    catalogColorsSlider();
+};
+
 document.addEventListener(
     'DOMContentLoaded',
     () => {
-        Swiper.use([Navigation]);
-        catalogColorsSlider();
+        startCatalogColorsSlider();
     },
     { once: true }
 );
+
 document.addEventListener('AjaxContentLoaded', () => {
-    catalogColorsSlider();
+    startCatalogColorsSlider();
 });

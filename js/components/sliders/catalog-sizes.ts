@@ -25,14 +25,20 @@ const catalogSizeSlider = () => {
         });
     });
 };
+
+const startCatalogSizeSlider = () => {
+    Swiper.use([Navigation]);
+    catalogSizeSlider();
+};
+
 document.addEventListener(
     'DOMContentLoaded',
     () => {
-        Swiper.use([Navigation]);
-        catalogSizeSlider();
+        startCatalogSizeSlider();
     },
     { once: true }
 );
+
 document.addEventListener('AjaxContentLoaded', () => {
-    catalogSizeSlider();
+    startCatalogSizeSlider();
 });
