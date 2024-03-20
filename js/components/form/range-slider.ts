@@ -72,17 +72,29 @@ const rangeInit = (item: any) => {
             });
 
             slider.noUiSlider.on('change', (values: any, handle: any) => {
-                if (handle == 0) {
+                
+				if (handle == 0) 
+				{
                     inputMin.dispatchEvent(new Event('change'));
                 }
-                if (handle == 1) {
+                
+				if (handle == 1) 
+				{
                     inputMax.dispatchEvent(new Event('change'));
                 }
+				
+				// для битрикса // Dmitry
+				if (document.querySelector('#NEXT_SMART_FILTER_P1_MIN'))
+				{
+					document.querySelector('#NEXT_SMART_FILTER_P1_MIN').dispatchEvent(new Event('change'));
+				}
+				//
             });
 
             inputMin.addEventListener('change', () => {
                 slider.noUiSlider.set([inputMin.value, null]);
             });
+			
             inputMax.addEventListener('change', () => {
                 slider.noUiSlider.set([null, inputMax.value]);
             });
