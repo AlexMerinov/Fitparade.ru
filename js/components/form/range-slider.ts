@@ -82,13 +82,7 @@ const rangeInit = (item: any) => {
 				{
                     inputMax.dispatchEvent(new Event('change'));
                 }
-				
-				// для битрикса // Dmitry
-				if (document.querySelector('#NEXT_SMART_FILTER_P1_MIN'))
-				{
-					document.querySelector('#NEXT_SMART_FILTER_P1_MIN').dispatchEvent(new Event('change'));
-				}
-				//
+
             });
 
             inputMin.addEventListener('change', () => {
