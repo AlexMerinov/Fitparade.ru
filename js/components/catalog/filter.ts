@@ -36,8 +36,16 @@ document.addEventListener(
                 document
                     .querySelector('html')
                     ?.classList.add('scroll-smooth-disabled');
-                window.scroll(0, winTop);
-                document
+                
+					//window.scroll(0, winTop);
+
+					window.scroll({
+						top: document.querySelector('.catalog-cols').offsetTop - 120,
+						left: 0,
+						behavior: 'smooth',
+					});
+                
+				document
                     .querySelector('html')
                     ?.classList.remove('scroll-smooth-disabled');
                 document.body.style.removeProperty('top');
