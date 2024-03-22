@@ -37,27 +37,28 @@ document.addEventListener(
                             list.prepend(message);
                         } else {
                             const li = list.querySelectorAll('li');
+							
                             data.results.forEach((item: any, index: any) => {
-                                li[index].innerHTML = '';
-                                if (item.value.img) {
+                                
+								li[index].innerHTML = '';
+                                
+								if (item.value.img) {
                                     const div = document.createElement('div');
                                     div.classList.add('autoComplete-img');
                                     div.style.backgroundImage = `url("${item.value.img}")`;
                                     li[index].appendChild(div);
                                 }
-                                li[
-                                    index
-                                ].innerHTML += `<div>${item.match}</div>`;
+                                
+								li[index].innerHTML += `<div>${item.match}</div>`;
+								
                                 if (item.value.price) {
-                                    li[
-                                        index
-                                    ].innerHTML += `<div class="autoComplete-price">${item.value.price}</div>`;
+                                    li[index].innerHTML += `<div class="autoComplete-price">${item.value.price}</div>`;
                                 }
                             });
                         }
                     },
                     noResults: true,
-                    maxResults: 10,
+                    maxResults: 11,
                 },
                 resultItem: {
                     highlight: true,
@@ -74,7 +75,7 @@ document.addEventListener(
                                 window.location = selection.url;
                                 autoCompleteJS.unInit();
                             }
-                            autoCompleteJS.input.value = selection.name;
+                            //autoCompleteJS.input.value = selection.name;
                         },
                     },
                 },
