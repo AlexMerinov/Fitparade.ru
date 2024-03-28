@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
 	&--logos{
-		grid-template-columns:repeat(auto-fit, minmax(calc(100%/6), 1fr));
+		grid-template-columns:repeat(auto-fit, minmax(25%, 1fr));
 		@include maxBp($bp-1440){
 			grid-template-columns:repeat(auto-fit, minmax(25%, 1fr));
 		}
@@ -380,7 +380,7 @@
 		.lk-orders__header__item{
 			&:nth-child(1){
 				width: auto;
-				max-width: 1200px;
+				max-width: 1000px;
 				padding-right: 0;
 				@include maxBp($bp-1680){
 					max-width: 1000px;

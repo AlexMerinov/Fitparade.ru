@@ -8,7 +8,7 @@
 		padding-bottom: 30px;
 	}
 	&__item{
-		width: calc(25% - 24px);
+		width: calc(100%/3 - 24px);
 		cursor: pointer;
 		@include text-size-16;
 		line-height: 125%;
@@ -115,6 +115,7 @@
 	&--articles-top{
 		.videos-list__item{
 			&:nth-child(4){
+				display: none;
 				@include maxBp($bp-1680){
 					display: none;
 				}

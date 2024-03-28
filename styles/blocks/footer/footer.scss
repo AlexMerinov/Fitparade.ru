@@ -257,7 +257,7 @@
 			}
 		}
 		&:nth-child(3){
-			width: calc(22% + 60px);
+			width: calc(21% + 60px);
 			@include maxBp($bp-1680){
 				width: calc(21% + 60px);
 			}
