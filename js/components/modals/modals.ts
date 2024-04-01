@@ -60,6 +60,25 @@ document.addEventListener(
     { once: true }
 );
 
+document.addEventListener('RefreshCart', () => {
+    const itemBasket = document.querySelector('.header.header--fixed [data-micromodal="modal-basket"]');
+
+    if (itemBasket) {
+        itemBasket.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const modalID = itemBasket.getAttribute('data-micromodal') as string;
+            if (modalID !== null && modalID !== undefined) {
+                openModal(modalID);
+
+                setTimeout(() => {
+                    fModalPosition();
+                }, 100);
+            }
+        });
+    }
+});
+
 window.addEventListener('resize', () => {
     scrollWidth();
 

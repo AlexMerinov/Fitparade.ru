@@ -87,7 +87,7 @@
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imports-loader": "^3.0.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^4.14.1",
     "open": "^8.2.0",
     "postcss-assets": "^6.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
