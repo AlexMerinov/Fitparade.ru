@@ -30,19 +30,9 @@ document.addEventListener(
                 form.querySelectorAll<HTMLInputElement>('input, textarea');
             const selectInputs =
                 form.querySelectorAll<HTMLInputElement>('select');
-            let messCaption: any;
-            let messText: any;
 
             const modalid = 'modal-message';
             const modal = document.getElementById(modalid);
-            if (typeof modal !== 'undefined' && modal != null) {
-                messCaption = modal.querySelector<HTMLElement>(
-                    '#js-modal-message-caption'
-                );
-                messText = modal.querySelector<HTMLElement>(
-                    '#js-modal-message-text'
-                );
-            }
 
             const button = form.querySelector<HTMLButtonElement>(
                 'button[type="submit"]'
@@ -52,14 +42,42 @@ document.addEventListener(
             }
 
             const successCallback = () => {
+                closeOpenModals();
+
+                MicroModal.show(modalid, defaultSettings);
+
+                setTimeout(() => {
+                    if (modal?.classList.contains('is-open')) {
+                        MicroModal.close(modalid);
+                    }
+                }, 3000);
+
                 form.reset();
-                /* allInputs.forEach((input) => {
-                input.dispatchEvent(new Event('change'));
-                input.dispatchEvent(new Event('input'));
-            }); */
+                allInputs.forEach((input) => {
+                    input.dispatchEvent(new Event('change'));
+                    input.dispatchEvent(new Event('input'));
+                });
                 selectInputs.forEach((input) => {
                     input.dispatchEvent(new Event('change'));
                 });
+
+                const formError = form.querySelector('.form-error');
+                if (formError !== undefined && formError !== null) {
+                    formError.remove();
+                }
+            };
+
+            const errorCallback = (errorText = 'Ошибка отправки формы') => {
+                if (button) {
+                    button.removeAttribute('disabled');
+                }
+                let formError = form.querySelector('.form-error');
+                if (formError === undefined || formError === null) {
+                    formError = document.createElement('div');
+                    formError.classList.add('form-error');
+                    form.appendChild(formError);
+                }
+                formError.textContent = errorText;
             };
 
             const sendForm = async () => {
@@ -69,7 +87,6 @@ document.addEventListener(
                     const response = await fetch(action, {
                         method,
                         headers: {
-                            // 'X-CSRF-TOKEN': token,
                             Accept: 'application/json',
                         },
                         body,
@@ -82,77 +99,23 @@ document.addEventListener(
                             button.removeAttribute('disabled');
                         }
 
-                        closeOpenModals();
-                        if (
-                            typeof messCaption !== 'undefined' &&
-                            messCaption != null &&
-                            typeof messText !== 'undefined' &&
-                            messText != null
-                        ) {
-                            messCaption.innerText = json.title;
-                            messText.innerText = json.text;
-                        }
                         if (!json.status) {
-                            modal?.classList.add('modal--message--error');
+                            errorCallback(json.errorText);
                         } else {
-                            modal?.classList.remove('modal--message--error');
                             blurActiveElement();
                             successCallback();
                         }
 
-                        MicroModal.show(modalid, defaultSettings);
-
-                        setTimeout(() => {
-                            if (modal?.classList.contains('is-open')) {
-                                MicroModal.close(modalid);
-                            }
-                        }, 3000);
-
                         return await Promise.resolve();
                     }
+
+                    errorCallback();
+
                     throw new Error('Error form');
                 } catch (err) {
-                    if (button) {
-                        button.removeAttribute('disabled');
-                    }
-
-                    closeOpenModals();
-                    modal?.classList.add('modal--message--error');
-                    MicroModal.show(modalid, defaultSettings);
-                    if (
-                        typeof messCaption !== 'undefined' &&
-                        messCaption != null &&
-                        typeof messText !== 'undefined' &&
-                        messText != null
-                    ) {
-                        messCaption.innerText = 'Что-то пошло не так';
-                        messText.innerText =
-                            'Попробуйте отправить форму ещё раз.';
-                    }
-                    setTimeout(() => {
-                        if (modal?.classList.contains('is-open')) {
-                            MicroModal.close(modalid);
-                        }
-                    }, 3000);
-
-                    console.error(err);
+                    errorCallback();
                 }
             };
-
-            // Обновление каптчи перед отправкой формы
-            // const reCaptchaInputs = form.querySelectorAll('.g-recaptcha');
-            // if (reCaptchaInputs.length > 0) {
-            //     grecaptcha
-            //         .execute('6LeKgi0gAAAAAAL-5aF-Bwlttywa65bTbJrmIjV3')
-            //         .then(function (token) {
-            //             for (let i = 0; i < reCaptchaInputs.length; i++) {
-            //                 reCaptchaInputs[i].value = token;
-            //             }
-            //             sendForm();
-            //         });
-            // } else {
-            //     sendForm();
-            // }
 
             sendForm();
         });
