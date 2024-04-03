@@ -54,8 +54,13 @@ document.addEventListener(
 
                 form.reset();
                 allInputs.forEach((input) => {
-                    input.dispatchEvent(new Event('change'));
-                    input.dispatchEvent(new Event('input'));
+                    if (input.classList.contains('js-input-format-phone')) {
+                        input.value = '';
+                    } else {
+                        input.dispatchEvent(new Event('change'));
+                    }
+                    // input.dispatchEvent(new Event('change'));
+                    // input.dispatchEvent(new Event('input'));
                 });
                 selectInputs.forEach((input) => {
                     input.dispatchEvent(new Event('change'));
@@ -75,9 +80,10 @@ document.addEventListener(
                 if (formError === undefined || formError === null) {
                     formError = document.createElement('div');
                     formError.classList.add('form-error');
-                    form.appendChild(formError);
+                    const formSubmit = form.querySelector('.form__submit');
+                    formSubmit?.prepend(formError);
                 }
-                formError.textContent = errorText;
+                formError.innerHTML = errorText;
             };
 
             const sendForm = async () => {
