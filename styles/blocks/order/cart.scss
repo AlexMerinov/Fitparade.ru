@@ -219,7 +219,7 @@
 	&--full{
 		.cart-list__text{
 			@include bp($bp-768){
-				width: 40%;
+				width: 37%;
 			}
 		}
 		@include bp($bp-1440){
