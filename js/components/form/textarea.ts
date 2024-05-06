@@ -6,27 +6,25 @@ const fTextarea = (textarea: any) => {
     );
 };
 
-const fTextareaInit = () => {
-    const jstextarea = document.querySelectorAll('.js-textarea');
-    jstextarea.forEach((textarea, index) => {
+const fTextareaInit = (textarea: any) => {
+    fTextarea(textarea);
+    textarea.addEventListener('input', () => {
         fTextarea(textarea);
-        textarea.addEventListener('input', () => {
-            fTextarea(textarea);
-        });
     });
-
     window.addEventListener('resize', () => {
-        const jstextarea = document.querySelectorAll('.js-textarea');
-        jstextarea.forEach((textarea, index) => {
-            fTextarea(textarea);
-        });
+        fTextarea(textarea);
     });
 };
+
+document.fTextareaInit = fTextareaInit;
 
 document.addEventListener(
     'DOMContentLoaded',
     () => {
-        fTextareaInit();
+        const jstextarea = document.querySelectorAll('.js-textarea');
+        jstextarea.forEach((textarea, index) => {
+            fTextareaInit(textarea);
+        });
     },
     { once: true }
 );
