@@ -369,8 +369,11 @@
 		top: 100%;
 		transform: translate3d(-50%,12px,0);
 		gap: 10px;
+		width: 90%;
+		justify-content: center;
 		.swiper-pagination-bullet{
-			width: 50px;
+			max-width: 50px;
+			flex: auto;
 			height: 3px;
 			background:var(--gray-300);
 			opacity: 1;
