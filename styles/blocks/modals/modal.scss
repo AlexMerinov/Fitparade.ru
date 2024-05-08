@@ -114,9 +114,14 @@
 		font-size: 24px;
 		text-align: left;
 	}
-	~.modal__body{
+	~.modal__body,~#bx_basket_mini .modal__body{
 		padding-top: 0;
 	}
+}
+#bx_basket_mini{
+	flex: auto;
+	display: flex;
+	flex-direction: column;
 }
 .modal__footer{
 	@include text-body;

@@ -555,7 +555,7 @@
 
 .catalog-labels{
 	position: absolute;
-	z-index: 5;
+	z-index: 4;
 	left: 0;
 	top: 20px;
 	transition: var(--trans);
@@ -829,7 +829,7 @@
 }
 
 .catalog-counter{
-	display: flex;
+	display: flex !important;
 	justify-content: space-between;
 	align-items: center;
 	border: 1px solid var(--green);
