@@ -289,6 +289,14 @@
 			}
 		}
 	}
+	&:not(.disabled){
+		input[disabled]{
+			~ .input-checkbox__text {
+				opacity: 0.5;
+				pointer-events: none;
+			}
+		}
+	}
 	&__text {
 		display: block;
 		position: relative;
