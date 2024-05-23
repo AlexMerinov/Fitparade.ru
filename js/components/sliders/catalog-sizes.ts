@@ -14,6 +14,7 @@ const catalogSizeSlider = () => {
             loop: false,
             grabCursor: true,
             observeParents: true,
+            observer: true,
             navigation: {
                 nextEl: slider.parentElement?.querySelector(
                     '.swiper-button-next'

@@ -54,7 +54,10 @@ document.addEventListener(
 
                 form.reset();
                 allInputs.forEach((input) => {
-                    if (input.classList.contains('js-input-format-phone')) {
+                    if (
+                        input.classList.contains('js-input-format-phone') &&
+                        !input.getAttribute('value')
+                    ) {
                         input.value = '';
                     } else {
                         input.dispatchEvent(new Event('change'));

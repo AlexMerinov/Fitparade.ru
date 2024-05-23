@@ -15,6 +15,7 @@ const catalogColorsSlider = () => {
             grabCursor: true,
             direction: 'horizontal',
             observeParents: true,
+            observer: true,
             navigation: {
                 nextEl: slider.parentElement?.querySelector(
                     '.swiper-button-next'
