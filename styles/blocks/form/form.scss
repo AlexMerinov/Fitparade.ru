@@ -216,6 +216,16 @@
 			background: none;
 		}
 	}
+
+	&__delivery{
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		@include maxBp($bp-500){
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
 }
 
 .error-message {

@@ -129,6 +129,25 @@ document.addEventListener(
                             selectCity?.addEventListener('change', () => {
                                 setMapCenter(selectCity.value);
                             });
+
+                            document.addEventListener('modalOpen', () => {
+                                let cityModalIndex = cityIndex;
+
+                                if (mapBlock.getAttribute('data-city')) {
+                                    areas.forEach((area, i) => {
+                                        if (
+                                            area.getAttribute('data-city') ===
+                                            mapBlock.getAttribute('data-city')
+                                        ) {
+                                            cityModalIndex = i;
+                                        }
+                                    });
+                                }
+
+                                setTimeout(() => {
+                                    setMapCenter(cityModalIndex);
+                                }, 100);
+                            });
                         };
 
                         showGeoObjects();

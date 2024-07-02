@@ -157,6 +157,15 @@
 	a{
 		border: none;
 	}
+	&--modal{
+		@include maxBp($bp-768){
+			max-height: none;
+			aspect-ratio: auto;
+			width: 100%;
+			height: calc(100% - 40px);
+			margin-top: 40px;
+		}
+	}
 }
 
 .ymap-content{
@@ -164,5 +173,6 @@
 	font-family: var(--font-main);
 	@include maxBp($bp-768){
 		padding: 0;
+		max-width: 200px;
 	}
 }

@@ -1,0 +1,17 @@
+include ../list/shop
+
+mixin shops-map(items)
+    div(class="ymap js-ymap ymap--modal" data-pin="images/pin.svg" data-api-key="4e67b2f1-b530-4c0b-926f-d1c78548f3b0" id="ymap" data-city="Москва")
+        each item, index in items
+            -
+                const {
+                    city,
+                    items
+                } = item;
+            div(class="ymap__area ymap__area-"+index data-city=item.city)
+                each shop, indexShop in items
+                    div(class="ymap__item" data-coordinates=item.items[indexShop].point data-name=item.items[indexShop].name)
+                        div(class="ymap-content")
+                            +shop-list([item.items[indexShop]])
+                            div(class="mt-xs")
+                                a(href="#" class="btn btn--green btn--100 btn--small" data-micromodal-close data-shop=[item.items[indexShop]][0].name) Выбрать магазин

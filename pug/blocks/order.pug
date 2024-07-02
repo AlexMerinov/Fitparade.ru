@@ -1,3 +1,6 @@
+include ../mixins/list/shops-map
+include ../mixins/basic/_modal
+
 div(class="cart-header cart-header--full")
     h1(class="cart-header__h1") Оформление заказа
     a(href="basket.html" class="btn btn--mob-small btn--green-border btn--mob-100")
@@ -14,7 +17,7 @@ form(action="#" class="order-cols js-form-validate")
         h3(class="mb-xs") Способ доставки
         div(class="form__line")
             label(class="input-checkbox input-checkbox--cols")
-                input(type="radio" name="delivery" checked)
+                input(type="radio" name="delivery")
                 span(class="input-checkbox__text")
                     span(class="input-checkbox__text__item") Курьер с примеркой
                     span(class="input-checkbox__text__item") Завтра
@@ -49,11 +52,15 @@ form(action="#" class="order-cols js-form-validate")
                     span(class="input-checkbox__text__item") 150 ₽
         div(class="form__line")
             label(class="input-checkbox input-checkbox--cols")
-                input(type="radio" name="delivery")
+                input(type="radio" name="delivery" checked)
                 span(class="input-checkbox__text")
                     span(class="input-checkbox__text__item") Самовывоз из магазина
                     span(class="input-checkbox__text__item") 1-2 дня
                     span(class="input-checkbox__text__item") Бесплатно
+
+        div(class="form__delivery")
+            a(href="#" class="btn" data-micromodal="modal-shops") Выбрать магазин
+            span Магазин в КСК «Приор», Ленинградская область, дер.Энколово, ул. Шоссейная, д. ½
 
         hr(class="form__hr")
         h3(class="mb-xs") Способ оплаты
@@ -151,3 +158,158 @@ form(action="#" class="order-cols js-form-validate")
                     a(href="policy.html") персональных данных
         div(class="form__submit")
             button(type="submit" class="btn btn--green btn--100") Оформить заказ
+
+-
+    const shops = [
+        {
+            city: 'Москва',
+            items: [
+                {
+                    name: 'Магазин в КСК «Отрада», Красногорский р-он, пос. Отрадное',
+                    worktime: '10.00 -19.00 Без выходных',
+                    email: 'otrada@racesport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 100',
+                        '8 (963) 640-93-75',
+                    ],
+                    point: '55.544649169808,37.862323318618',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.794589108181,37.215735816177',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.552148891392,37.878105436462',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.412639009205,37.565226623399',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.643870274182,37.580494122994',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.77682909708,37.564606388885',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.824648319591,36.977556515807',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '55.875794562879,37.301210950851',
+                },
+                {
+                    name: 'Магазин в КСК «Прадар», ул. Беговая, д.22, стр.17',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '56.093340370381,37.482527140394',
+                },
+            ],
+        },
+        {
+            city: 'Санкт-Петербург',
+            items: [
+                {
+                    name: 'Магазин в КСК «Дерби», Всеволожский р-он, Энколово, ул. Шоссейная, д.19',
+                    worktime: '10.00 -19.00 Без выходных',
+                    email: 'otrada@racesport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 100',
+                        '8 (963) 640-93-75',
+                    ],
+                    point: '60.111001586666,30.435098515869',
+                },
+                {
+                    name: 'Магазин в КСК «Вента», КСК Вента, Ленинградская область, Всеволожский р-он, д. Хирвости, Центральная ул., 62А',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '60.109076155041,30.418497577184',
+                },
+                {
+                    name: 'Магазин в КСК «Приор», Ленинградская область, дер.Энколово, ул. Шоссейная, д. 1/2',
+                    worktime: 'Ср - Вс: 10.00 -19.00 <br> Пн - Вт: выходные',
+                    email: 'pradar@racessport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 202',
+                        '8 (963) 640-95-43',
+                    ],
+                    point: '59.948791,30.626736',
+                },
+            ],
+        },
+        {
+            city: 'Екатеринбург',
+            items: [
+                {
+                    name: 'Магазин в КСК «Дубрава», Белоярский р-он, пос.Верхнее Дуброво, ул.Манежная, 1',
+                    worktime: '10.00 -19.00 Без выходных',
+                    email: 'otrada@racesport.ru',
+                    phone: [
+                        '8 (495) 139-66-00 / 100',
+                        '8 (963) 640-93-75',
+                    ],
+                    point: '56.761782249317,61.065701143516',
+                },
+            ],
+        },
+    ];
++modal({
+  id: 'shops',
+  modifier: 'map'
+})
+    +slot('body')
+        +shops-map(shops)
