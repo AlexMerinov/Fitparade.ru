@@ -146,7 +146,7 @@ document.addEventListener(
 
                                 setTimeout(() => {
                                     setMapCenter(cityModalIndex);
-                                }, 100);
+                                }, 300);
                             });
                         };
 
