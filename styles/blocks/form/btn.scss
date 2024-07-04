@@ -281,5 +281,10 @@
 		@include maxBp($bp-768){
 			padding: 0 10px 3px 10px;
 		}
+		&--modal{
+			@include bp($bp-1280){
+				display: none;
+			}
+		}
 	}
 }
