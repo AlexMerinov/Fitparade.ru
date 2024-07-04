@@ -312,6 +312,28 @@ block modal
             div(class="form__submit")
                 button(type="submit" class="btn btn--green btn--100") Отправить
 
+
++modal({
+  id: 'notify-message'
+})
+    +slot('header')
+        | Уведомить о&nbsp;поступлении
+    +slot('body')
+        form(action="#" class="form js-form-validate")
+            div(class="form__line")
+                label(class="form__label" for="modal-notify-message-input-name") ФИО
+                input(type="text" class="form__input" id="modal-notify-message-input-name" required)
+            div(class="form__line")
+                label(class="form__label" for="modal-notify-message-input-email") E-mail
+                input(type="email" class="form__input" id="modal-notify-message-input-email" required)
+            div(class="form__line")
+                label(class="input-checkbox input-checkbox--small")
+                    input(type="checkbox" required checked)
+                    span(class="input-checkbox__text") Я согласен на обработку
+                        a(href="policy.html") персональных данных
+            div(class="form__submit")
+                button(type="submit" class="btn btn--green btn--100") Отправить
+
 +modal({
     id: 'share'
 })

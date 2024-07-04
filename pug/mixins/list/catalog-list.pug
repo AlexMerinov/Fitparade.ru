@@ -73,32 +73,35 @@ mixin catalog-list(items)
                                                             )
                                                 div(class="swiper-button-vertical-smaller swiper-button-next")
                                                     +icon-sym('arr-slider')
-
-                                        div(class="catalog-list__basket" data-product-id=indexProduct)
-                                            div(class="btn btn--cart js-basket-plus" data-product-id=indexProduct)
-                                                +icon-sym('cart')
-                                                +icon-sym('cart-check')
-                                                span(class="btn__text")
-                                                    | В корзину
-                                            div(class="catalog-counter")
-                                                div(class="catalog-counter__btn js-basket-minus" data-product-id=indexProduct) &minus;
-                                                div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=indexProduct)
-                                                div(class="catalog-counter__btn js-basket-plus" data-product-id=indexProduct) &plus;
+                                        if price
+                                            div(class="catalog-list__basket" data-product-id=indexProduct)
+                                                div(class="btn btn--cart js-basket-plus" data-product-id=indexProduct)
+                                                    +icon-sym('cart')
+                                                    +icon-sym('cart-check')
+                                                    span(class="btn__text")
+                                                        | В корзину
+                                                div(class="catalog-counter")
+                                                    div(class="catalog-counter__btn js-basket-minus" data-product-id=indexProduct) &minus;
+                                                    div(class="catalog-counter__text" data-count="0" data-step="1" data-max="5" data-product-id=indexProduct)
+                                                    div(class="catalog-counter__btn js-basket-plus" data-product-id=indexProduct) &plus;
 
                             a(href="catalog-product.html" class="catalog-list__name")
                                 !=name
 
                             if !catalogSmall
                                 div(class="catalog-list__bottom")
-                                    div(class="catalog-list__price")
-                                        !=price
-                                        if price_old
-                                            s
-                                                !=price_old
-                                    div(class="catalog-list__basket catalog-list__basket--modal js-modal-catalog-show js-basket-plus" data-product-id=indexProduct)
-                                        div(class="btn btn--cart")
-                                            +icon-sym('cart')
-                                            +icon-sym('cart-check')
+                                    if price
+                                        div(class="catalog-list__price")
+                                            !=price
+                                            if price_old
+                                                s
+                                                    !=price_old
+                                        div(class="catalog-list__basket catalog-list__basket--modal js-modal-catalog-show js-basket-plus" data-product-id=indexProduct)
+                                            div(class="btn btn--cart")
+                                                +icon-sym('cart')
+                                                +icon-sym('cart-check')
+                                    else
+                                        div(class="btn btn--gray btn--notify" data-micromodal="modal-notify-message") Уведомить о поступлении
 
         if !catalogSliderDisable
             div(class="swiper-button-catalog swiper-button-prev")

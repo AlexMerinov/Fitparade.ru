@@ -90,7 +90,7 @@ mixin catalog-product(item)
                         s
                             !=price_old
                     img(data-src="images/content/price-logo.png" alt="" class="product__logo mobile-hide")
-            if sizes.length>0 && !catalogEmpty
+            if sizes.length>0
                 div(class="product__label") Выберите размер
                     a(href="#" class="link-dashed" data-micromodal="modal-table-size") Таблица размеров
 
@@ -163,6 +163,9 @@ mixin catalog-product(item)
                         +icon-sym('shop')
                         | В наличии 35 шт. в
                         a(href="#" data-micromodal="modal-shop") 14 магазинах
+                else
+                    div(class="catalog-list__basket catalog-list__basket--product" data-product-id=1)
+                        div(class="btn btn--cart btn--gray" data-micromodal="modal-notify-message") Уведомить о поступлении
 
                 +modal({
                     id: 'shop',
