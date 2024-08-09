@@ -47,7 +47,10 @@ mixin catalog-list(items)
                                                 div(class="swiper js-catalog-size-slider")
                                                     div(class="swiper-wrapper")
                                                         each item, index in sizes
-                                                            div(class=(index === 0 ? "swiper-slide catalog-sizes__item active" : "swiper-slide catalog-sizes__item") )
+                                                            div(
+                                                                class=(index === 0 ? "swiper-slide catalog-sizes__item active" : "swiper-slide catalog-sizes__item")
+                                                                class=(index === 1 ? "notallowed" : "")
+                                                                )
                                                                 != item
                                                 div(class="swiper-button-smaller swiper-button-prev")
                                                     +icon-sym('arr-slider')
@@ -65,6 +68,7 @@ mixin catalog-list(items)
                                                         each item, index in colors
                                                             div(
                                                                 class=(index === 0 ? "swiper-slide catalog-colors__item active js-catalog-color-change" : "swiper-slide catalog-colors__item js-catalog-color-change")
+                                                                class=(index === 1 ? "notallowed" : "")
                                                                 style=(item.multicolor ? ("--catalog-color-1:" + item.hex + "; --catalog-color-2: #374772; --catalog-color-3: #356A41; --catalog-color-4: #FF4545;") : ("--catalog-color-1:" + item.hex))
                                                                 data-color-count=(item.multicolor ? "4" : (item.hex ? "1" : "0"))
                                                                 data-color-white=(item.hex === '#FFFFFF' ? "true" : "false")
