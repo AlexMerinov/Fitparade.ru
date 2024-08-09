@@ -764,6 +764,7 @@
 		margin: 4px 0;
 		padding: 3px;
 		white-space: nowrap;
+		order:1;
 		@include maxBp($bp-1280){
 			margin: 0 4px;
 			min-width: 56px;
@@ -774,6 +775,7 @@
 			border-color: var(--catalog-color-1);
 		}
 		&.notallowed{
+			order:2;
 			opacity: 0.5;
 			position: relative;
 			z-index: 1;
