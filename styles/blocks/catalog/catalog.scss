@@ -498,9 +498,8 @@
 			font-size: 15px;
 			@include maxBp($bp-1280){
 				margin: 0 8px;
-				width: 48px;
+				min-width: 48px;
 				height: 48px;
-				padding: 0;
 			}
 		}
 	}
@@ -572,17 +571,14 @@
 					transform: translate3d(-50%,-50%,0) rotate(-40deg);
 				}
 				.catalog-sizes--product &{
-					transform: translate3d(-50%,-50%,0) rotate(-30deg);
+					transform: translate3d(-50%,-50%,0) rotate(-32deg);
 					@include maxBp($bp-1280){
-						transform: translate3d(-50%,-50%,0) rotate(-41deg);
+						transform: translate3d(-50%,-50%,0) rotate(-45deg);
 					}
 				}
 			}
 			&:hover,&.active{
 				opacity: 1;
-				&:after{
-					background:var(--black);
-				}
 			}
 		}
 	}
@@ -800,9 +796,6 @@
 			}
 			&:hover,&.active{
 				opacity: 1;
-				&:after{
-					background:var(--black);
-				}
 			}
 		}
 
