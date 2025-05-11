@@ -45,6 +45,11 @@ document.addEventListener(
                 if (modalID !== null && modalID !== undefined) {
                     openModal(modalID);
 
+                    const formError = document.querySelector('.form-error');
+                    if (formError !== undefined && formError !== null) {
+                        formError.remove();
+                    }
+
                     setTimeout(() => {
                         fModalPosition();
                     }, 100);

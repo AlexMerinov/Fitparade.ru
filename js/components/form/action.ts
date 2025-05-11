@@ -12,10 +12,6 @@ const closeOpenModals = () => {
     const openModals = document.querySelectorAll('.modal.is-open');
     openModals.forEach((modal) => {
         MicroModal.close(modal.id);
-        const Errorelement = document.querySelector('.form-error');
-        if (Errorelement !== null && Errorelement !== undefined) {
-            Errorelement?.parentNode.removeChild(Errorelement);
-        }
     });
 };
 
@@ -77,6 +73,7 @@ document.addEventListener(
                 if (formError !== undefined && formError !== null) {
                     formError.remove();
                 }
+
             };
 
             const errorCallback = (errorText = 'Ошибка отправки формы') => {
